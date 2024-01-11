@@ -61,7 +61,6 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
 <h2> Colaboradores </h2>
 <ul>
   <li> @ThallesSampaio - Front-End, Back-End , Banco de dados </li>
-  <li> @ThaynaSantana - Front-End </li>
   <li> @RenatoMarques - Front-End </li>
   <li> @RafaelSantos - Front-End, Back-End </li>
   <li> @Stephmarquess - Front-End, Back End </li>
@@ -73,7 +72,7 @@ Renato Marques <br> <a href="https://www.linkedin.com/in/RenatoMarquesDavid" tar
 Stéfany Marques <br> <a href="https://www.linkedin.com/in/stéfany-marques-4390a0281" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 Rafael Santos <br> <a href="https://www.linkedin.com/in/rafael-dos-santos-433950267" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 Thalles Sampaio <br> <a href="https://www.linkedin.com/in/thallessampaio" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
-Thayna Santana <br> <a href=" https://www.linkedin.com/in/thayss/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a><br>
+
 
 </div>
 
