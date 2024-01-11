@@ -65,6 +65,7 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
   <li> @RafaelSantos - Front-End, Back-End </li>
   <li> @Stephmarquess - Front-End, Back End </li>
   <li> @RafaelNasa - Front-End </li>
+   <li> @Thayna Santana - Front-End </li>
 </ul>
 <div align="center"> 
 
