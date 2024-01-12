@@ -26,8 +26,15 @@ body {
 /* QUEM SOMOS */
 
 .img-quemsomos {
-  border-radius: 60%;
+  height: 80px;  
+  border-radius: 20%;
+  margin-left: 10px;
 }
+
+#contatos .card {
+  height: 100px;
+}
+
 
 .box {
     border-bottom: solid green 2px;
@@ -55,10 +62,6 @@ body {
 
 .navbar a {
     color: white;
-}
-
-.carousel-buttons {
-    background-color: red;
 }
 
 .t:hover {
@@ -90,8 +93,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff; /* Define a cor do texto, se desejar */
-    z-index: 1; /* Certifique-se de que o conteúdo apareça sobre o vídeo */
+    color: #fff; 
+    z-index: 1; 
   }
 
   .video-background::after {
@@ -101,7 +104,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Cor e opacidade da sobreposição (0.0 - 1.0) */
+    background-color: rgba(0, 0, 0, 0.8);
   }
   
 /* CARDS */ 
@@ -148,7 +151,6 @@ body {
 }
 
 
-
 #cards-group .card-box {
     width: 95%;
     height: 53vh;
@@ -156,8 +158,6 @@ body {
     box-shadow: 10px 10px 5px 0px rgba(113, 227, 97, 1);
     border-radius: 0px 80px 0px 0px;
 }
-
-/* SEÇÃO CARREIRA */
 
 
 /* FORMULÁRIO */
@@ -170,7 +170,7 @@ body {
 /* RODAPÉ */
 
 #footer {
-    color: #55da48;
+    color: #ffffff;
     background-color: #000000;
     display: flex;
     justify-content: space-evenly;
@@ -179,7 +179,7 @@ body {
 }
 
 #footer a {
-    color: var(--primary-text-color);
+    color: #ffffff;
     text-decoration: none;
 }
 
