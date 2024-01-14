@@ -9,7 +9,7 @@ Projeto desenvolvido em Java utilizando Spring Boot e modelado em MVC
 O projeto tem como proposta levar conhecimento em áreas de tecnologia para os estudantes de baixa renda interessados em tecnologia e fornecer para empresas cadastro de vagas de emprego. 
 </p>
     
-<h2> Status do Projeto</h2>
+<h2> Status do Projeto </h2>
 
 <li> Iniciando reformulação Front-End do projeto e em processo de ideação das novas implementações </strong> </li>
 
