@@ -18,16 +18,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, length = 80)
+	@Column(nullable = true, length = 80)
 	private String nome;
 
-	@Column(nullable = false, length = 250)
+	@Column(nullable = true, length = 250)
 	private String senha;
 	
-	@Column(nullable = false, length = 80, unique = true)
+	@Column(nullable = true, length = 80)
     private String email;
 	
-	@Column(nullable = false, length = 14, unique = true)
+	@Column(nullable = true, length = 14)
 	private String cpf;
 	
 	

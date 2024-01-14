@@ -17,8 +17,8 @@
         <div id="logo"><a href="index.html"><img src="../static/img/WhiteMode-64px.png" alt="" srcset=""></a></div>
         <form id="login-form" th:action="@{/usuario/cadastrar}" th:object="${usuario}" method="post">
             <div id="form-header">
-                <a id="login" th:href="@{login}">Efetue Login</a>
-                <a id="cadastro" href="cadastro.html">Crie sua conta</a>
+                <a id="login" th:href="@{/usuario/login}">Efetue Login</a>
+                <a id="cadastro" th:href="@{/usuario/cadastro}">Crie sua conta</a>
             </div>
             <div id="inputs">
                 <div class="input-box">

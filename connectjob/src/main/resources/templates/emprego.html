@@ -14,224 +14,77 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-light text-center">
-            <div class="container-fluid bg-nav box">
-                <a class="navbar-brand" href="#"><img class="img-fluid st teste-img" th:src="@{/img/2.png}"
-                        alt="logo do projeto" width="150" height="100"></a>
-                <button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
-                        <li class="nav-item">
-                            <a class="nav-link t " th:href="@{/usuario/home/{id}(id=${usuario.id})}">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link t" th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"> Cursos </a>
-                        </li>               
-                  
-                        <li class="nav-item">
-                            <a class="nav-link t active" th:href="@{/usuario/vagas/{id}(id=${usuario.id})}"> Vagas </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link t" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"> Contatos </a>
-                        </li>   
-             
-                        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Meu Perfil
-          </a>
-          <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Gerenciar Perfil </a></li>    
-
-          </ul>
-        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <header th:replace="~{headerUsuario :: headerUsuario}">
+     
     </header>
-    <main class="container-fluid d-flex flex-column justify-content-center">
-        <div class="container p-3">
-            <p class="fs-1 text-center p-3" style="color: #35AD25;"> Área de Vagas de Empregos</p>
-            <p>Página dedicada a conectar oportunidades de trabalho a indivíduos de baixa renda, promovendo inclusão e
-                mobilidade social através de vagas acessíveis e suporte para o avanço profissional.</p>
+    <div id="content-header">
+               <img th:src="@{/img/acordo.jpg}" id="header-background">
+               <div class="col" id="content">  
+				   <p class="fs-1 text-center p-3"> Vagas de Emprego</p>              
+                
+                
+                <div class="">
+					       <form class="navbar-form navbar-left" role="search" th:action="@{/vaga/nome}" method="get">
+                        <div class="form-group">
+                <input type="text" class="form-control focus-ring mb-4 " id="exampleFormControlInput1" placeholder="Procure vagas por área de interesse ...">
+                        </div>
+                        <button type="submit" class="btn btn-success mx-3"> Buscar </button>
+                    </form>					                              
+                
+                </div>
+                <div class="col d-flex justify-content-center">
+                
+            </div>
+            </div>
+            </div>
+            <div class="container-fluid p-3 header-vagas" id="background-div">
+			
         </div>
-        <hr>
-        <section class="row row-cols-1" id="busca-vagas">
-            <div class="col">
-                <p class="fw-bolder text-center"> Busque vagas aqui!</p>
-                <div class="d-flex container">
-                <input type="text" class="form-control focus-ring " id="exampleFormControlInput1" placeholder="Procure por área de interesse ...">
-                </div>
-            </div>
-            <div class="col d-flex flex-column">
-                <p class="text-center">Filtros Estado</p>
-                <select>
-                    <!-- Em ordem alfabetica todos estados -->
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                </select>
-            </div>
-            <div class="col d-flex flex-column">
-                <p class="text-center">Tipo de vaga</p>
-                <select>
-                    <option value="">CLT</option>
-                    <option value="">PJ</option>
-                    <option value="">Estagio</option>
-                    <option value="">Trainee</option>
-                    <option value="">Aprendiz</option>
-                </select>
-            </div>
+    <main class="container d-flex flex-column justify-content-center">
 
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-success mx-3"> Buscar</button>
-            </div>
-        </section>
-        <section class="d-flex row row-cols-md-2 row-cols-sm-1 p-3" id="vagas">
-            <div class="col-sm col-md">
-                <div class="box-vagas shadow">
-                    <p class="fs-4 md-5 fw-bolder">Angular Developer TC Engenharia - São Paulo</p>
-                    <p>
-                        10 Vagas disponiveis! <br>
-                        Requisitos: <br>
-                        - Mais de 5 anos de experiência trabalhando como desenvolvedor. <br>
-                        - 2+ anos de experiência em Angular 2+. <br>
-                        - Experiência em desenvolvimento de aplicações utilizando pilha de tecnologia Angular/Java. <br>
-                        - Sólida experiência com HTML, CSS e escrita de código compatível com vários navegadores.<br>
-                        - Forte conhecimento de técnicas de manipulação de Dom AJAX e JavaScript.<br>
-                        - Experiência com MSSQL e/ou PostgreSQL<br>
-                        - Experiência com React é um diferencial.<br>
-                        - Nível avançado de inglês.<br>
-                    </p>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Candidatar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm col-md">
-                <div class="box-vagas shadow">
-                    <p class="fs-4 fw-bolder">Estagio Boticario - Rio de Janeiro (Hibrido)</p>
-                    <p>
-                        1.000 Vagas disponiveis! <br>
-                        Requisitos: <br>
-                        - Beneficios: <br>
-                        - VT, VA, Plano Odontologico. <br>
-                    </p>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Candidatar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm col-md">
-                <div class="box-vagas shadow">
-                    <p class="fs-4 fw-bolder">Junior em Python WX Automações - Salvador, BA (Remoto)</p>
-                    <p>
-                        32 Vagas disponiveis! <br>
-                        Requisitos: <br>
-                        - Conhecimentos avançados em Python <br>
-                        - Saber cria um bot com integrações com email
-                        - CLT <br>
-                        - Beneficios: <br>
-                        - Gympass, VA<br>
-                    </p>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Candidatar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="box-vagas shadow">
-                    <p class="fs-4 fw-bolder">Estagio em Analise e desenvolvimento de Sistemas - NoBank (Home-office)
-                    </p>
-                    <p>
-                        100 Vagas disponiveis! <br>
-                        Requisitos: <br>
-                        - +01 ano de experiencia na area <br>
-                        - Conhecimentos em JavaScript <br>
-                        - Conhecimento em C/ C++ <br>
-                        - Estagio <br>
-                        - Beneficios: <br>
-                        - VT, VA, Plano Odontologico. <br>
-                    </p>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success">Candidatar</button>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="buscavagas">
+			
+		</div>
+        
+        <section class="d-flex justify-content-center row row-cols-md-2 row-cols-sm-1 p-3 container table-responsive " id="vagas">
+			
+<table class="table">
+  <thead class="table table-responsive ">
+    <tr>
+      
+      <th scope="col">Vaga</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Local</th>
+      <th scope="col">Salário</th>
+      <th scope="col">Modalidade</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+	  
+	  <tr th:each="vagas : ${vagas}">                        
+                        <td th:text="${vagas.titulo}">Desenvolvedor Angular</td>
+                        <td th:text="${vagas.empresa.nome}">TC Engenharia</td>
+                        <td th:text="${vagas.uf}">Local</td>
+                        <td th:text="${vagas.salario}">São Paulo</td>         
+                        <td th:text="${vagas.modalidade}">São Paulo</td>
+                        <td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>                                       
+                    </tr>     
+
+  </tbody>
+</table>  			
+			
         </section>
     </main>
 
-<footer id="footer" class="mt-5">
+<footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
 
-        <div class="container-fluid row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
-            <div class="col" id="contact-info">
-                <div class="footer-brand">
-                    <img id="logoRodape" th:src="@{/img/logofooter.png}" alt="conectjob" class="img-fluid h-50">
-                    <hr>
-                </div>
-                <p><i class="bi bi-geo-alt"></i> Praça Senador Salgado Filho, s/n° – Rio de Janeiro – RJ </p>
-                <p><i class="bi bi-telephone"></i>(99)9999-9999</p>
-                <p><i class="bi bi-envelope"></i>recodeprosquad12@gmail.com</p>
-            </div>
-            <div class="col">
-                <h4 class="mt-4 text-center">Outros serviços</h4>
-                <nav>
-                    <a href="#">Propriedade intelecutal</a>
-                    <hr>
-                    <a href="#">LGPD</a>
-                    <hr>
-                    <a href="#">Direito internacional</a>
-                </nav>
-            </div>
-            <div class="col">
-                <div class="social-networks">
-                    <h4 class="mt-4 text-center">Siga-nos</h4>
-                    <div class="networks">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="https://github.com/Squad12Rcd" target="_blank"><i class="bi bi-github"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="container text-center mt-5"><i class="bi bi-c-circle"></i> ConnectJob - Todos os direitos
-                reservados
-            </p>
-        </div>
+       
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

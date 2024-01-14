@@ -1,5 +1,6 @@
 package com.connectjob.controllers;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.connectjob.model.Usuario;
-
-import com.connectjob.repositories.UsuarioRepository;
+import com.connectjob.model.Vaga;
 import com.connectjob.services.UsuarioServices;
+import com.connectjob.services.VagaServices;
 
 
 
@@ -24,14 +25,15 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioServices usuarioServices;
-	
-	private UsuarioRepository usuarioRepository;
+	@Autowired
+	private VagaServices vagaServices;
 	
 
 	@GetMapping("/home/{id}")
 	public String listaUsuario (@PathVariable Long id, Model model) {
 		Usuario usuariolocalizado =  usuarioServices.getUsuarioById(id);		
 		model.addAttribute("usuario", usuariolocalizado);
+		
 		return "homeusuario";
 	}
 	
@@ -47,6 +49,8 @@ public class UsuarioController {
 	public String paginavagas (@PathVariable Long id, Model model) {
 		Usuario usuariolocalizado =  usuarioServices.getUsuarioById(id);
 		model.addAttribute("usuario", usuariolocalizado);
+		List<Vaga> vagas = vagaServices.getAllVaga();
+		model.addAttribute("vagas", vagas);
 		return "emprego";
 	}	
 	
@@ -57,14 +61,15 @@ public class UsuarioController {
 		return "contatos";
 	}	
 	
-
+/*
 	@GetMapping("/visualizar/{id}")
-	public String visualizarperfil(Model model) {
+	public String visualizarperfil(@PathVariable Long id, Model model) {
 		List<Usuario> usuariolocalizado =  usuarioServices.getAllUsuarios();		
 		model.addAttribute("usuario", usuariolocalizado);
-		return "visualizarperfil";
+		return "userprofile";
 	}
 	
+	*/
 
 	@GetMapping("/profile/{id}")
 	public String perfilusuario(@PathVariable Long id, Model model) {
@@ -89,6 +94,12 @@ public class UsuarioController {
 			return "homeusuario";
 		}
 		
+		@GetMapping("/login")
+		public String loginUsuario () {
+			
+			return "login";
+
+		}		
 
 	@GetMapping("/editar/{id}")
 	public String formEditarUsuario(@PathVariable Long id, Model model) {

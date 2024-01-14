@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">	
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">	
 
 <head>
     <meta charset="UTF-8">
@@ -18,250 +18,125 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-light text-center">
-            <div class="container-fluid bg-nav box">
-                <a class="navbar-brand" href="#"><img class="img-fluid st teste-img" th:src="@{/img/2.png}"
-                        alt="logo do projeto" width="150" height="100"></a>
-                <button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
-                        <li class="nav-item">
-                            <a class="nav-link active t " th:href="@{/usuario/home/{id}(id=${usuario.id})}">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link t" th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"> Cursos </a>
-                        </li>               
-                  
-                        <li class="nav-item">
-                            <a class="nav-link t" th:href="@{/usuario/vagas/{id}(id=${usuario.id})}"> Vagas </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link t" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"> Contatos </a>
-                        </li>
-             
-                        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Meu Perfil
-          </a>
-          <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Gerenciar Perfil </a></li>     
-
-          </ul>
-        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <header th:replace="~{headerUsuario :: headerUsuario}">
+ 
     </header>
 
-    <main>		
+    <main class="container">		
 
-        <p class="fs-1 mt-3 text-center"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
+        <p class="fs-1 mt-5"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
+       
         <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
 
-            <div class="text-bg-light mb-3 col screen" style="max-width: 20rem;">
+            <div class="p-3 text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
 
-
-                    <p class="fs-5 box fw-bolder text-center">Progresso</p>
-
-                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar bg-success" style="width: 0%">25%</div>                        
+                    <div class="w-75 mx-auto">
+                        <a th:href="@{/usuario/visualizar/{id}(id=${usuario.id})}"><img class="mt-3 mx-auto" th:src="@{/img/userlogo.png}" height="150px" width="80%" /></a>                        
                     </div>                    
-                    <p class="text-center mt-3">Inicie um curso para habilitar o seu progresso</p>
+                    
                     
                     <div class="d-flex justify-content-center">
-                    <a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}">						
+                    <a th:href="@{/usuario/profile/{id}(id=${usuario.id})}">						
 						<button type="button"
-                            class="btn btn-success mt-4">Continuar</button></a>
+                            class="btn btn-outline-success mt-4">Meu perfil</button></a>
                     </div>
                     </p>
                 </div>
             </div>
 
-            <div class="col text-bg-light mb-3 col screen" style="max-width: 20rem;">
-                <p class="fs-5 box fw-bolder text-center">Habilidades Conquistadas</p>
-                                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar bg-success" style="width: 0%">25%</div>                        
+            <div class="col text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
+  
+                    <div class="w-75 mx-auto">
+					<a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><img class="mt-3" th:src="@{/img/courselogo.png}" height="150px" width="80%" /></a>                    
                     </div>   
-                <div>
-                    <p class="text-center mt-3">Inicie um curso para ganhar selos de habilidades</p>
+                <div class="d-flex justify-content-center">
+                        <a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}">						
+						<button type="button" class="btn btn-outline-success mt-4">Cursos</button></a>
                 </div>
             </div>
-        </section>
+                        <div class="col text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
 
-        <p class="fs-3 text-center mt-5"> <span> <img th:src="@{/img/open-book.png}" alt="" width="80px"
-                    height="70px"></span>
-            Últimos Lançamentos</p>
-
-        <section class="container-fluid" id="cursos-lancamentos">
-
-            <div id="carouselExampleDark" class="carousel carousel-dark slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    <div class="w-75 mx-auto">
+				<a th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"><img class="mt-3" th:src="@{/img/contactlogo.png}" height="150px" width="80%" /></a>                       
+                    </div>   
+                <div class="d-flex justify-content-center">
+                                           <a th:href="@{/usuario/contatos/{id}(id=${usuario.id})}">						
+						<button type="button"
+                            class="btn btn-outline-success mt-4">FAQ/Contato</button></a>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="10000">
-                        <div class="text-center">
-                            <a th:href="@{/usuario/cursos}"><img th:src="@{/img/cursofrontend.png}" class="w-75 rounded"></a>
-                        </div>
-                    </div>
-                    <div class="carousel-item text-center" data-bs-interval="2000">
-                        <a th:href="@{/usuario/cursos}"><img th:src="@{/img/backend.png}" class="w-75 rounded"></a>
-
-                    </div>
-                    <div class="carousel-item text-center">
-                        <a th:href="@{/usuario/cursos}"><img th:src="@{/img/curso-de-banco-de-dados.webp}"
-                                class="w-75 rounded" alt="..."></a>
-
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
 
-
         </section>
+
 
         <p class="fs-2 text-center mt-5"> <span><img th:src="@{/img/contratado.png}" alt="" width="80px"
                     height="60px"></span>Vagas Recentes </p>
 
-        <section id="painel-vagas" class="container">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body d-flex-columns">
-                            <h5 class="box text-center">Vaga para: Front-End</h5>
-                            <p class="card-text">
-                                <strong>Empresa:</strong> Technolite <br>
-                                <strong>Local:</strong> Fortaleza - CE <br>
-                                <strong>Salário:</strong> a combinar <br>
-                                <strong>Modalidade:</strong> Presencial
-                            </p>
-                            <small class="text-body-secondary">Adicionado há 02 semanas</small> <br>
-                            <div class="d-flex justify-content-center">
-                                <a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success mt-4">Aplicar Vaga</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="box text-center">Vaga para: Front-End</h5>
-                            <p class="card-text">
-                                <strong>Empresa:</strong> SimpleTech <br>
-                                <strong>Local:</strong> Rio de Janeiro - RJ <br>
-                                <strong>Salário:</strong> a combinar <br>
-                                <strong>Modalidade:</strong> Remoto
-                            </p>
-                            <small class="text-body-secondary">Adicionado há 02 semanas</small> <br>
-                            <div class="d-flex justify-content-center">
-                               <a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success mt-4">Aplicar Vaga</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="box text-center">Vaga para: Analista de Dados</h5>
-                            <p class="card-text">
-                                <strong>Empresa:</strong> Banco Pandeiro <br>
-                                <strong>Local:</strong> Pato Branco - PR <br>
-                                <strong>Salário:</strong> R$ 2.000 a R$ 2.800 <br>
-                                <strong>Modalidade:</strong> Híbrido
-                            </p>
-                            <small class="text-body-secondary">Adicionado há 02 semanas</small> <br>
-                            <div class="d-flex justify-content-center">
-                                <a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success mt-4">Aplicar Vaga</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="box text-center">Vaga para: Estágio em Banco de dados</h5>
-                            <p class="card-text">
-                                <strong>Empresa:</strong> JotaPegue <br>
-                                <strong>Local:</strong> Teresina - PI <br>
-                                <strong>Salário:</strong> a combinar <br>
-                                <strong>Modalidade:</strong> Presencial
-                            </p>
-                            <small class="text-body-secondary">Adicionado há 02 semanas</small> <br>
-                            <div class="d-flex justify-content-center">
-<a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success mt-4">Aplicar Vaga</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="painel-vagas" class="container table-responsive">
+			<table class="table table-striped-columns">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vaga</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Local</th>
+      <th scope="col">Salário</th>
+      <th scope="col">Modalidade</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Front-End</td>
+      <td>Technolite</td>
+      <td>Fortaleza, CE</td>
+      <td>A combinar</td>
+      <td>Presencial</td>
+      <td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Front-End</td>
+      <td>SimpleTech</td>
+      <td>Rio de Janeiro, RJ</td>
+      <td>A combinar</td>
+      <td>Remoto</td>
+<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Analista de Dados</td>
+      <td>Banco Pandeiro</td>
+      <td>Pato Branco, PR</td>
+      <td>R$ 2.000,00 a R$ 2.800,00</td>
+      <td>Híbrido</td>
+<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+</tr>
+<tr>
+      <th scope="row">4</th>
+      <td>Banco de Dados</td>
+      <td>JotaPegue</td>
+      <td>Teresina, PI</td>
+      <td>A combinar</td>
+      <td>Presencial</td>
+<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+</tr>
+  </tbody>
+</table>           
         </section>
     </main>
 
-    <footer id="footer" class="mt-5">
+    <footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
 
-        <div class="container-fluid row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
-            <div class="col" id="contact-info">
-                <div class="footer-brand">
-                    <img id="logoRodape" th:src="@{/img/logofooter.png}" alt="conectjob" class="img-fluid h-50">
-                    <hr>
-                </div>
-                <p><i class="bi bi-geo-alt"></i> Praça Senador Salgado Filho, s/n° – Rio de Janeiro – RJ </p>
-                <p><i class="bi bi-telephone"></i>(99)9999-9999</p>
-                <p><i class="bi bi-envelope"></i>recodeprosquad12@gmail.com</p>
-            </div>
-            <div class="col">
-                <h4 class="mt-4 text-center">Outros serviços</h4>
-                <nav>
-                    <a href="#">Propriedade intelecutal</a>
-                    <hr>
-                    <a href="#">LGPD</a>
-                    <hr>
-                    <a href="#">Direito internacional</a>
-                </nav>
-            </div>
-            <div class="col">
-                <div class="social-networks">
-                    <h4 class="mt-4 text-center">Siga-nos</h4>
-                    <div class="networks">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="https://github.com/Squad12Rcd" target="_blank"><i class="bi bi-github"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="container text-center mt-5"><i class="bi bi-c-circle"></i> ConnectJob - Todos os direitos
-                reservados
-            </p>
-        </div>
+       
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
     
    
 </body>

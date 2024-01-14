@@ -1,5 +1,7 @@
 package com.connectjob.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.connectjob.model.Empresa;
+import com.connectjob.model.Vaga;
+import com.connectjob.repositories.VagaRepository;
 import com.connectjob.services.EmpresaServices;
 
 
@@ -20,13 +24,17 @@ public class EmpresaController {
 
 	@Autowired
 	private EmpresaServices empresaServices;
-	
+	@Autowired
+	private VagaRepository vagaRepository;
 
 	@GetMapping("/home/{id}")
-	public String HomeEmpresa (@PathVariable Long id, Model model) {
-		Empresa empresaLocalizada =  empresaServices.getEmpresaById(id);		
-		model.addAttribute("empresa", empresaLocalizada);		
+	public String HomeEmpresa (@PathVariable(value = "id") Long id, Model model) {
 		
+			Empresa empresaLocalizada =  empresaServices.getEmpresaById(id);			
+	        model.addAttribute("empresa", empresaLocalizada);	    	
+			List<Vaga> vagas = vagaRepository.findByEmpresaId(id);		
+			model.addAttribute("vagas", vagas);
+			
 			return "HomeEmpresa";	
 		
 	}
