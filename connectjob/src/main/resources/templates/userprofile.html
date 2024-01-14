@@ -17,57 +17,92 @@
 </head>
 
 <body>
-      <header>
-        <nav class="navbar navbar-expand-lg bg-body-light text-center">
-            <div class="container-fluid bg-nav box">
-                <a class="navbar-brand" href="#"><img class="img-fluid st teste-img" th:src="@{/img/2.png}"
-                        alt="logo do projeto" width="150" height="100"></a>
-                <button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
-                        <li class="nav-item text-success fs-4 fw-bolder">
-  							Gerenciador de Perfil
-                        </li>                        
-                    </ul>            
-                </div>
-            </div>
-        </nav>
+    <header th:replace="~{headerUsuario :: headerUsuario}">
+
     </header>
     
     <main class="container d-flex flex-column"> 
-		<p class="fs-1 text-center mt-5"> Perfil do Usuário </p>
+		<p class="fs-1 text-center mt-5"> Meu Perfil  </p>
 		
 	<div th:object="${usuario}">
 
 	<div class="shadow d-flex flex-column justify-content-center p-5" th:object="${usuario}" method="post">
-	<div class="d-flex justify-content-center gap-5">	
-	<a class="btn btn-success" th:href="@{/usuario/editar/{id}(id=${usuario.id})}"><i class="bi bi-pencil-square"> Editar </i></a>	
-	<a class="btn btn-danger" th:href="@{/usuario/deletar/{id}(id=${usuario.id})}"><i class="bi bi-trash3"></i> Excluir Perfil </a>
-	</div>	
+	<div class="d-flex justify-content-end gap-3 float-end">	
+	<a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editarUsuario"><i class="bi bi-pencil-square"> Editar </i></a>	
+	<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarUsuario"><i class="bi bi-trash3"></i> Excluir Perfil </a>
+	</div>
+	
+	<div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Perfil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/usuario/editar/{id}(id=${usuario.id})}" th:object="${usuario}" method="post">
+	
+		<div class=" mt-3">
+			<label for="nome"> Nome Completo: </label>
+			<input class="form-control mt-1" type="text" id="nome" th:field="*{nome}" />
+		</div>
+		<div class=" mt-3">
+			<label for="email"> E-mail: </label>
+			<input class="form-control mt-1"  type="text" id="email" th:field="*{email}" />
+		</div>
+		<div class=" mt-3">
+			<label for="cpf"> CPF: </label>
+			<input class="form-control mt-1" type="text" id="cpf" th:field="*{cpf}" autocomplete="off" minlength="14" maxlength="14" onkeypress="cpfMask()">
+		</div>
+		<div class=" mt-3">
+			<label for="senha"> Senha: </label>
+			<input class="form-control mt-1"  type="text" id="senha" th:field="*{senha}" />
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success" type="submit"> Salvar </button>
+      </div>
+	</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deletarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Perfil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Realmente deseja excluir seu perfil? Você será redirecionado para a página Home.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a type="button" class="btn btn-primary" th:href="@{/usuario/deletar/{id}(id=${usuario.id})}">Confirmar</a>
+      </div>
+    </div>
+  </div>
+</div>
+	
 		<ul class="list-group list-group-flush d-flex">
-		<div class="mt-1">
-			<label for="id"><strong>ID</strong>  </label>
-			<li class="list-group-item mt-1"><span th:text="${usuario.id}"></span></li>			
+		<div class="mt-3">
+			<p class="fs-4 mt-1 text-center" th:text="${usuario.nome}"> </p>
 		</div>
 		<div class="mt-3">
-			<label for="nome"><strong> Nome </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${usuario.nome}"></span></li>
+			<p class="text-center"><strong> CPF </strong> </p>
+			<p class="fs-4 mt-1 text-center" th:text="${usuario.cpf}"> </p>
+			
+		</div>
+		<div class="mt-3 mx-auto">
+			<p class="text-center"><strong> E-mail </strong></p>
+			<p class="fs-4 mt-1 text-center" th:text="${usuario.email}"></p>
 		</div>
 		<div class="mt-3">
-			<label for="descricao"><strong> CPF </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${usuario.cpf}"></span></li>
-		</div>
-		<div class="mt-3">
-			<label for="descricao"><strong> Descrição </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${usuario.email}"></span></li>
-		</div>
-		<div class="mt-3">
-			<label for="descricao"> <strong> Senha </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${usuario.senha}"></span></li>
+			<p class="text-center"> <strong> Senha </strong> </p>
+			<p class="text-center" th:text="${usuario.senha}"> </p>
 		</div>
 		</ul>
 
@@ -76,44 +111,10 @@
 		</div>	
 </div>  
 	</main>
-	    
-<footer id="footer" class="mt-5">
+	
+	
+    <footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
 
-        <div class="container-fluid row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
-            <div class="col" id="contact-info">
-                <div class="footer-brand">
-                    <img id="logoRodape" th:src="@{/img/logofooter.png}" alt="conectjob" class="img-fluid h-50">
-                    <hr>
-                </div>
-                <p><i class="bi bi-geo-alt"></i> Praça Senador Salgado Filho, s/n° – Rio de Janeiro – RJ </p>
-                <p><i class="bi bi-telephone"></i>(99)9999-9999</p>
-                <p><i class="bi bi-envelope"></i>recodeprosquad12@gmail.com</p>
-            </div>
-            <div class="col">
-                <h4 class="mt-4 text-center">Outros serviços</h4>
-                <nav>
-                    <a href="#">Propriedade intelecutal</a>
-                    <hr>
-                    <a href="#">LGPD</a>
-                    <hr>
-                    <a href="#">Direito internacional</a>
-                </nav>
-            </div>
-            <div class="col">
-                <div class="social-networks">
-                    <h4 class="mt-4 text-center">Siga-nos</h4>
-                    <div class="networks">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="https://github.com/Squad12Rcd" target="_blank"><i class="bi bi-github"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="container text-center mt-5"><i class="bi bi-c-circle"></i> ConnectJob - Todos os direitos
-                reservados
-            </p>
-        </div>
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

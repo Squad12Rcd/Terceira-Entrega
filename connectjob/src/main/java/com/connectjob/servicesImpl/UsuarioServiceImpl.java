@@ -40,6 +40,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 			usuarioExistente.setNome(usuarioAtualizado.getNome());
 			usuarioExistente.setCpf(usuarioAtualizado.getCpf());
 			usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+			usuarioExistente.setSenha(usuarioAtualizado.getSenha());
 			return usuarioRepository.save(usuarioExistente);
 		} else {
 			throw new RuntimeException("Usuario com o ID " + id + "não encontrado.");

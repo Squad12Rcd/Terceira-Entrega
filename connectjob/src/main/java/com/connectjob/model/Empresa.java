@@ -2,11 +2,15 @@ package com.connectjob.model;
 
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,16 +24,19 @@ public class Empresa {
 	@Column(nullable = false, length = 80)
 	private String nome;	
 	
-	@Column(nullable = false, length = 18, unique = true)
+	@Column(nullable = true, length = 18)
 	private String cnpj;
 	
-	@Column(nullable = false, length = 250)
+	@Column(nullable = true, length = 250)
 	private String senha;
 	
-	@Column(nullable = false, length = 80, unique = true)
+	@Column(nullable = true, length = 80)
     private String email;
 	
-
+	@OneToMany
+	@JoinColumn(name = "empresa_id")
+    private List<Vaga> vagas;
+	
 
 	public Empresa() {
 		super();
