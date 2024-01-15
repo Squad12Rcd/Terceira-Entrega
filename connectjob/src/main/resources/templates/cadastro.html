@@ -14,7 +14,7 @@
 
 <body>
     <main id="container">
-        <div id="logo"><a href="index.html"><img src="../static/img/WhiteMode-64px.png" alt="" srcset=""></a></div>
+        <div id="logo"><a href="index.html"><img th:src="@{/img/WhiteMode-64px.png}" alt="" srcset=""></a></div>
         <form id="login-form" th:action="@{/usuario/cadastrar}" th:object="${usuario}" method="post">
             <div id="form-header">
                 <a id="login" th:href="@{/usuario/login}">Efetue Login</a>
@@ -70,7 +70,7 @@
                 </div>
             </div>
     </main>
-    <script src="../static/javascript/script.js"></script>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </body>
 
 </html>
