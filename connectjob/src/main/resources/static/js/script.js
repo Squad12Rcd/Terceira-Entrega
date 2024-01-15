@@ -49,50 +49,47 @@ const carregarVideos = () => {
  
 window.onscroll = () => {
     carregarVideos()
-    console.log("escrollou!");
     };
 
 // HOME 
 
     var lastScrollTop = 0;
     
-    // Função para verificar a direção da rolagem
+
     function getScrollDirection() {
       var st = window.pageYOffset || document.documentElement.scrollTop;
     
       if (st > lastScrollTop) {
-        // Rolagem para baixo
+
         return 'down';
       } else {
-        // Rolagem para cima
+
         return 'up';
       }
     
-      lastScrollTop = st <= 0 ? 0 : st; // Para casos em que o scroll é rápido demais
+      lastScrollTop = st <= 0 ? 0 : st; 
     }
     
-    // Função para lidar com a rolagem da página
+ 
     function handleScroll() {
       var contents = document.querySelectorAll('.transicao');
       var scrollDirection = getScrollDirection();
     
-      // Itera sobre todos os elementos .content
       contents.forEach(function(content) {
-        // Verifica se o conteúdo está visível na janela de visualização e a direção da rolagem
+
         if (content.getBoundingClientRect().top < window.innerHeight && content.getBoundingClientRect().bottom >= 0) {
-          // Adiciona a classe para fazer o conteúdo aparecer com fade in
+
           content.classList.add('fade-in');
         } else {
-          // Remove a classe se o conteúdo estiver fora da visualização
+
           content.classList.remove('fade-in');
         }
       });
     }
     
-    // Adiciona um event listener para lidar com a rolagem da página
+
     window.addEventListener('scroll', handleScroll);
     
-    // Chama a função handleScroll() uma vez para verificar se o conteúdo já está visível na página ao carregar
     handleScroll();
 
 
@@ -105,7 +102,7 @@ function typeWriter(text, i, cb) {
     i++;
     setTimeout(function() {
       typeWriter(text, i, cb);
-    }, 120); // Ajuste o tempo de digitação aqui (em milissegundos)
+    }, 120); 
   } else {
     if (cb) cb();
   }

@@ -25,16 +25,11 @@
                         <li class="nav-item">
                             <a class="nav-link t" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"> Contatos </a>
                         </li>
-             
-                        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Meu Perfil
-          </a>
-          <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Gerenciar Perfil </a></li>     
-
-          </ul>
-        </li>
+                        
+                        <li class="nav-item">
+                			<a class="nav-link t" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Meu Perfil </a>            
+                        </li>
+                         
                     </ul>
                 </div>
             </div>

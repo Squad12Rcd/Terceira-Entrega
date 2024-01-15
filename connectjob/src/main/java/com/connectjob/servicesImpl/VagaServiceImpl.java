@@ -40,10 +40,10 @@ public class VagaServiceImpl implements VagaServices {
 			vagaExistente.setNivel(vagaAtualizada.getNivel());
 			vagaExistente.setQuantidade(vagaAtualizada.getQuantidade());
 			vagaExistente.setTipoContrato(vagaAtualizada.getTipoContrato());
-			vagaExistente.setUf(vagaAtualizada.getUf());
+			vagaExistente.setLocalizacao(vagaAtualizada.getLocalizacao());
 			vagaExistente.setDataCadastro(vagaAtualizada.getDataCadastro());
 			vagaExistente.setSalario(vagaAtualizada.getSalario());
-			vagaExistente.setStatus(vagaAtualizada.getStatus());
+			vagaExistente.setArea(vagaAtualizada.getArea());
 			return vagaRepository.save(vagaExistente);
 		} else {
 			throw new RuntimeException("Vaga com o ID " + id + "não encontrada.");
@@ -66,6 +66,6 @@ public class VagaServiceImpl implements VagaServices {
 		
 		return vagaRepository.findByEmpresaId(id);
 	}
-
+	
 
 }

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Moon+Dance&display=swap');
 
-/* Reset de estilos */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #000000;
 
 } 
 
