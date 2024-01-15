@@ -16,25 +16,7 @@
     <title> ConnectJob - Home </title>
 </head>
 
-      <header>
-        <nav class="navbar navbar-expand-lg bg-body-light text-center">
-            <div class="container-fluid bg-nav box">
-                <a class="navbar-brand" href="#"><img class="img-fluid st teste-img" th:src="@{/img/2.png}"
-                        alt="logo do projeto" width="150" height="100"></a>
-                <button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
-                        <li class="nav-item text-success fs-4 fw-bolder">
-  							Gerenciador de Perfil
-                        </li>                        
-                    </ul>            
-                </div>
-            </div>
-        </nav>
+    <header th:replace="~{headerEmpresa :: headerEmpresa}">
     </header>
   
   <body>
@@ -76,43 +58,8 @@
 	</div>
 	</main>
 	
-	<footer id="footer" class="mt-5">
+    <footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
 
-        <div class="container-fluid row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
-            <div class="col" id="contact-info">
-                <div class="footer-brand">
-                    <img id="logoRodape" th:src="@{/img/logofooter.png}" alt="conectjob" class="img-fluid h-50">
-                    <hr>
-                </div>
-                <p><i class="bi bi-geo-alt"></i> Praça Senador Salgado Filho, s/n° – Rio de Janeiro – RJ </p>
-                <p><i class="bi bi-telephone"></i>(99)9999-9999</p>
-                <p><i class="bi bi-envelope"></i>recodeprosquad12@gmail.com</p>
-            </div>
-            <div class="col">
-                <h4 class="mt-4 text-center">Outros serviços</h4>
-                <nav>
-                    <a href="#">Propriedade intelecutal</a>
-                    <hr>
-                    <a href="#">LGPD</a>
-                    <hr>
-                    <a href="#">Direito internacional</a>
-                </nav>
-            </div>
-            <div class="col">
-                <div class="social-networks">
-                    <h4 class="mt-4 text-center">Siga-nos</h4>
-                    <div class="networks">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="https://github.com/Squad12Rcd" target="_blank"><i class="bi bi-github"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <p class="container text-center mt-5"><i class="bi bi-c-circle"></i> ConnectJob - Todos os direitos
-                reservados
-            </p>
-        </div>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

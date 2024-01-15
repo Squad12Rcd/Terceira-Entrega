@@ -15,6 +15,7 @@ import com.connectjob.model.Empresa;
 import com.connectjob.model.Vaga;
 import com.connectjob.repositories.VagaRepository;
 import com.connectjob.services.EmpresaServices;
+import com.connectjob.services.VagaServices;
 
 
 
@@ -26,9 +27,11 @@ public class EmpresaController {
 	private EmpresaServices empresaServices;
 	@Autowired
 	private VagaRepository vagaRepository;
+	@Autowired
+	private VagaServices vagaServices;
 
-	@GetMapping("/home/{id}")
-	public String HomeEmpresa (@PathVariable(value = "id") Long id, Model model) {
+	@GetMapping("/home/{idEmpresa}")
+	public String HomeEmpresa (@PathVariable(value = "idEmpresa") Long id, Model model) {
 		
 			Empresa empresaLocalizada =  empresaServices.getEmpresaById(id);			
 	        model.addAttribute("empresa", empresaLocalizada);	    	
@@ -46,7 +49,6 @@ public class EmpresaController {
 		return "perfilEmpresa";
 	}
 	
-
 	@GetMapping("/cadastro")
 	public String formCadastroEmpresa(Model model) {
 		Empresa empresa = new Empresa();
@@ -82,4 +84,33 @@ public class EmpresaController {
 		empresaServices.deleteEmpresa(id);
 		return "index";
 	}
+	
+	/* ÁREA VAGAS */
+	
+	@GetMapping("/areaVagas/{id}")
+	public String areaVagas(@PathVariable Long id, Model model) {
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
+		model.addAttribute("empresa", empresaLocalizada);
+		List<Vaga> vagas = vagaServices.findByEmpresaId(id);
+		model.addAttribute("vagasEmpresa", vagas);
+		
+		return "area-vagas";
+	}
+	
+	@GetMapping("/gerenciarVagas/{id}")
+	public String gerenciarVagas(@PathVariable Long id, Model model) {
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
+		model.addAttribute("empresa", empresaLocalizada);
+		List<Vaga> vagas = vagaServices.findByEmpresaId(id);
+		model.addAttribute("vagasEmpresa", vagas);
+		
+		return "gerenciarVagas";
+	}
+	
+	
+	
+	
+	// FIM ÁREA VAGAS
+
+
 }

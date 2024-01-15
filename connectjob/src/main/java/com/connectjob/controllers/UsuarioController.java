@@ -51,6 +51,7 @@ public class UsuarioController {
 		model.addAttribute("usuario", usuariolocalizado);
 		List<Vaga> vagas = vagaServices.getAllVaga();
 		model.addAttribute("vagas", vagas);
+		
 		return "emprego";
 	}	
 	
@@ -61,16 +62,6 @@ public class UsuarioController {
 		return "contatos";
 	}	
 	
-/*
-	@GetMapping("/visualizar/{id}")
-	public String visualizarperfil(@PathVariable Long id, Model model) {
-		List<Usuario> usuariolocalizado =  usuarioServices.getAllUsuarios();		
-		model.addAttribute("usuario", usuariolocalizado);
-		return "userprofile";
-	}
-	
-	*/
-
 	@GetMapping("/profile/{id}")
 	public String perfilusuario(@PathVariable Long id, Model model) {
 		Usuario usuario = usuarioServices.getUsuarioById(id);

@@ -1,8 +1,5 @@
 package com.connectjob.controllers;
 
-import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +8,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.connectjob.model.Empresa;
+
 import com.connectjob.model.Vaga;
 import com.connectjob.services.EmpresaServices;
+
 import com.connectjob.services.VagaServices;
 
 
@@ -30,20 +30,17 @@ public class VagaController {
 	@Autowired
 	private EmpresaServices empresaServices;
 	
-	//listar vagas
-	@GetMapping("/listar/{id}")
-	public String listarVagas(@PathVariable Long id, Model model) {
-		
-		List<Vaga> vagas = vagaServices.findByEmpresaId(id);		
-		model.addAttribute("vagas", vagas);
-		
-		System.out.println(vagas);
-		
-		return "HomeEmpresa";
-	}
 	
+	@GetMapping("/vagasEmpresa/{id}")
+	public String vagasEmpresa(@PathVariable("id") Long id, Model model) {
 
-	
+		Vaga vaga = new Vaga();
+		model.addAttribute("vaga", vaga);
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
+		model.addAttribute("empresa", empresaLocalizada);	
+		
+		return "area-vagas";
+	}
 	
 	@GetMapping("/cadastro/{id}")
 	public String formVaga(@PathVariable Long id, Model model) {
@@ -53,36 +50,42 @@ public class VagaController {
 		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
 		model.addAttribute("empresa", empresaLocalizada);	
 		
-		System.out.println("Cadastrou!");
-		
 		return "cadastro-vagas";
 	}
 
-	@PostMapping("/cadastrar")
-	public String cadastrarVaga(@ModelAttribute("vaga") Vaga vaga, @RequestParam Long empresa) {
+	@PostMapping("/cadastrar/{id}")
+	public String cadastrarVaga(@PathVariable("id") Long idEmpresa, @ModelAttribute("vaga") Vaga vaga, RedirectAttributes redirectAttributes) {
 		vagaServices.saveVaga(vaga);
-		return "HomeEmpresa";
+		redirectAttributes.addAttribute("cadastrado", "Vaga cadastrada com sucesso!");
+		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
 	}
 	
-	//formuladrio edicao
-	@GetMapping("/editar/{id}")
-	public String formEditarVaga(@PathVariable Long id, Model model) {
-		Vaga vaga = vagaServices.getVagaById(id);
+	//formulario edicao
+	@GetMapping("/editar/{id1}/{id2}") 
+	public String formEditarVaga(@PathVariable("id1") Long idEmpresa, @PathVariable("id2") Long idVaga , Model model) {
+		Vaga vaga = vagaServices.getVagaById(idVaga);
 		model.addAttribute("vaga", vaga);
-		return "testes/editarVaga";
+		Empresa empresa = empresaServices.getEmpresaById(idEmpresa);
+		model.addAttribute("empresa", empresa);
+		
+		return "editarVaga";
 	}
 	
 	//inserir dados no banco
-	@PostMapping("/editar/{id}")
-	public String editarVaga(@PathVariable Long id, @ModelAttribute("vaga") Vaga vaga ) {
-		vagaServices.updateVaga(id, vaga);
-		return "redirect:/vaga/listar";
+	@PostMapping("/editar/{id1}/{id2}")
+	public String editarVaga(@PathVariable("id1") Long idEmpresa, @PathVariable("id2") Long idVaga, @ModelAttribute("vaga") Vaga vaga , RedirectAttributes redirectAttributes ) {
+		vagaServices.updateVaga(idVaga, vaga);
+		redirectAttributes.addAttribute("atualizar", "Vaga atualizada com sucesso!");
+		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
+		
+		
 	}
 	
 	//deletar vaga
-	@GetMapping("/deletar/{id}")
-	public String deletarVaga(@PathVariable Long id) {
-		vagaServices.deleteVaga(id);
-		return "redirect:/vaga/listar";
+	@GetMapping("/deletar/{id1}/{id2}")
+	public String deletarVaga(@PathVariable("id1") Long idEmpresa, @PathVariable("id2") Long idVaga, @ModelAttribute("vaga") Vaga vaga , RedirectAttributes redirectAttributes ) {
+		vagaServices.deleteVaga(idVaga);
+		redirectAttributes.addAttribute("deletar", "Vaga deletada com sucesso!");
+		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
 	}
 }

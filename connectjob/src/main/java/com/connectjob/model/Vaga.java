@@ -35,9 +35,9 @@ public class Vaga {
 	private String modalidade;
 	private String tipoContrato;
 	private String nivel;
-	private String uf;
+	private String localizacao;
 	private String salario;
-	private String status;
+	private String area;
 	
 	@Column(name = "data_cadastro")
     @DateTimeFormat(iso = ISO.DATE)
@@ -54,7 +54,7 @@ public class Vaga {
 	private Set<Usuario> candidato = new HashSet<>();
 	
 	public Vaga(Long id, String titulo, int quantidade, String modalidade, String tipoContrato, String nivel,
-			String descricao, String uf, LocalDate dataCadastro, String salario, String status) {
+			String descricao, String localizacao, LocalDate dataCadastro, String salario, String area) {
 		this.id = id;
 		this.titulo = titulo;
 		this.quantidade = quantidade;
@@ -62,10 +62,10 @@ public class Vaga {
 		this.tipoContrato = tipoContrato;
 		this.nivel = nivel;
 		this.descricao = descricao;
-		this.uf = uf;
+		this.localizacao = localizacao;
 		this.dataCadastro = dataCadastro;
 		this.salario = salario;
-		this.status = status;
+		this.area = area;
 		
 	}
 	
@@ -129,12 +129,12 @@ public class Vaga {
 		this.descricao = descricao;
 	}
 
-	public String getUf() {
-		return uf;
+	public String getLocalizacao() {
+		return localizacao;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
 	}
 
 	public LocalDate getDataCadastro() {
@@ -145,12 +145,13 @@ public class Vaga {
 		this.dataCadastro = dataCadastro;
 	}
 	
-	public String getStatus() {
-		return status;
+
+	public String getArea() {
+		return area;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setArea(String area) {
+		this.area = area;
 	}
 
 	public Set<Usuario> getCandidato() {

@@ -17,4 +17,5 @@ public interface VagaServices {
 	void deleteVaga(Long id);
 
 	List<Vaga> findByEmpresaId(Long id);
+	
 }
