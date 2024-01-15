@@ -2,6 +2,8 @@ package com.connectjob.model;
 
 
 
+import com.connectjob.enums.UserRole;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,20 +32,32 @@ public class Usuario {
 	@Column(nullable = true, length = 14)
 	private String cpf;
 	
+	@Column(nullable = true, length = 80)
+	private UserRole role;
 	
+
 	public Usuario() {
 		 
 	}
 	
-	public Usuario(Long id, String nome, String cpf, String email, String senha) {
+	public Usuario(Long id, String nome, String cpf, String email, String senha, UserRole role) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.senha = senha;
+		this.role = role;
 	}
 	
+	public UserRole getRole() {
+		return role;
+	}
 
+	public void setRole(UserRole role) {
+		this.role = role;
+	}
+
+	
 	public Long getId() {
 		return id;
 	}
