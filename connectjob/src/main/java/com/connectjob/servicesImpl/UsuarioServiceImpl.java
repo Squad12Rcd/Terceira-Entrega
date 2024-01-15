@@ -1,6 +1,7 @@
 package com.connectjob.servicesImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,11 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	@Override
 	public void deleteUsuario(Long id) {
 		usuarioRepository.deleteById(id);
+	}
+
+	@Override
+	public Optional<Usuario> findByEmail(String email) {
+		return Optional.empty();
 	}
 
 }
