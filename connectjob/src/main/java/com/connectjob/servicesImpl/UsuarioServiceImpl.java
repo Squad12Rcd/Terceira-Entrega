@@ -17,6 +17,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	
 	@Override
 	public List<Usuario> getAllUsuarios() {
 		return usuarioRepository.findAll();
@@ -53,9 +54,11 @@ public class UsuarioServiceImpl implements UsuarioServices {
 		usuarioRepository.deleteById(id);
 	}
 
+
 	@Override
 	public Optional<Usuario> findByEmail(String email) {
 		return Optional.empty();
 	}
+
 
 }

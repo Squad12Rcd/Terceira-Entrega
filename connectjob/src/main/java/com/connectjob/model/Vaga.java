@@ -21,10 +21,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "vaga")
 public class Vaga {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	
 	
 	@Column(columnDefinition = "TEXT")
@@ -48,10 +48,10 @@ public class Vaga {
 	private Empresa empresa;
 	
 	@ManyToMany
-	@JoinTable(name = "vagas_usuario",
-	joinColumns = @JoinColumn(name = "vaga_id"),
-	inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	private Set<Usuario> candidato = new HashSet<>();
+	@JoinTable(name = "usuario_vagas",
+	   joinColumns = @JoinColumn(name = "vaga_id"),
+	   inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	   private Set<Usuario> candidatos = new HashSet<>();
 	
 	public Vaga(Long id, String titulo, int quantidade, String modalidade, String tipoContrato, String nivel,
 			String descricao, String localizacao, LocalDate dataCadastro, String salario, String area) {
@@ -155,11 +155,11 @@ public class Vaga {
 	}
 
 	public Set<Usuario> getCandidato() {
-		return candidato;
+		return candidatos;
 	}
 
 	public void setCandidato(Set<Usuario> candidato) {
-		this.candidato = candidato;
+		this.candidatos = candidato;
 	}
 	
 	public String getSalario() {

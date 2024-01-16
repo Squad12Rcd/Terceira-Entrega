@@ -18,62 +18,46 @@
 </head>
 
 <body>
-    <header th:replace="~{headerUsuario :: headerUsuario}">
+    
      
-    </header>
+    
     <div id="content-header">
                <img th:src="@{/img/acordo.jpg}" id="header-background">
                <div class="col" id="content">  
 				   <p class="fs-1 text-center p-3"> Vagas de Emprego</p>              
    
                 <div class="col d-flex justify-content-center">
-                
+ 
             </div>
             </div>
             </div>
             <div class="container-fluid p-3 header-vagas" id="background-div">
-			
+			               <p class="fs-2 text-center"> Vaga aplicada com sucesso! </p>
         </div>
     <main class="container d-flex flex-column justify-content-center">
-
-        
-        <div class="buscavagas">
-	<ul>
-        <li th:each="buscas : ${buscas}">
-            <span th:text="${vaga.titulo}"></span>
-        </li>
-    </ul>			
-		</div>
-        
+]
         <section class="d-flex justify-content-center row row-cols-md-2 row-cols-sm-1 p-3 container table-responsive " id="vagas">
 			  
-	  <tr th:each="vagas : ${vagas}" class="row row-cols-1 row-cols-md-2 g-4">     
+	  <tr th:each="vaga : ${vaga}" class="row row-cols-1 row-cols-md-2 g-4">     
 		  
 <div class="col">
-		<form th:action="@{/usuario/aplicarVaga/{id1}/{id2}(id1=${usuario.id}, id2=${vagas.id})}" method="post">    
     <div class="card shadow">      
       <div class="card-body">
-        <h5 class="card-title" th:text="${vagas.titulo}"> Front-End </h5>
+        <h5 class="card-title" th:text="${vaga.titulo}"> Front-End </h5>
         <div class="text-card">
 			<div class="d-flex flex-column" >
 			
 			
-			<li class="fs-5 bolder">Localização </li><span th:text="${vagas.localizacao}"></span>
-			<li class="fs-5 bolder">Salário </li><span th:text="${vagas.salario}"></span>
-			<li class="fs-5 bolder"> Área </li><span th:text="${vagas.area}"></span>
-			
-
-		<button type="submit" class="btn btn-success mt-3" > Aplicar Vaga </button>  
-      </form>  
+			<li class="fs-5 bolder">Localização </li><span th:text="${vaga.localizacao}"></span>
+			<li class="fs-5 bolder">Salário </li><span th:text="${vaga.salario}"></span>
+			<li class="fs-5 bolder"> Área </li><span th:text="${vaga.area}"></span>
 			</div>
 		</div>
-        
-      
+        <button type="button" class="btn btn-success mt-3">Aplicar Vaga</button>
       </div>
-
     </div>
   </div>
-			    
+
                         
 
   </tbody>
@@ -82,7 +66,7 @@
         </section>
     </main>
 
-<footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
+	<footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
 
        
     </footer>

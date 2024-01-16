@@ -2,7 +2,12 @@ package com.connectjob.services;
 
 import java.util.List;
 
+
+
 import com.connectjob.model.Vaga;
+
+
+
 
 public interface VagaServices {
 
@@ -17,5 +22,8 @@ public interface VagaServices {
 	void deleteVaga(Long id);
 
 	List<Vaga> findByEmpresaId(Long id);
+	
+ 
+
 	
 }

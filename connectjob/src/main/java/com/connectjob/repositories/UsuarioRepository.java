@@ -11,5 +11,5 @@ import com.connectjob.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	Optional<Usuario> findByEmail(String email);
-	
+
 }
