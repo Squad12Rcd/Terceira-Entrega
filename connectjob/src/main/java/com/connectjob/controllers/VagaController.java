@@ -42,19 +42,19 @@ public class VagaController {
 		return "area-vagas";
 	}
 	
-	@GetMapping("/cadastro/{id}")
-	public String formVaga(@PathVariable Long id, Model model) {
+	@GetMapping("/cadastro/{idEmpresa}")
+	public String formVaga(@PathVariable("idEmpresa") Long idEmpresa, Model model) {
 
 		Vaga vaga = new Vaga();
 		model.addAttribute("vaga", vaga);
-		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(idEmpresa);
 		model.addAttribute("empresa", empresaLocalizada);	
 		
 		return "cadastro-vagas";
 	}
 
-	@PostMapping("/cadastrar/{id}")
-	public String cadastrarVaga(@PathVariable("id") Long idEmpresa, @ModelAttribute("vaga") Vaga vaga, RedirectAttributes redirectAttributes) {
+	@PostMapping("/cadastrar/{idEmpresa}")
+	public String cadastrarVaga(@PathVariable("idEmpresa") Long idEmpresa, @ModelAttribute("vaga") Vaga vaga, RedirectAttributes redirectAttributes) {
 		vagaServices.saveVaga(vaga);
 		redirectAttributes.addAttribute("cadastrado", "Vaga cadastrada com sucesso!");
 		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;

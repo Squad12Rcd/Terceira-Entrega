@@ -16,6 +16,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	
 	@Override
 	public List<Usuario> getAllUsuarios() {
 		return usuarioRepository.findAll();
@@ -51,5 +52,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	public void deleteUsuario(Long id) {
 		usuarioRepository.deleteById(id);
 	}
+
+		
 
 }

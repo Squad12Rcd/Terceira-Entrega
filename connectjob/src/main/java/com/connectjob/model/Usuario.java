@@ -2,12 +2,17 @@ package com.connectjob.model;
 
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,18 +36,41 @@ public class Usuario {
 	private String cpf;
 	
 	
+    @ManyToMany
+	@JoinTable(name = "usuario_vagas",
+	joinColumns = @JoinColumn(name = "usuario_id"),
+	inverseJoinColumns = @JoinColumn(name = "vaga_id"))
+	private Set<Vaga> vagas = new HashSet<>();
+	
+	
 	public Usuario() {
 		 
 	}
 	
-	public Usuario(Long id, String nome, String cpf, String email, String senha) {
+
+	public Usuario(Long id, String nome, String senha, String email, String cpf, Set<Vaga> vagas) {
+		super();
 		this.id = id;
 		this.nome = nome;
-		this.cpf = cpf;
-		this.email = email;
 		this.senha = senha;
+		this.email = email;
+		this.cpf = cpf;
+		this.vagas = vagas;
 	}
-	
+
+
+
+	public Set<Vaga> getVagas() {
+		return vagas;
+	}
+
+
+
+	public void setVagas(Set<Vaga> vagas) {
+		this.vagas = vagas;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -83,4 +111,6 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 }

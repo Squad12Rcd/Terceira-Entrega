@@ -34,6 +34,8 @@ public class UsuarioController {
 		Usuario usuariolocalizado =  usuarioServices.getUsuarioById(id);		
 		model.addAttribute("usuario", usuariolocalizado);
 		
+	
+		
 		return "homeusuario";
 	}
 	
@@ -111,4 +113,21 @@ public class UsuarioController {
 		usuarioServices.deleteUsuario(id);
 		return "index";
 	}
-}
+	
+	@PostMapping("/aplicarVaga/{id1}/{id2}")
+	public String aplicarVaga(@PathVariable("id1") Long idUsuario, @PathVariable("id2") Long idVaga) {
+			
+		Usuario usuario = usuarioServices.getUsuarioById(idUsuario);
+		System.out.println(usuario + "Pegou!");
+		Vaga vaga = vagaServices.getVagaById(idVaga);
+		
+		usuario.getVagas().add(vaga);
+		usuarioServices.saveUsuario(usuario);
+		
+		return "vagaAplicada";
+		
+		}
+
+	}
+
+

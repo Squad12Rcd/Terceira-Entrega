@@ -29,6 +29,7 @@ public class EmpresaController {
 	private VagaRepository vagaRepository;
 	@Autowired
 	private VagaServices vagaServices;
+	
 
 	@GetMapping("/home/{idEmpresa}")
 	public String HomeEmpresa (@PathVariable(value = "idEmpresa") Long id, Model model) {
@@ -87,11 +88,11 @@ public class EmpresaController {
 	
 	/* ÁREA VAGAS */
 	
-	@GetMapping("/areaVagas/{id}")
-	public String areaVagas(@PathVariable Long id, Model model) {
-		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
+	@GetMapping("/areaVagas/{idEmpresa}")
+	public String areaVagas(@PathVariable Long idEmpresa, Model model) {
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(idEmpresa);
 		model.addAttribute("empresa", empresaLocalizada);
-		List<Vaga> vagas = vagaServices.findByEmpresaId(id);
+		List<Vaga> vagas = vagaServices.findByEmpresaId(idEmpresa);
 		model.addAttribute("vagasEmpresa", vagas);
 		
 		return "area-vagas";
