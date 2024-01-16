@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@200;300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <title>ConnectJob - Contatos</title>
+</head>
+
+<body>
+    <header  th:replace="~{headerUsuario :: headerUsuario}">
+       
+    </header>
+
+    <main class="container p-5">
+
+        <p class="fs-2 text-center"> Entre em contato conosco!</p>
+
+        <section class="row gap-3 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1 d-flex justify-content-center text-center" id="area-contato">
+            <div class="col">
+                <i class="bi bi-geo-alt"></i>
+                <div id="endereco">
+                    <p> Praça Senador Salgado Filho, s/n° – Rio de Janeiro – RJ</p>
+                </div>
+
+            </div>
+            <div class="col ">
+                <i class="bi bi-telephone"></i>
+                 <p>Atendimento ao cliente: (11) 9999-9999</p>
+            </div>
+            </div>
+
+            <div class="col ">
+                <i class="bi bi-envelope"></i>
+                <div id="email">
+                    <p>recodeprosquad12@gmail.com</p>
+                </div>
+            </div>
+
+            <p class="mt-5 fw-bold">* Atendimento de segunda à sexta em horário comercial</p>
+        </section>
+        <hr>
+
+        <section class="mb-5">
+            <p class="fs-3">Deixe sua mensagem</p>
+            <div class="mb-3 ">
+                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                <input type="text" class="form-control focus-ring " id="exampleFormControlInput1" placeholder="Digite o seu nome">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                <input type="email" class="form-control focus-ring " id="exampleFormControlInput1"
+                    placeholder="Digite seu melhor e-mail">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                <textarea class="form-control focus-ring " id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Digite sua mensagem"></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success">Enviar</button>
+        </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{footerUsuario :: footerUsuario}">
+
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

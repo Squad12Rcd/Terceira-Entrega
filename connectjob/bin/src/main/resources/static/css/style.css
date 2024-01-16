@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Moon+Dance&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+} 
+
+
+:root {
+    --main-color: #35ad25;
+    --primary-text-color: #35ad25;
+    --secondary-text-color: #5bce6a;
+    --secondary-color: #35ad25;
+    --tertiary-color: #35ad25;
+}
+
+/* VAGAS */ 
+#header-background {
+
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+   
+}
+
+  #content-header::after {
+  content: "";
+  position: absolute;            
+  left: 0;
+  width: 100%;
+  height: 70vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.5; 
+        }
+  #content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; 
+    z-index: 1; 
+  }
+
+/* QUEM SOMOS */
+
+.img-quemsomos {
+  height: 80px;  
+  border-radius: 20%;
+  margin-left: 10px;
+}
+
+#contatos .card {
+  height: 100px;
+}
+
+
+.box {
+    border-bottom: solid green 2px;
+}
+
+/* PROVA SOCIAL */
+
+.transicao {
+    opacity: 0;
+    transition: opacity 2s;
+  }
+  
+  .transicao.fade-in {
+    opacity: 3;
+  }
+  
+
+/* NAVBAR */ 
+
+.navbar{    
+    margin: 0 auto;
+    background-color: #000000;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+}
+
+.t:hover {
+
+    color: #67bc48 !important;
+
+}
+
+/* VÍDEO */
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-background .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; 
+    z-index: 1; 
+  }
+
+  .video-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+/* CARDS */ 
+
+.containercards {
+    display: flex;
+    width: auto;
+    gap: 20px;
+    align-items: end;
+    margin-top: 80px;
+  }
+  
+  .card {
+    width: 100%;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;    
+    cursor: pointer;
+  }
+  
+  .card .content {
+    display: none;
+    position: absolute;    
+    top:0;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    color: black
+  }
+  
+  .card:hover .content {
+    display: block;
+  }
+  
+/* CARDS */ 
+
+.card {
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+
+#cards-group .card-box {
+    width: 95%;
+    height: 53vh;
+    margin: auto;
+    box-shadow: 10px 10px 5px 0px rgba(113, 227, 97, 1);
+    border-radius: 0px 80px 0px 0px;
+}
+
+
+/* FORMULÁRIO */
+
+.focus-ring {
+    --bs-focus-ring-color: #4acc2a;
+}
+
+
+/* RODAPÉ */
+
+#footer {
+    color: #ffffff;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3rem 3rem 5rem;
+    
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#logoRodape {
+    width: 50%;
+    height: 150px;
+}
+
+.networks {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* FIM RODAPÉ */
+
+
+/* HOME LOGADO */
+
+#dados-aluno {
+    margin: auto;
+}
+
+#painel-vagas a {
+    margin: auto;
+}
+
+
+.box {
+    border-bottom: solid green 2px  ;
+}
+
+
+.t:hover {
+
+    color: #67bc48 !important ;
+
+}
+
+#foto-perfil {
+    width: 30vh;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+/* FIM HOME LOGADO */
+
+/* EMPREGO */
+
+
+#busca-vagas {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+
+#busca-vagas select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto;
+}
+
+
+.box-vagas {    
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #666;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+}
+
+article p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* FIM EMPREGO */
+
+/* CURSOS */
+
+.border-card {
+    border: solid 1px #35ad25 !important;
+    box-shadow: 10px 5px 5px #115e34;
+}
+
+.box {
+    border-bottom: solid green 2px  ;
+}
+
+.t:hover {
+
+    color: #67bc48 !important ;
+}
+
+.accordion {
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(23, 100, 13,0.753);
+  }
+
+/* FIM CURSOS */
+
+.left-div, .right-div {
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #f00;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .left-div {
+    left: -100px;
+    animation-name: slideFromLeft;
+  }
+  
+  .right-div {
+    right: -100px;
+    animation-name: slideFromRight;
+  }
+  
+  @keyframes slideFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .card {
+
+    height: 80vh;
+  }
+
+  .card img {
+    height: 120px;
+    width: 50%;
+    margin: auto;
+  }
