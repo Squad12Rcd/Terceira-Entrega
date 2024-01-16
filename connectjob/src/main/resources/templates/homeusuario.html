@@ -67,15 +67,16 @@
 
                     <div class="w-50 mx-auto mt-4">
 				<a class="text-dark" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}">
-					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-person-fill-check" viewBox="0 0 16 16">
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
 </svg>
 </a>                       
                     </div>   
                 <div class="d-flex justify-content-center">
-                                           <a th:href="@{/usuario/vagas/{id}(id=${usuario.id})}">						
+                                           <a th:href="@{/usuario/profile/{id}(id=${usuario.id})}">						
 						<button type="button"
-                            class="btn btn-outline-success mt-4">Vagas</button></a>
+                            class="btn btn-outline-success mt-4"> Minhas Vagas</button></a>
                 </div>
             </div>
 
@@ -85,7 +86,7 @@
         <p class="fs-2 text-center mt-5"> <span><img th:src="@{/img/contratado.png}" alt="" width="80px"
                     height="60px"></span>Vagas Recentes </p>
 
-        <section id="painel-vagas" class="container table-responsive">
+        <section id="painel-vagas" class="container table-responsive"  th:each="vagas : ${vagas}">
 			<table class="table table-striped-columns">
   <thead class="table-dark">
     <tr>
@@ -101,11 +102,11 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Front-End</td>
-      <td>Technolite</td>
-      <td>Fortaleza, CE</td>
-      <td>A combinar</td>
-      <td>Presencial</td>
+      <td th:text="${vagas.titulo}">Front-End</d>
+      <td th:text="${vagas.empresa.nome}">Technolite</td>
+      <td th:text="${vagas.localizacao}">Fortaleza, CE</td>
+      <td th:text="${vagas.salario}">A combinar</td>
+      <td th:text="${vagas.modalidade}">Presencial</td>
       <td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
     </tr>
     <tr>

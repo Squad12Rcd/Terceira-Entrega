@@ -34,6 +34,8 @@ public class UsuarioController {
 		Usuario usuariolocalizado =  usuarioServices.getUsuarioById(id);		
 		model.addAttribute("usuario", usuariolocalizado);
 		
+		List<Vaga> vagas = vagaServices.getAllVaga();
+		model.addAttribute("vagas", vagas);
 	
 		
 		return "homeusuario";
@@ -68,6 +70,12 @@ public class UsuarioController {
 	public String perfilusuario(@PathVariable Long id, Model model) {
 		Usuario usuario = usuarioServices.getUsuarioById(id);
 		model.addAttribute("usuario", usuario);
+		
+		List<Vaga> vagasUsuario = vagaServices.findByCandidatoId(id);
+		model.addAttribute("vagas", vagasUsuario);
+		
+		
+		
 		return "userprofile";
 	}	
 	

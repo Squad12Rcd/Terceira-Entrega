@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.connectjob.model.Empresa;
 import com.connectjob.model.Vaga;
-import com.connectjob.repositories.VagaRepository;
 import com.connectjob.services.EmpresaServices;
 import com.connectjob.services.VagaServices;
 
@@ -25,8 +24,7 @@ public class EmpresaController {
 
 	@Autowired
 	private EmpresaServices empresaServices;
-	@Autowired
-	private VagaRepository vagaRepository;
+
 	@Autowired
 	private VagaServices vagaServices;
 	
@@ -36,7 +34,7 @@ public class EmpresaController {
 		
 			Empresa empresaLocalizada =  empresaServices.getEmpresaById(id);			
 	        model.addAttribute("empresa", empresaLocalizada);	    	
-			List<Vaga> vagas = vagaRepository.findByEmpresaId(id);		
+			List<Vaga> vagas = vagaServices.findByEmpresaId(id);		
 			model.addAttribute("vagas", vagas);
 			
 			return "HomeEmpresa";	

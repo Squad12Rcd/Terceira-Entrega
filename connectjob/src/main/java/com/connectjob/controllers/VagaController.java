@@ -88,4 +88,5 @@ public class VagaController {
 		redirectAttributes.addAttribute("deletar", "Vaga deletada com sucesso!");
 		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
 	}
+	
 }
