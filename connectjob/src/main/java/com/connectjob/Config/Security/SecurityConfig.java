@@ -30,8 +30,8 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
-                		.requestMatchers("/css/").permitAll()
-                        .requestMatchers("/images/").permitAll()
+                		.requestMatchers("/css/**").permitAll()
+                        .requestMatchers("/img/**").permitAll()
                         .requestMatchers("/js/**").permitAll()
                 		
                         .anyRequest().authenticated());
