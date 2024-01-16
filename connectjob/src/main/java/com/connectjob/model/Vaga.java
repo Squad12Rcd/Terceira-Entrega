@@ -51,24 +51,36 @@ public class Vaga {
 	@JoinTable(name = "usuario_vagas",
 	   joinColumns = @JoinColumn(name = "vaga_id"),
 	   inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	   private Set<Usuario> candidatos = new HashSet<>();
+	   private Set<Usuario> candidato = new HashSet<>();
 	
-	public Vaga(Long id, String titulo, int quantidade, String modalidade, String tipoContrato, String nivel,
-			String descricao, String localizacao, LocalDate dataCadastro, String salario, String area) {
+	
+	public Vaga(Long id, String descricao, String titulo, int quantidade, String modalidade, String tipoContrato,
+			String nivel, String localizacao, String salario, String area, LocalDate dataCadastro, Empresa empresa,
+			Set<Usuario> candidato) {
+		super();
 		this.id = id;
+		this.descricao = descricao;
 		this.titulo = titulo;
 		this.quantidade = quantidade;
 		this.modalidade = modalidade;
 		this.tipoContrato = tipoContrato;
 		this.nivel = nivel;
-		this.descricao = descricao;
 		this.localizacao = localizacao;
-		this.dataCadastro = dataCadastro;
 		this.salario = salario;
 		this.area = area;
-		
+		this.dataCadastro = dataCadastro;
+		this.empresa = empresa;
+		this.candidato = candidato;
 	}
-	
+
+	public Set<Usuario> getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Set<Usuario> candidato) {
+		this.candidato = candidato;
+	}
+
 	public Vaga() {
 		
 	}
@@ -154,13 +166,6 @@ public class Vaga {
 		this.area = area;
 	}
 
-	public Set<Usuario> getCandidato() {
-		return candidatos;
-	}
-
-	public void setCandidato(Set<Usuario> candidato) {
-		this.candidatos = candidato;
-	}
 	
 	public String getSalario() {
 		return salario;
