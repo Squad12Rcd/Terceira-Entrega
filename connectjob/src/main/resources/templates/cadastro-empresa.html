@@ -8,18 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Moon+Dance&display=swap" rel="stylesheet">
-     <link th:href="@{/css/cadastro.css}" rel="stylesheet" />
+    <link th:href="@{/css/cadastro.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Cadastro - JobConnect</title>
 </head>
 
 <body>
     <main id="container">
-        <div id="logo"><a href="index.html"><img src="../static/img/WhiteMode-64px.png" alt="" srcset=""></a></div>
+        <div id="logo"><a href="index.html"><img th:src="@{/img/WhiteMode-64px.png}" alt="" srcset=""></a></div>
         
         <form id="login-form" th:action="@{/empresa/cadastrar}" th:object="${empresa}" method="post">
             <div id="form-header">
-                <a id="login" href="login.html">Efetue Login</a>
-                <a id="cadastro" href="cadastro.html">Crie sua conta</a>
+                <a id="login" th:href="@{/usuario/login}">Efetue Login</a>
+                <a id="cadastro" th:href="@{/usuario/cadastro}">Crie sua conta</a>
             </div>
             <div id="inputs">
                 <div class="input-box">

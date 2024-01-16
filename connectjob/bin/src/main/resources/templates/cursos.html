@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@200;300&display=swap"
+        rel="stylesheet">
+   	<link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <title>Cursos - JobConnect</title>
+</head>
+
+<body>
+    <header th:replace="~{headerUsuario :: headerUsuario}">
+        
+    </header>
+
+    <div class="cabecalho">
+        <div class="titulo d-flex flex-column align-items-center">
+            <h1 class="display-1 box mb-5 mt-3">Cursos</h1>
+        </div>
+    </div>
+
+    <main class="container d-flex-columns">
+        <section class="row row-cols-lg-2 p-3 row-cols-md-2 row-cols-sm-1 row-cols-1 m-3 border-card" id="frontEnd">
+            <div class="col">
+                <img th:src="@{/img/frontEnd3.jpeg}" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="m-3">Front End</h3>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#HTML" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                HTML
+                            </button>
+                        </h2>
+                        <div id="HTML" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">O <b> HTML5</b> foi desenvolvido por Tim Berners-Lee para suprir
+                                a necessidade de uma linguagem compreendida por diferentes meios de acesso na web. Ele
+                                se baseia no conceito de hipertexto, onde elementos são ligados por conexões para formar
+                                uma rede de informações. O HTML passou por diversas versões até se tornar um padrão em
+                                1997, permitindo que a web fosse independente de plataformas e meios de acesso. Em 2004,
+                                o desenvolvimento do HTML5 começou, liderado pelo WHATWG, com o objetivo de melhorar a
+                                linguagem e torná-la mais compatível com as necessidades da época..</div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#html"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#HTML2" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                CSS
+                            </button>
+                        </h2>
+                        <div id="HTML2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">O <b>CSS</b> é uma linguagem utilizada para definir a aparência
+                                e o layout de páginas web. Ela trabalha em conjunto com o HTML e XML para personalizar
+                                cores, tamanhos, bordas e outros atributos dos elementos na página. O CSS é uma
+                                ferramenta essencial para o desenvolvimento web e pode ser escrito em um simples editor
+                                de texto.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#css"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#HTML3" aria-expanded="false" aria-controls="flush-collapseThree">
+                                JAVASCRIPT
+                            </button>
+                        </h2>
+                        <div id="HTML3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"> O <b>JavaScript</b> é uma linguagem de programação fácil de
+                                aprender, com uma sintaxe simples e versátil. Ele foi inicialmente criado para
+                                implementar
+                                interatividade em páginas web, mas com o uso do Node.js, tornou-se possível usar o
+                                JavaScript não apenas no navegador, mas também no servidor, permitindo assim a
+                                programação tanto do front-end quanto do back-end de um aplicativo web ou mobile. Isso
+                                faz do JavaScript uma linguagem Full Stack, e também uma linguagem multiplataforma, que
+                                pode ser usada em diferentes sistemas operacionais.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#javascript"><button type="button"
+                                        class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row row-cols-lg-2 p-3 row-cols-md-2 row-cols-sm-1 row-cols-1 m-3 border-card" id="dados">
+            <div class="col">
+                <img th:src="@{/img/DADOS.jpg}" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="m-3">Dados</h3>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#DADOS1" aria-expanded="false" aria-controls="flush-collapseOne">
+                                SQL
+                            </button>
+                        </h2>
+                        <div id="DADOS1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                O <b>SQL (Structured Query Language)</b> é a linguagem padrão usada para interagir com
+                                bancos de dados relacionais. É uma linguagem declarativa, o que significa que o usuário
+                                apenas precisa informar o que deseja fazer com os dados, sem se preocupar com os
+                                detalhes de
+                                como a tarefa será executada. SQL permite criar, modificar e consultar tabelas, colunas
+                                e índices, além de conceder ou revogar privilégios de acesso a usuários. Em resumo, SQL
+                                é a linguagem que permite aos desenvolvedores interagirem com o banco de dados.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#sql"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#DADOS2" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                MONGODB
+                            </button>
+                        </h2>
+                        <div id="DADOS2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">O <b>MongoDB</b> é um banco de dados orientado a documentos, que
+                                difere dos bancos de dados tradicionais no modelo relacional. Ele lida com documentos em
+                                vez de registros e é caracterizado por ser de código-fonte aberto, ter alta performance,
+                                não
+                                ter esquemas, ser multiplataforma e ser formado por aplicativos JSON. Foi lançado em
+                                2009 e já possui drivers e binários para várias linguagens e plataformas.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#mongoDB"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#DADOS3" aria-expanded="false" aria-controls="flush-collapseThree">
+                                MARIADB
+                            </button>
+                        </h2>
+                        <div id="DADOS3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                O <b>MariaDB</b> é um banco de dados criado pelos mesmos desenvolvedores do MySQL, sendo
+                                conhecido pela sua rapidez, escalabilidade, robustez e capacidade de armazenamento. Sua
+                                estrutura de código aberto também é uma de suas características principais. O MariaDB é
+                                amplamente utilizado em diversos negócios de renome.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#mariaDB"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row row-cols-lg-2 p-3 row-cols-md-2 row-cols-sm-1 row-cols-1 m-3 border-card" id="backEnd">
+            <div class="col">
+                <img th:src="@{/img/FrontBlack.jpeg}" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="m-3">Back End</h3>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#BACK1" aria-expanded="false" aria-controls="flush-collapseOne">
+                                JAVA
+                            </button>
+                        </h2>
+                        <div id="BACK1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">A linguagem <b>Java</b> é amplamente usada para codificar
+                                aplicações Web. É uma escolha
+                                popular entre os desenvolvedores há mais de duas décadas, e existem milhões de
+                                aplicações Java em
+                                uso atualmente. Java é uma linguagem multiplataforma, orientada a objetos e centrada em
+                                rede. Além disso, pode ser usada como uma plataforma em si. É uma linguagem de
+                                programação
+                                rápida, segura e confiável, adequada para codificar desde aplicações móveis e software
+                                empresarial até aplicações de big data e tecnologias do servidor.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#java"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#BACK2" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                PHP
+                            </button>
+                        </h2>
+                        <div id="BACK2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                O <b> PHP</b> é uma linguagem de programação que pode ser usada para criar sites
+                                dinâmicos e interativos. Ele é especialmente adequado para o desenvolvimento de scripts
+                                do lado do servidor, onde é usado para processar dados e gerar conteúdo dinâmico para
+                                ser exibido
+                                em um navegador da web.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#php"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#BACK3" aria-expanded="false" aria-controls="flush-collapseThree">
+                                C#
+                            </button>
+                        </h2>
+                        <div id="BACK3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                O <b> C# </b>é uma linguagem de programação moderna e orientada a objeto que permite
+                                criar aplicativos seguros e robustos para executar no .NET. Com raízes na família de
+                                linguagens C, o C# é reconhecido pelos programadores de C, C++, Java e JavaScript. É uma
+                                linguagem
+                                orientada a objetos e a componentes, fornecendo construções de linguagem para suportar
+                                diretamente esses conceitos. Isso torna o C# uma escolha natural para criar e usar
+                                componentes de software.
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#c#"><button type="button" class="btn btn-success">Assistir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row d-flex-columns row-cols-lg-1 p-3 row-cols-md-1 row-cols-sm-1 row-cols-1 text-center"
+            id="videos">
+            <div class="container d-flex justify-content-center m-3 gap-3">
+                <img th:src="@{/img/frontend.png}" class="img-fluid" alt="imagem cabeçalho da sessão front-end"
+                    width="80px">
+                <h4 class="display-6 mt-3">FRONT END</h4>
+            </div>
+
+            <hr>
+            <div class="shadow" id="frontEnd">
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2">
+                    <div class="col">
+                        <img th:src="@{/img/html5-logo.png}" alt="logo html5" class="img-fluid" width="200px">
+                        <hr>
+                        <p>O <b> HTML</b> foi desenvolvido por Tim Berners-Lee para suprir a necessidade de uma
+                            linguagem compreendida por diferentes meios de acesso na web. Ele se baseia no conceito de
+                            hipertexto,
+                            onde elementos são ligados por conexões para formar uma rede de informações. O HTML passou
+                            por diversas versões até se tornar um padrão em 1997, permitindo que a web fosse
+                            independente de plataformas e meios de acesso. Em 2004, o desenvolvimento do HTML5 começou,
+                            liderado pelo WHATWG, com o objetivo de melhorar a linguagem e torná-la mais compatível com
+                            as necessidades da época.</p>
+                    </div>
+                    <div class="col" id="html">
+
+                        <iframe id="cursoHTML" width="100%" height="500px"
+                            data="http://www.youtube.com/embed?listType=playlist&list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="css">
+                    <div class="col">
+                        <img th:src="@{/img/css3.png}" alt="logo css3" class="img-fluid" width="100px"><br>
+                        <hr>
+                        <p>O <b>CSS </b> é uma linguagem utilizada para definir a aparência e o layout de páginas web.
+                            ela trabalha em conjunto com o HTML e XML para personalizar cores, tamanhos, bordas e outros
+                            atributos dos elementos na página. <br> O CSS é uma ferramenta essencial para o
+                            desenvolvimento web e pode ser escrito em um simples editor de texto.Nesse guia você
+                            encontrará o conteúdo que precisa para iniciar seus estudos em CSS.</p>
+                    </div>
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PL2Fdisxwzt_f5C7Mv0kg1EAHhy2VJLf1c"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="javascript">
+                    <div class="col">
+                        <img th:src="@{/img/javascript.png}" alt="logo css3" class="img-fluid" width="150px"><br>
+                        <hr>
+                        <p>O <b>JavaScript</b> é uma linguagem de programação fácil de aprender, com uma sintaxe simples
+                            e versátil. Ele foi inicialmente criado para implementar interatividade em páginas web, mas
+                            com o uso do Node.js, tornou-se possível usar o JavaScript não apenas no navegador, mas
+                            também no servidor, permitindo assim a programação tanto do front-end quanto do back-end de
+                            um aplicativo web ou mobile. Isso faz do JavaScript uma linguagem Full Stack, e também uma
+                            linguagem multiplataforma, que pode ser usada em diferentes sistemas operacionais.</p>
+                    </div>
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLntvgXM11X6pi7mW0O4ZmfUI1xDSIbmTm"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center gap-3 mt-5 mb-2" id="dados">
+                <img th:src="@{/img/bancodedadosverde.jpg}" class="img-fluid"
+                    alt="imagem cabeçalho da sessão front-end" width="80px">
+                <h4 class="display-6 mt-3">DADOS</h4>
+            </div>
+
+            <hr>
+            <div class="col shadow mb-5">
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="sql">
+                    <div class="col d-flex-columns">
+                        <img th:src="@{/img/sql-logo.png}" alt="logo html5" class="img-fluid w-30 h-30"
+                            width="200px">
+                        <hr>
+                        <p>O <b>SQL (Structured Query Language)</b> é a linguagem padrão usada para interagir com
+                            bancos de dados relacionais. É uma linguagem declarativa, o que significa que o usuário
+                            apenas precisa informar o que deseja fazer com os dados, sem se preocupar com os detalhes de
+                            como a tarefa será executada. SQL permite criar, modificar e consultar tabelas, colunas
+                            e índices, além de conceder ou revogar privilégios de acesso a usuários. Em resumo, SQL
+                            é a linguagem que permite aos desenvolvedores interagirem com o banco de dados.</p>
+                    </div>
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLbIBj8vQhvm2WT-pjGS5x7zUzmh4VgvRk"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="mongoDB">
+                    <div class="col">
+                        <img th:src="@{/img/mongoDB-logo.png}" alt="logo mongoDB" class="img-fluid" width="200px">
+                        <hr>
+                        <p>O <b>MongoDB</b> é um banco de dados orientado a documentos, que
+                            difere dos bancos de dados tradicionais no modelo relacional. Ele lida com documentos em vez
+                            de
+                            registros e é caracterizado por ser de código-fonte aberto, ter alta performance, não
+                            ter esquemas, ser multiplataforma e ser formado por aplicativos JSON. Foi lançado em
+                            2009 e já possui drivers e binários para várias linguagens e plataformas.</p>
+                    </div>
+                    <div class="col" ID="mongoDB">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLyqlZW5s3wkoMhARQKp3s4YtaeKucb0Xj"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="mariaDB">
+                    <div class="col">
+                        <img th:src="@{/img/mariaDB-logo.png}" alt="logo mariaDB" class="img-fluid" width="200px">
+                        <hr>
+                        <p> O <b>MariaDB</b> é um banco de dados criado pelos mesmos desenvolvedores do MySQL, sendo
+                            conhecido pela sua rapidez, escalabilidade, robustez e capacidade de armazenamento. Sua
+                            estrutura de código aberto também é uma de suas características principais. O MariaDB é
+                            amplamente utilizado em diversos negócios de renome.</p>
+                    </div>
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLfvOpw8k80WqyrR7P7fMNREW2Q82xJlpO"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class=" d-flex justify-content-center gap-3 mb-2 ">
+                <img th:src="@{/img/icon-back.png}" class="img-fluid" alt="imagem cabeçalho da sessão front-end"
+                    width="80px">
+                <h4 class="display-6 mt-3">Back-End</h4>
+            </div>
+            <hr>
+
+            <div class="container shadow" id="backEnd">
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="java">
+                    <div class="col">
+                        <img th:src="@{/img/javalogo.png}" alt="logo java" class="img-fluid" width="200px">
+                        <hr>
+                        <p>A linguagem <b>Java</b> é amplamente usada para codificar aplicações Web. É uma escolha
+                            popular entre os desenvolvedores há mais de duas décadas, e existem milhões de aplicações
+                            Java em
+                            uso atualmente. Java é uma linguagem multiplataforma, orientada a objetos e centrada em
+                            rede. Além disso, pode ser usada como uma plataforma em si. É uma linguagem de programação
+                            rápida, segura e confiável, adequada para codificar desde aplicações móveis e software
+                            empresarial até aplicações de big data e tecnologias do servidor.</p>
+                    </div>
+                    <div class="col" id="java">
+                        <iframe width="100%" height="500px" data="https://www.youtube.com/embed/sTX0UEplF54"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="php">
+                    <div class="col">
+                        <img th:src="@{/img/php-logo.png}" alt="logo java" class="img-fluid w-50">
+                        <hr>
+                        <p>O <b> PHP </b> é uma linguagem de programação que pode ser usada para criar sites dinâmicos e
+                            interativos. Ele é especialmente adequado para o desenvolvimento de scripts do lado do
+                            servidor, onde é usado para processar dados e gerar conteúdo dinâmico para ser exibido em um
+                            navegador da web.</p>
+                    </div>
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLHz_AreHm4dlFPrCXCmd5g92860x_Pbr_"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <hr>
+                <div class="row row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-lg-2" id="c#">
+                    <div class="col">
+                        <img th:src="@{/img/csharp-logo.svg}" alt="logo c sharp" class="img-fluid img-fluid w-25">
+                        <hr>
+                        <p>O <b> C# </b>é uma linguagem de programação moderna e orientada a objeto que permite criar
+                            aplicativos seguros e robustos para executar no .NET. Com raízes na família de linguagens C,
+                            o C# é reconhecido pelos programadores de C, C++, Java e JavaScript. É uma linguagem
+                            orientada a objetos e a componentes, fornecendo construções de linguagem para suportar
+                            diretamente esses conceitos. Isso torna o C# uma escolha natural para criar e usar
+                            componentes de software.</p>
+                    </div>
+
+                    <div class="col">
+                        <iframe width="100%" height="500px"
+                            data="https://www.youtube.com/embed/videoseries?list=PLx4x_zx8csUglgKTmgfVFEhWWBQCasNGi"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer id="footer" class="mt-5"  th:replace="~{footerUsuario :: footerUsuario}">
+
+    </footer>
+
+    <script>
+
+        const carregarVideos = () => {
+
+            const dataAtt = document.querySelectorAll("[data]");
+
+            dataAtt.forEach((alvo) => {
+                if (alvo.getBoundingClientRect().top < window.innerHeight) {
+                    alvo.src = alvo.getAttribute("data");
+                    alvo.removeAttribute("data")
+                }
+            })
+        };
+
+        window.onscroll = () => {
+            carregarVideos()
+        };
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
