@@ -29,9 +29,9 @@
         <h1 class="text-center text-success"> Cadastro de Vaga</h1>
     </div>
 	<form class="row g-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}" method="post">
-        <div class="col-md-6">		
+        <div class="col-md-6" th:object="${empresa}">		
 			<label for="nome"> ID da empresa </label>
-			<input class="form-control" type="number" id="nome" th:field="*{empresa}" />
+			<input class="form-control" type="number" id="nome" th:field="*{id}" th:readonly="readonly"/>
 		</div>
         <div class="col-md-6">
 			<label for="nome"> Titulo da vaga </label>
