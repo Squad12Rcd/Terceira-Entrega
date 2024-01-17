@@ -26,9 +26,26 @@
                             <a class="nav-link t" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"> Contatos </a>
                         </li>
                         
-                        <li class="nav-item">
-                			<a class="nav-link t" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Meu Perfil </a>            
+                        
+                        
+                        <div class="dropdown mx-auto">
+						  <button class="nav-link t text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						      <li class="list-group-item"><span th:text="${usuario.nome}"></span></li>
+						  </button>
+						  <ul class="dropdown-menu">
+						    <li class="nav-item">
+                			<a class="nav-link t text-black" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"> Meu Perfil </a>            
                         </li>
+                     
+                      <li>
+								<a class="nav-link t text-black" href="">Minhas Vagas</a>
+								</li>
+                     
+						    <li>
+								<a class="nav-link t text-black" href="">Logout</a>
+								</li>
+						  </ul>
+						</div>
                          
                     </ul>
                 </div>
