@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header th:replace="~{headerUsuario :: headerUsuario}">
+    <header th:replace="~{fragments/headerUsuario :: headerUsuario}">
      
     </header>
 
@@ -19,43 +19,42 @@
 		
 		<p class="fs-1 text-center box mt-3">Vagas de emprego </p>
         
-        <section class="d-flex justify-content-center row row-cols-md-2 row-cols-sm-1 p-3 container table-responsive " id="vagas">
-			  
-	  <tr th:each="vagas : ${vagas}" class="row row-cols-1 row-cols-md-2 g-4">     
-		  
-<div class="col">
-		<form th:action="@{/usuario/aplicarVaga/{id1}/{id2}(id1=${usuario.id}, id2=${vagas.id})}" method="post">    
-    <div class="shadow text-center w-75 mx-auto">      
-      <div class="card-body">
-        <h5 class="card-title" th:text="${vagas.titulo}"> Front-End </h5>
-        <div class="text-card">
-			<div class="d-flex flex-column" >		
-			
-			<li class="fs-5 bolder">Localização </li><span th:text="${vagas.localizacao}"></span>
-			<li class="fs-5 bolder">Salário </li><span th:text="${vagas.salario}"></span>
-			<li class="fs-5 bolder"> Área </li><span th:text="${vagas.area}"></span>
-			
-
-		<button type="submit" class="btn btn-success mt-3" > Aplicar Vaga </button>  
-      </form>  
-			</div>
-		</div>
-        
-      
+ <section class="" id="vagas">
+			  	 
+  <div class="accordion mt-4" id="accordionExample" th:each="vagas : ${vagas}">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <div class="accordion-button" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse' + ${vagas.id}" aria-expanded="true" aria-controls="collapseOne">
+               <i class="bi bi-dash-circle-fill mx-3"></i>
+               <div class="col d-flex flex-column"> <li class="list-group-item active fs-4" th:text="${vagas.titulo}"> Front-End </li>
+               <li class="list-group-item active" th:text="${vagas.empresa.nome}"> Front-End </li>
+               </div>
+               <div class="col text-center"> <i class="bi bi-geo-alt-fill"></i> <li class="list-group-item active" th:text="${vagas.localizacao}"> Front-End </li></div>
+               <div class="col text-center"> <li class="list-group-item active" th:text="${vagas.tipoContrato}"> Front-End </li></div>
       </div>
-
+    </h2>
+    <div th:id="'collapse' + ${vagas.id}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		  <form th:action="@{/usuario/aplicarVaga/{id1}/{id2}(id1=${usuario.id}, id2=${vagas.id})}" method="post">   
+       		
+       		<li class="fs-5 bolder">Descrição </li><span th:text="${vagas.descricao}"></span>
+			<li class="fs-5 bolder"> Salário </li><span th:text="${vagas.salario}"></span>
+			<li class="fs-5 bolder"> Área </li><span th:text="${vagas.area}"></span>
+			<li class="fs-5 bolder"> Nível </li><span th:text="${vagas.nivel}"></span>
+			<li class="fs-5 bolder"> Quantidade </li><span th:text="${vagas.quantidade}"></span>
+					
+					<div class="d-flex justify-content-center">
+					<button type="submit" class="btn btn-success mt-3" > Aplicar Vaga </button>
+					</div>  
+					      </form>  
+      </div>
     </div>
-  </div>
-			    
-                        
-
-  </tbody>
-</table>  			
+  </div>	
 			
         </section>
     </main>
 
-<footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
+    <footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
 
        
     </footer>
