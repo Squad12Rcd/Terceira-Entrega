@@ -20,25 +20,18 @@
 <body>
     <header th:replace="~{headerEmpresa :: headerEmpresa}">
     </header>
-
   <main class="container">
-
-  <h1 class="text-success mt-5"> Boas vindas, <span th:text="${empresa.nome}"></span>!</h1>
- 
-         <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
-
+  <h1 class="text-success mt-5"> Boas vindas, <span th:text="${empresa.nome}"></span>!</h1> 
+         <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">  
             <div class="p-3 text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
-
                     <div class="w-50 mx-auto">
                         <a class="text-dark" th:href="@{/usuario/visualizar/{id}(id=${empresa.id})}">
 						<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
-  <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
-  <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"/>
-</svg>
-							</a>                        
-                    </div>                    
-                    
-                    
+						  	<path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
+						  	<path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"/>
+						</svg>
+						</a>                        
+                    </div>                                                           
                     <div class="d-flex justify-content-center">
                     <a th:href="@{/empresa/perfilEmpresa/{id}(id=${empresa.id})}">						
 						<button type="button"
@@ -47,72 +40,58 @@
                     </p>
                 </div>
             </div>
-
             <div class="col text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
-  
                     <div class="w-50 mx-auto mt-3">
 					<a class="text-dark" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}">
 					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
-  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
-  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
-</svg> 				
+					  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+					  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+					</svg> 				
 					</a>                    
                     </div>   
-                <div class="d-flex justify-content-center  mb-3 ">
-						
+                <div class="d-flex justify-content-center  mb-3 ">						
 						<button type="button" class="btn btn-outline-success mt-4"> Vagas</button></a>
                 </div>
             </div>
-                        <div class="col text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
-
+                 <div class="col text-bg-light mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
                     <div class="w-50 mx-auto mt-3">
 				<a class="text-dark" th:href="@{/usuario/contatos/{id}(id=${empresa.id})}">
                       <svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-</svg></a>
-                    </div>   
+						  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+					</svg></a>
+				</div>   
                 <div class="d-flex justify-content-center  mb-3 ">
                 <a href="#contatos">						
 						<button type="button"
                             class="btn btn-outline-success mt-4">FAQ/Contato</button></a>
                 </div>
             </div>
- 
 			            <div class="p-3 mt-3">
 			  <p class="text-center fs-2"> Vagas Cadastradas </p> 
 			  <div class="d-flex justify-content-center">
 				  <a class="btn btn-outline-success" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
 			  </div>
         <div th:if="${#lists.isEmpty(vagas)}">
-    	<p class="fs-5 text-center fw-bolder"> Não há vagas registradas para esta empresa </p>
-    	   
+    	<p class="fs-5 text-center fw-bolder"> Não há vagas registradas para esta empresa </p>   	   
         </div>
-         
           	  <table class="table table-striped mt-5">
 	  			<thead class="thead-dark">
 				<tr>
-	
 					<th>Vaga</th>
 					<th>Categoria</th>
 					<th>Descricao</th>
-
 				</tr>
 			</thead>
 			<tbody>	      
-
-				<tr th:each="vagas: ${vagas}">					
-					
+				<tr th:each="vagas: ${vagas}">						
 					<td th:text="${vagas.titulo}"></td>
 					<td th:text="${vagas.area}"></td>
 					<td th:text="${vagas.descricao}"></td>
-
 				</tr>
 				</tbody>
 			</table>
-			
 			</div>
-		</div>
-			  
+		</div>	  
           <section class="mb-5 p-5 container d-flex flex-column" id="contatos">
             <p class="fs-3 text-center">Precisa de ajuda? Entre em contato conosco!</p>
             <div class="mb-3 ">
@@ -134,11 +113,8 @@
         </div>
           </section>
   </main>
-  
     <footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
-
     </footer>
-    
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 

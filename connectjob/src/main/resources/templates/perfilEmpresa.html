@@ -18,12 +18,9 @@
 
 <body>
     <header th:replace="~{headerEmpresa :: headerEmpresa}">
-
-    </header>
-    
+    </header>   
     <main class="container"> 
 		<p class="fs-1 text-center mt-5"> Perfil da Empresa</p>
-
 	<div class="shadow d-flex flex-column justify-content-center p-5" th:object="${empresa}">
 		<ul class="list-group list-group-flush d-flex">
 		<div class="mt-1">
@@ -46,26 +43,18 @@
 			<label for="descricao"> <strong> Senha </strong> </label>
 			<li class="list-group-item mt-1"> <span th:text="${empresa.senha}"></span></li>
 		</div>
-		</ul>
-		
-			
-
+		</ul>				
 	<div class="col text-center d-flex justify-content-center float-end mb-3 gap-5 mt-5">	
 	<a class="btn btn-success" th:href="@{/empresa/editar/{id}(id=${empresa.id})}"> <i class="bi bi-pencil-square"></i> Editar Perfil </a>	
 	<a class="btn btn-danger" th:href="@{/empresa/deletar/{id}(id=${empresa.id})}"> <i class="bi bi-trash3"></i> Excluir Perfil </a>
 	</div>	
 </div>  
-
 <div class="d-flex justify-content-center mt-5">
 	<a class="btn btn-success" th:href="@{/empresa/home/{id}(id=${empresa.id})}"> <i class="bi bi-arrow-left"></i></i> Voltar para Home </a>
-
 </div>
-	</main>
-	    
+	</main>	    
     <footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
-
     </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 

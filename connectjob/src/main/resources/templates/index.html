@@ -9,26 +9,19 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
-  
-  
 </head>
 
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
- 
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
 
-
 <body>
   <header th:replace="~{header :: header}">
- 
   </header>
-
   <section id="cabecalho">
-    <div class="video-background">
+    <div class="video-background fluid">
       <video autoplay loop muted id="video-background">
         <source th:src="@{/img/vecteezy_isometric-desktop-computer-coding-programming-technology_22328336.mp4}" type="video/mp4">
         Seu navegador não suporta vídeos em HTML5.
@@ -64,10 +57,7 @@
       </div>
 
     </div>
-        
-  
   </section>
-
   <main class="p-3 d-flex flex-column container">
     <section id="carreiras">
       <p class="fs-2 box">Carreiras</p>
@@ -91,7 +81,6 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="row">
@@ -165,7 +154,6 @@
           </div>
         </div>
       </div>
-
       <div class="row">
       <div class="container mt-5">
         <p class="fs-1 fw-bolder mt-5 transicao"> Venha conhecer as carreiras mais promissoras do mercado  </p>
@@ -184,11 +172,9 @@
             Na era da tecnologia, grandes empresas, para crescerem, precisam de bons profissionais e estão dispostas
             e remunerar muito bem.
           </p>
-
         </div>
       </div>
     </div>
-
       <div class="transicao">
         <div class="text-center box-proveSocial mt-5">
           <div class="row row-cols-2 row-cols-md-1 row-cols-sm-1">
@@ -204,12 +190,9 @@
         </div>      
       </div>
     </section>    
-
     <section id="nossoscursos" class="container-fluid">
-      <p class="fs-2 box"> Cursos </p>
-          
+      <p class="fs-2 box"> Cursos </p>       
         <div id="carouselCursos" class="carousel slide container" data-ride="carousel" data-interval="false">          
-
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
@@ -218,9 +201,15 @@
                     <div class="card-body">
                       <img th:src="@{/img/html5-logo.png}" class="card-img-top" alt="...">                      
                     </div>
-                    <h5 class="card-title">JavaScript</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <h5 class="card-title">HTML</h5>
+                    <p class="card-text">
+					     O curso de JavaScript oferece uma abordagem abrangente, partindo dos conceitos básicos até técnicas avançadas.
+						 Os alunos exploram estruturas de controle de fluxo, manipulação de eventos, 
+						 desenvolvem habilidades em programação assíncrona. Projetos práticos enriquecem a aprendizagem, 
+						 capacitando os participantes a criar aplicações interativas e dinâmicas. 
+						 Suporte individualizado e ênfase na resolução de problemas contribuem para uma experiência de aprendizado eficaz.
+						 Ao final do curso, os alunos estarão preparados para desenvolver aplicações web robustas.
+					</p>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -229,8 +218,16 @@
                       <img th:src="@{/img/css3.png}" class="card-img-top" alt="...">
                     </div>
                     <h5 class="card-title">CSS</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <p class="card-text">
+						O curso abrange do básico ao avançado em CSS no ano de 2024,
+						proporcionando uma jornada completa no design de páginas web. 
+						Ele começa com conceitos fundamentais, como seletores e propriedades básicas,
+						avançando para técnicas mais sofisticadas, como flexbox, grid layout e animações. 
+						Os alunos exploram responsividade, preprocessadores CSS e estratégias eficazes de design.
+						A experiência é enriquecida por meio de projetos práticos, 
+						capacitando os participantes a criar interfaces visuais atrativas e otimizadas para diversos dispositivos e
+						contextos finalizando em 6 meses .
+					</p>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -239,22 +236,33 @@
                       <img th:src="@{/img/javascript.png}" class="card-img-top" alt="...">
                     </div>
                     <h5 class="card-title">JavaScript</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <p class="card-text">
+					O Curso Completo de Desenvolvimento Web Moderno com JavaScript em 2024 oferece uma extensa
+					formação com quase 600 aulas distribuídas em 33 capítulos, totalizando mais de 85 horas de conteúdo. 
+					Com foco em fundamentos, exercícios e projetos práticos, o curso abrange as principais tecnologias atuais. 
+					Os participantes podem esperar uma experiência abrangente que os capacitará a
+					se tornar desenvolvedores web do nível básico ao avançado. Esta formação abrangente proporciona 
+					os conhecimentos necessários para enfrentar os desafios do desenvolvimento web moderno.
+					</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="row">
-                <div class="col-md-4">
+				   <div class="col-md-4">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <img th:src="@{/img/php-logo.png}" class="card-img-top" alt="...">
+                      <img th:src="@{/img/mariaDB-logo.png}" class="card-img-top" alt="...">
                     </div>
-                    <h5 class="card-title">PHP</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <h5 class="card-title">Maria BD</h5>
+                    <p class="card-text">
+					O curso MariaDB destina-se a desenvolvedores experientes em MariaDB, oferecendo uma abordagem prática e avançada.
+					Cobrindo temas como expressões regulares, funções de janela, rotinas armazenadas, o curso também inclui aspectos
+					de administração, como otimização de consultas, gerenciamento de índices, segurança e estratégias de backup.
+					A ênfase na prática é reforçada por meio de exercícios, proporcionando aos participantes habilidades aplicáveis 
+					em ambientes do mundo real, com possíveis tópicos avançados, como configuração de replicação e práticas para alta
+					disponibilidade.</p>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -263,8 +271,14 @@
                       <img th:src="@{/img/mongoDB-logo.png}" class="card-img-top" alt="...">
                     </div>
                     <h5 class="card-title">MongoDB</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <p class="card-text">
+					O curso abrangente de NodeJS e MongoDB capacita os participantes a desenvolver eficientemente aplicações web,
+					destacando o uso do MongoDB, um banco de dados No-SQL em ascensão. 
+					A formação abrange a criação de aplicações com NodeJS, Express e o design pattern MVC, 
+					incorporando módulos como Consign, Body-parser, Express-validator, e outros para tarefas como autoload de módulos,
+					 validação de dados e upload de arquivos. Essa abordagem prática proporciona habilidades essenciais para criar aplicações 
+					 profissionais em duas tecnologias amplamente valorizadas no mercado.
+					</p>	
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -272,9 +286,16 @@
                     <div class="card-body">
                       <img th:src="@{/img/sql-logo.png}" class="card-img-top" alt="...">
                     </div>
-                    <h5 class="card-title">SQL</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <h5 class="card-title">SQL</h5>   
+                    <p class="card-text">
+						Este curso completo de Banco de Dados e SQL, um Best Seller na área de Bancos de Dados,
+						destaca-se pela sua simplicidade e metodologia gradativa. Projetado para iniciantes, 
+						abrange MySQL, SQL Server e Oracle, introduzindo linguagens como T-SQL e PLSQL.
+						O conteúdo inclui não apenas a diferença entre linguagens SQL, mas também tarefas de
+						infraestrutura e instalação. Com foco no mercado de trabalho,
+						o instrutor combina experiência em projetos corporativos com anos de atuação no meio acadêmico,
+						garantindo um aprendizado prático e alinhado com as demandas profissionais.
+					</p>                  
                   </div>
                 </div>
               </div>
@@ -287,8 +308,15 @@
                       <img th:src="@{/img/java-logo.png}" class="card-img-top" alt="...">
                     </div>
                     <h5 class="card-title">Java</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <p class="card-text">						
+					Bem-vindos ao curso líder de mercado em Java, abrangendo do básico ao avançado! 
+					Este curso exclusivo oferece não apenas vídeo aulas, mas também material de apoio
+					para todos os capítulos, inúmeros exercícios resolvidos, e propostos com correção.
+					Inclui cobertura de design com diagramas UML . Totalmente compatível com a versão
+					LTS atual do Java, esta jornada é guiada por mais de 20 anos de experiência no ensino 
+					e trabalho profissional com Java. O passo a passo abrange programação orientada a objetos,
+					proporcionando uma compreensão abrangente e prática da linguagem Java.
+					</p>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -297,18 +325,30 @@
                       <img th:src="@{/img/csharp-logo.svg}" class="card-img-top" alt="...">
                     </div>
                     <h5 class="card-title">C#</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <p class="card-text">
+						Neste abrangente curso de Programação Orientada a Objetos em C#, começaremos do básico com exemplos didáticos,
+						avançando gradualmente para tópicos mais complexos. Exploraremos conceitos como interfaces, polimorfismo,
+						princípios SOLID, padrões de projeto, generics, expressões lambda, delegates, LINQ e outros.
+						A metodologia do curso inclui uma clara explicação teórica, com ênfase prática. Cada seção oferece exercícios
+					    resolvidos e propostos para reforçar o aprendizado, compreendendo como os tópicos se conectam na construção de
+						projetos reais .						
+					</p>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <img th:src="@{/img/javascript.png}" class="card-img-top" alt="...">
+                      <img th:src="@{/img/php-logo.png}" class="card-img-top" alt="...">
                     </div>
-                    <h5 class="card-title">JavaScript</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nesciunt non, voluptatum placeat velit autem, aliquam vitae ea libero veniam quibusdam. Numquam maxime nemo, voluptatum recusandae quae culpa animi harum.</p>
-                    <a class="btn btn-outline-success"> Conferir </a>
+                    <h5 class="card-title">PHP</h5>
+                    <p class="card-text">
+					O curso "PHP 8 do Zero ao Profissional" proporciona uma abordagem prática e eficiente para aprender PHP, 
+					abrangendo desde o ambiente de desenvolvimento até a lógica de projetos reais. 
+					Focado na criação de pequenos sites e sistemas complexos, como lojas virtuais, 
+					capacita os participantes a desenvolver projetos profissionais de maneira ágil e segura. 
+					Destacando a aplicação prática da programação, prepara os alunos para resolver problemas reais em diversos contextos,
+					tornando-os profissionais qualificados e competitivos no mercado de desenvolvimento web.
+					</p>
                   </div>
                 </div>
               </div>
@@ -321,7 +361,6 @@
           <i class="bi bi-square-fill carousel-control-next-icon text-success" href="#carouselCursos" role="button" data-bs-slide-to="2"></i>      
         </div>
     </section>
-
     <section id="contatos" class="container mt-5">
       <h3 class="text-center"> Entre em contato </h3>
       <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
@@ -349,7 +388,6 @@
             </form>
           </div>
         </div>  
-
         <div id="slideQuemSomos" class="carousel slide col mt-5" data-bs-ride="slideQuemSomos">
           <div class="carousel-inner w-75 mx-auto">
             <div class="carousel-item active">
@@ -370,14 +408,12 @@
                       </svg></a>
                       <a href="https://github.com/Renatodavid"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg>   </a>
-                                        
+                      </svg></a>                                      
                     </div>
                   </div>                  
                 </div>
                 <hr>
-              </div>
-              
+              </div>    
               <div class=" mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col">
@@ -390,9 +426,7 @@
                       </svg></a>
                       <a href="https://github.com/RafaelNasA"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg></a>
-                      
-                      
+                      </svg></a>                      
                     </div>
                   </div>
                 </div>
@@ -407,20 +441,16 @@
               <div class="body text-start">
                 <h5>Rafael Santos</h5><a href="https://www.linkedin.com/in/rafael-dos-santos-433950267/"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                </svg></a>
-               
+                </svg></a>              
                <a href="https://github.com/SantosRafael00"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                </svg></a>
-                
+                </svg></a>               
               </div>
             </div>
           </div>
         </div>
-
             </div>
-            <div class="carousel-item">
-		
+            <div class="carousel-item">	
               <div class=" mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col">
@@ -433,14 +463,12 @@
                       </svg></a>
                       <a href="https://github.com/Stephmarquess"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg> </a>
-                                           
+                      </svg> </a>                                           
                     </div>
                   </div>
                 </div>
                 <hr>
-              </div>
-              
+              </div>              
           <div class="mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col">
@@ -479,24 +507,15 @@
         </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#slideQuemSomos" data-bs-slide="prev">
-            <i class="bi bi-arrow-left text-dark fs-1"></i>         
-            
+            <i class="bi bi-arrow-left text-dark fs-1"></i>   
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#slideQuemSomos" data-bs-slide="next">
             <i class="bi bi-arrow-right text-dark fs-1"></i>            
           </button>
         </div>
-      
         </section>
-
   </main>   
-    
-
 <header  th:replace="~{footerUsuario :: footerUsuario}">
-
 </footer>
-
-   
 </body>
-
 </html>
