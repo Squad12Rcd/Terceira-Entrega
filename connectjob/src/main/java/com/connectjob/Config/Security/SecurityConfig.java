@@ -35,8 +35,9 @@ public class SecurityConfig {
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/empresa/cadastro").permitAll()
+                        .requestMatchers("/usuario/cadastro").permitAll()
                 		.anyRequest().authenticated());
-
         http.formLogin(login -> login
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
