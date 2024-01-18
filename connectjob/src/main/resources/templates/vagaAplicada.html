@@ -13,7 +13,9 @@
 
 <body>
     
-     
+    <header th:replace="~{fragments/headerUsuario :: headerUsuario}">
+		 
+	 </header>
     
     <div id="content-header">
                <img th:src="@{/img/acordo.jpg}" id="header-background">
@@ -60,7 +62,7 @@
         </section>
     </main>
 
-	<footer id="footer" class="mt-5" th:replace="~{footerUsuario :: footerUsuario}">
+	<footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
 
        
     </footer>
