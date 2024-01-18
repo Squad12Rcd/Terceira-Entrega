@@ -33,8 +33,9 @@ public class SecurityConfig {
                 		.requestMatchers("/css/**").permitAll()
                         .requestMatchers("/img/**").permitAll()
                         .requestMatchers("/js/**").permitAll()
-                		
-                        .anyRequest().authenticated());
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/login").permitAll()
+                		.anyRequest().authenticated());
 
         http.formLogin(login -> login
                 .loginPage("/login")

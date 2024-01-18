@@ -18,7 +18,13 @@
                         </li>  
                         <li class="nav-item">
                             <a class="nav-link t" th:href="@{/empresa/perfilEmpresa/{id}(id=${empresa.id})}"> Meu Perfil </a>
-                        </li>         
+                        </li>  
+                         <li class="nav-item">
+                			<div class="form-check form-switch">
+							  <label class="form-check-label" for="flexSwitchCheckChecked"><i class="bi bi-moon-fill"></i></label>
+							  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>					  
+						</div>          
+                        </li>       
                     </ul>  
                 </div>
             </div>

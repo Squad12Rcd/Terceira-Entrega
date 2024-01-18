@@ -4,15 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   	<link th:href="@{/css/style.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
     <title> ConnectJob - Empresa </title>
 </head>
 
@@ -29,9 +24,9 @@
         <h1 class="text-center text-success"> Cadastro de Vaga</h1>
     </div>
 	<form class="row g-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}" method="post">
-        <div class="col-md-6">		
+        <div class="col-md-6" th:object="${empresa}">		
 			<label for="nome"> ID da empresa </label>
-			<input class="form-control" type="number" id="nome" th:field="*{empresa}" />
+			<input class="form-control" type="number" id="nome" th:field="*{id}" th:readonly="readonly"/>
 		</div>
         <div class="col-md-6">
 			<label for="nome"> Titulo da vaga </label>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.connectjob.model.Empresa;
 import com.connectjob.model.Vaga;
@@ -45,6 +46,13 @@ public class EmpresaController {
 	public String perfilempresa(@PathVariable Long id, Model model) {
 		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
 		model.addAttribute("empresa", empresaLocalizada);
+		
+		List<Vaga> vagas = vagaServices.findByEmpresaId(id);		
+		model.addAttribute("vagasEmpresa", vagas);
+		
+		
+		
+		
 		return "perfilEmpresa";
 	}
 	
@@ -61,20 +69,12 @@ public class EmpresaController {
 		empresaServices.saveEmpresa(empresa);					
 		return "/HomeEmpresa";
 	}		
-	
-
-	@GetMapping("editar/{id}")
-	public String formEditarEmpresa(@PathVariable Long id, Model model) {
-		Empresa empresa = empresaServices.getEmpresaById(id);
-		model.addAttribute("empresa", empresa);
-		return "editarempresa";
-	}
-	
 
 	@PostMapping("/editar/{id}")
-	public String editarEmpresa(@PathVariable Long id, @ModelAttribute("empresa") Empresa empresa) {
+	public String editarEmpresa(@PathVariable Long id, @ModelAttribute("empresa") Empresa empresa, RedirectAttributes redirectAttributes) {
 		empresaServices.updateEmpresa(id, empresa);
-		return "/HomeEmpresa";
+		redirectAttributes.addAttribute("perfilAtualizado", "Perfil atualizado com sucesso!");
+		return "redirect:/empresa/perfilEmpresa/" + id;
 	}
 
 
@@ -91,8 +91,7 @@ public class EmpresaController {
 		Empresa empresaLocalizada = empresaServices.getEmpresaById(idEmpresa);
 		model.addAttribute("empresa", empresaLocalizada);
 		List<Vaga> vagas = vagaServices.findByEmpresaId(idEmpresa);
-		model.addAttribute("vagasEmpresa", vagas);
-		
+		model.addAttribute("vagasEmpresa", vagas);		
 		return "area-vagas";
 	}
 	
@@ -101,10 +100,11 @@ public class EmpresaController {
 		Empresa empresaLocalizada = empresaServices.getEmpresaById(id);
 		model.addAttribute("empresa", empresaLocalizada);
 		List<Vaga> vagas = vagaServices.findByEmpresaId(id);
-		model.addAttribute("vagasEmpresa", vagas);
+		model.addAttribute("vagasEmpresa", vagas);	
 		
 		return "gerenciarVagas";
 	}
+	
 	
 	
 	

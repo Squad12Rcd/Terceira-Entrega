@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.connectjob.model.Usuario;
 import com.connectjob.model.Vaga;
 import com.connectjob.repositories.VagaRepository;
 import com.connectjob.services.VagaServices;
@@ -66,7 +67,14 @@ public class VagaServiceImpl implements VagaServices {
 	
 	@Override
     public List<Vaga> findByCandidatoId(Long candidatoId) {
-        return vagaRepository.findByCandidatoId(candidatoId);
+        return vagaRepository.findCandidatoById(candidatoId);
     }
+
+	@Override
+	public List<Usuario> findUsuarioById(Long vagaId) {
+	
+		return vagaRepository.findUsuarioById(vagaId);
+		
+	}
 
 }
