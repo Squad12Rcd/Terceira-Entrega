@@ -55,6 +55,9 @@ public class VagaController {
 
 	@PostMapping("/cadastrar/{idEmpresa}")
 	public String cadastrarVaga(@PathVariable("idEmpresa") Long idEmpresa, @ModelAttribute("vaga") Vaga vaga, RedirectAttributes redirectAttributes) {
+		Empresa empresa = new Empresa();
+		empresa.setId(idEmpresa);
+		vaga.setEmpresa(empresa);
 		vagaServices.saveVaga(vaga);
 		redirectAttributes.addAttribute("cadastrado", "Vaga cadastrada com sucesso!");
 		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
