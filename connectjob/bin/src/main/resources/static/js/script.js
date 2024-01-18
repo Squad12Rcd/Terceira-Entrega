@@ -110,8 +110,3 @@ function typeWriter(text, i, cb) {
 
 typeWriter(text, 0);
 
-//dark-mode
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
