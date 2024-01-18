@@ -21,7 +21,7 @@ public class Runner implements CommandLineRunner{
 		usuario.setId((long)1);
 		usuario.setCpf("1");
 		usuario.setEmail("renato@gmail.com");
-		usuario.setNome("renato");
+		usuario.setNome("Renato Marques");
 		usuario.setSenha("renato");
 		usuario.setRole(UserRole.ADMIN);
 		usuarioServices.saveUsuario(usuario);

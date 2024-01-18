@@ -1,5 +1,7 @@
 package com.connectjob.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,14 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.connectjob.model.Empresa;
-
+import com.connectjob.model.Usuario;
 import com.connectjob.model.Vaga;
 import com.connectjob.services.EmpresaServices;
-
 import com.connectjob.services.VagaServices;
 
 
@@ -66,8 +66,7 @@ public class VagaController {
 		Vaga vaga = vagaServices.getVagaById(idVaga);
 		model.addAttribute("vaga", vaga);
 		Empresa empresa = empresaServices.getEmpresaById(idEmpresa);
-		model.addAttribute("empresa", empresa);
-		
+		model.addAttribute("empresa", empresa);		
 		return "editarVaga";
 	}
 	
@@ -88,5 +87,18 @@ public class VagaController {
 		redirectAttributes.addAttribute("deletar", "Vaga deletada com sucesso!");
 		return "redirect:/empresa/gerenciarVagas/" + idEmpresa;
 	}
+	
+	@GetMapping("/visualizarCandidato/{id1}/{id2}")
+	public String visualizarCandidatos(@PathVariable("id1") Long idEmpresa, @PathVariable("id2") Long idVaga, Model model ) {
+		
+		Empresa empresaLocalizada = empresaServices.getEmpresaById(idEmpresa);
+		model.addAttribute("empresa", empresaLocalizada);
+		
+		List<Usuario> localizarUsuarios = vagaServices.findUsuarioById(idVaga);		
+		model.addAttribute("candidatos", localizarUsuarios );	
+		System.out.println(localizarUsuarios);
+		return "listarCandidatos";
+	}
+	
 	
 }

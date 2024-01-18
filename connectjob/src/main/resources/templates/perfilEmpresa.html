@@ -3,16 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   	<link th:href="@{/css/style.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
     <title> ConnectJob - Home </title>
 </head>
 
@@ -21,10 +15,14 @@
 
     </header>
     
-    <main class="container"> 
-		<p class="fs-1 text-center mt-5"> Perfil da Empresa</p>
+    <main class="container shadow p-5"> 
+		<p class="fs-1 text-center mt-1 box"> Perfil da Empresa</p>
+		
+         <div th:if="${param.perfilAtualizado}" class="alert alert-success" role="alert">
+        <p class="text-center" th:text="${param.perfilAtualizado}"></p>
+   		 </div>
 
-	<div class="shadow d-flex flex-column justify-content-center p-5" th:object="${empresa}">
+	<div class="w-50 mx-auto mt-5" th:object="${empresa}">
 		<ul class="list-group list-group-flush d-flex">
 		<div class="mt-1">
 			<label for="id"><strong>ID</strong>  </label>
@@ -32,29 +30,116 @@
 		</div>
 		<div class="mt-3">
 			<label for="nome"><strong> Nome da empresa </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.nome}"></span></li>
+			<li class="list-group-item mt-1"> <span th:text="${empresa.nome}">Microsoft</span></li>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"><strong> CNPJ </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.cnpj}"></span></li>
+			<li class="list-group-item mt-1"> <span th:text="${empresa.cnpj}">1515151515151</span></li>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"><strong> E-mail </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.email}"></span></li>
+			<li class="list-group-item mt-1"> <span th:text="${empresa.email}">microsoft@microsoft.com</span></li>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"> <strong> Senha </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.senha}"></span></li>
+			<li class="list-group-item mt-1"> <span th:text="${empresa.senha}">windows1990</span></li>
 		</div>
 		</ul>
-		
-			
-
-	<div class="col text-center d-flex justify-content-center float-end mb-3 gap-5 mt-5">	
-	<a class="btn btn-success" th:href="@{/empresa/editar/{id}(id=${empresa.id})}"> <i class="bi bi-pencil-square"></i> Editar Perfil </a>	
-	<a class="btn btn-danger" th:href="@{/empresa/deletar/{id}(id=${empresa.id})}"> <i class="bi bi-trash3"></i> Excluir Perfil </a>
+	<div class="d-flex justify-content-center mb-3 gap-5 mt-5">	
+	<a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarEmpresa"> <i class="bi bi-pencil-square"></i> </a>	
+	<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarEmpresa"><i class="bi bi-trash3"></i> </a>
+	
 	</div>	
 </div>  
+
+
+<div class="modal fade" id="editarEmpresa" tabindex="-1" aria-labelledby="editarEmpresaModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editarEmpresaModal">Editar Perfil Empresa </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/empresa/editar/{id}(id=${empresa.id})}" th:object="${empresa}" method="post">
+	
+		<div class=" mt-3">
+			<label for="nome"> Nome da Empresa: </label>
+			<input class="form-control mt-1" type="text" id="nome" th:field="*{nome}" />
+		</div>
+		<div class=" mt-3">
+			<label for="email"> E-mail: </label>
+			<input class="form-control mt-1"  type="text" id="email" th:field="*{email}" />
+		</div>
+		<div class=" mt-3">
+			<label for="cnpj"> CNPJ: </label>
+			<input class="form-control mt-1" type="text" id="cnpj" th:field="*{cnpj}" autocomplete="off" minlength="14" maxlength="14" onkeypress="cnpjMask()">
+		</div>
+		<div class=" mt-3">
+			<label for="senha"> Senha: </label>
+			<input class="form-control mt-1"  type="text" id="senha" th:field="*{senha}" />
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-success" type="submit"> Salvar </button>
+      </div>
+	</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deletarEmpresa" tabindex="-1" aria-labelledby="deletarEmpresaModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deletarEmpresamOdal"> Excluir Perfil Empresa </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Realmente deseja excluir seu perfil? Você será redirecionado para a página Home.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a type="button" class="btn btn-primary" th:href="@{/empresa/deletar/{id}(id=${empresa.id})}">Confirmar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="p-5" id="vagasEmpresa">
+	<p class="fs-2"> Suas vagas cadastradas </p>
+
+	<div th:if="${#lists.isEmpty(vagasEmpresa)}">
+    	<p class="fs-5 text-center fw-bolder"> Você ainda cadastrou nenhuma vaga! </p>
+    	   
+        </div>
+        
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Vaga</th>
+      <th scope="col">Modalidade</th>
+      <th scope="col">Descricao</th>
+      <th scope="col">Nível</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr th:each="vagasEmpresa : ${vagasEmpresa}">
+      <td th:text="${vagasEmpresa.titulo}"> Desenvolvedor Java </td>
+      <td th:text="${vagasEmpresa.modalidade}"> Remoto </td>
+      <td th:text="${vagasEmpresa.descricao}"> Desenvolvedor Java, 5 dias por semana, férias, experiência desejável em Java Spring Boot </td>
+      <td th:text="${vagasEmpresa.nivel}"> Estágio </td>
+    </tr>
+  </tbody>
+</table>
+ 	      <div class="mt-3 mb-3 float-end">
+	      <a class="btn btn-success" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
+			</div>
+</section>
 
 <div class="d-flex justify-content-center mt-5">
 	<a class="btn btn-success" th:href="@{/empresa/home/{id}(id=${empresa.id})}"> <i class="bi bi-arrow-left"></i></i> Voltar para Home </a>

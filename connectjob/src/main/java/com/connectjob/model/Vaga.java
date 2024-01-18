@@ -1,8 +1,8 @@
 package com.connectjob.model;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -51,12 +51,12 @@ public class Vaga {
 	@JoinTable(name = "usuario_vagas",
 	   joinColumns = @JoinColumn(name = "vaga_id"),
 	   inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	   private Set<Usuario> candidato = new HashSet<>();
+	   private List<Usuario> usuario;
 	
 	
 	public Vaga(Long id, String descricao, String titulo, int quantidade, String modalidade, String tipoContrato,
 			String nivel, String localizacao, String salario, String area, LocalDate dataCadastro, Empresa empresa,
-			Set<Usuario> candidato) {
+			List<Usuario> usuario) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -70,15 +70,15 @@ public class Vaga {
 		this.area = area;
 		this.dataCadastro = dataCadastro;
 		this.empresa = empresa;
-		this.candidato = candidato;
+		this.usuario = usuario;
 	}
 
-	public Set<Usuario> getCandidato() {
-		return candidato;
+	public List<Usuario> getCandidato() {
+		return usuario;
 	}
 
-	public void setCandidato(Set<Usuario> candidato) {
-		this.candidato = candidato;
+	public void setCandidato(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	public Vaga() {

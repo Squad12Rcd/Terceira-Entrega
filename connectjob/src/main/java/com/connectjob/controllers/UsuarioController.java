@@ -32,12 +32,9 @@ public class UsuarioController {
 	@GetMapping("/home/{id}")
 	public String listaUsuario (@PathVariable Long id, Model model) {
 		Usuario usuariolocalizado =  usuarioServices.getUsuarioById(id);		
-		model.addAttribute("usuario", usuariolocalizado);
-		
+		model.addAttribute("usuario", usuariolocalizado);		
 		List<Vaga> vagas = vagaServices.getAllVaga();
-		model.addAttribute("vagas", vagas);
-	
-		
+		model.addAttribute("vagas", vagas);			
 		return "homeusuario";
 	}
 	
@@ -69,13 +66,9 @@ public class UsuarioController {
 	@GetMapping("/profile/{id}")
 	public String perfilusuario(@PathVariable Long id, Model model) {
 		Usuario usuario = usuarioServices.getUsuarioById(id);
-		model.addAttribute("usuario", usuario);
-		
+		model.addAttribute("usuario", usuario);		
 		List<Vaga> vagasUsuario = vagaServices.findByCandidatoId(id);
-		model.addAttribute("vagas", vagasUsuario);
-		
-		
-		
+		model.addAttribute("vagas", vagasUsuario);		
 		return "userprofile";
 	}	
 	
@@ -85,34 +78,23 @@ public class UsuarioController {
 			Usuario usuario = new Usuario();
 			model.addAttribute("usuario", usuario);
 			return "cadastro";
-		}
-		
+		}		
 
 		@PostMapping("/cadastrar")
 		public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario) {
-			usuarioServices.saveUsuario(usuario);
-						
+			usuarioServices.saveUsuario(usuario);						
 			return "homeusuario";
 		}
 		
 		@GetMapping("/login")
-		public String loginUsuario () {
-			
+		public String loginUsuario () {			
 			return "login";
-
 		}		
-
-	@GetMapping("/editar/{id}")
-	public String formEditarUsuario(@PathVariable Long id, Model model) {
-		Usuario usuario = usuarioServices.getUsuarioById(id);
-		model.addAttribute("usuario", usuario);
-		return "editarusuario";
-	}
 	
 	@PostMapping("/editar/{id}")
 	public String editarUsuario(@PathVariable Long id, @ModelAttribute("usuario") Usuario usuario) {		
 		usuarioServices.updateUsuario(id, usuario);
-		return "homeusuario";
+		return "redirect:/usuario/profile/" + id;
 	}
 	
 
@@ -126,7 +108,6 @@ public class UsuarioController {
 	public String aplicarVaga(@PathVariable("id1") Long idUsuario, @PathVariable("id2") Long idVaga) {
 			
 		Usuario usuario = usuarioServices.getUsuarioById(idUsuario);
-		System.out.println(usuario + "Pegou!");
 		Vaga vaga = vagaServices.getVagaById(idVaga);
 		
 		usuario.getVagas().add(vaga);

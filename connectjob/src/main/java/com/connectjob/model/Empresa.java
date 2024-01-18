@@ -42,9 +42,7 @@ public class Empresa {
 	public Empresa() {
 		super();
 	}
-
 	
-
 	public Empresa(Long id, String nome, String cnpj, String senha, String email) {
 		super();
 		this.id = id;

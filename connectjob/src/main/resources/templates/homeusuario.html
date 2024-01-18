@@ -5,15 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   	<link th:href="@{/css/style.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+   	<link th:href="@{/css/style.css}" rel="stylesheet" />
     <title> ConnectJob - Home </title>
 </head>
 
@@ -24,7 +18,7 @@
 
     <main class="container">		
 
-        <p class="fs-1 mt-5"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
+        <p class="fs-1 mt-5 box text-success"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
        
         <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
 
@@ -83,10 +77,10 @@
         </section>
 
 
-        <p class="fs-2 text-center mt-5"> <span><img th:src="@{/img/contratado.png}" alt="" width="80px"
+        <p class="fs-2 text-center mt-5 box"> <span><img th:src="@{/img/contratado.png}" alt="" width="80px"
                     height="60px"></span>Vagas Recentes </p>
 
-        <section id="painel-vagas" class="container table-responsive"  th:each="vagas : ${vagas}">
+        <section id="painel-vagas" class="container table-responsive">
 			<table class="table table-striped-columns">
   <thead class="table-dark">
     <tr>
@@ -100,44 +94,48 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
+    <tr th:each="vagas : ${vagas}">
+      <th scope="row"><i class="bi bi-chevron-right"></i></th>
       <td th:text="${vagas.titulo}">Front-End</d>
       <td th:text="${vagas.empresa.nome}">Technolite</td>
       <td th:text="${vagas.localizacao}">Fortaleza, CE</td>
       <td th:text="${vagas.salario}">A combinar</td>
       <td th:text="${vagas.modalidade}">Presencial</td>
-      <td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+      
     </tr>
     <tr>
-      <th scope="row">2</th>
+      <th scope="row"><i class="bi bi-chevron-right"></i></th>
       <td>Front-End</td>
       <td>SimpleTech</td>
       <td>Rio de Janeiro, RJ</td>
       <td>A combinar</td>
       <td>Remoto</td>
-<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+
     </tr>
     <tr>
-      <th scope="row">3</th>
+      <th scope="row"><i class="bi bi-chevron-right"></i></th>
       <td>Analista de Dados</td>
       <td>Banco Pandeiro</td>
       <td>Pato Branco, PR</td>
       <td>R$ 2.000,00 a R$ 2.800,00</td>
       <td>Híbrido</td>
-<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+
 </tr>
 <tr>
-      <th scope="row">4</th>
+      <th scope="row"><i class="bi bi-chevron-right"></i></th>
       <td>Banco de Dados</td>
       <td>JotaPegue</td>
       <td>Teresina, PI</td>
       <td>A combinar</td>
       <td>Presencial</td>
-<td><a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}"><button type="button" class="btn btn-success">Aplicar Vaga</button></a></td>
+
 </tr>
   </tbody>
-</table>           
+</table>   
+
+<div class="d-flex justify-content-center">
+	 <a class="btn btn-success" th:href="@{/usuario/vagas/{id}(id=${usuario.id})}"> Área Vagas </a>
+	  </div>        
         </section>
     </main>
 
