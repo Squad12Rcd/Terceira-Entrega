@@ -9,19 +9,26 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
+  
+  
 </head>
 
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
+ 
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
 
+
 <body>
   <header th:replace="~{header :: header}">
+ 
   </header>
+
   <section id="cabecalho">
-    <div class="video-background fluid">
+    <div class="video-background">
       <video autoplay loop muted id="video-background">
         <source th:src="@{/img/vecteezy_isometric-desktop-computer-coding-programming-technology_22328336.mp4}" type="video/mp4">
         Seu navegador não suporta vídeos em HTML5.
@@ -57,7 +64,10 @@
       </div>
 
     </div>
+        
+  
   </section>
+
   <main class="p-3 d-flex flex-column container">
     <section id="carreiras">
       <p class="fs-2 box">Carreiras</p>
@@ -81,6 +91,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="row">
@@ -154,6 +165,7 @@
           </div>
         </div>
       </div>
+
       <div class="row">
       <div class="container mt-5">
         <p class="fs-1 fw-bolder mt-5 transicao"> Venha conhecer as carreiras mais promissoras do mercado  </p>
@@ -172,9 +184,11 @@
             Na era da tecnologia, grandes empresas, para crescerem, precisam de bons profissionais e estão dispostas
             e remunerar muito bem.
           </p>
+
         </div>
       </div>
     </div>
+
       <div class="transicao">
         <div class="text-center box-proveSocial mt-5">
           <div class="row row-cols-2 row-cols-md-1 row-cols-sm-1">
@@ -190,8 +204,10 @@
         </div>      
       </div>
     </section>    
+
     <section id="nossoscursos" class="container-fluid">
-      <p class="fs-2 box"> Cursos </p>       
+      <p class="fs-2 box"> Cursos </p>
+          
         <div id="carouselCursos" class="carousel slide container" data-ride="carousel" data-interval="false">          
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -361,7 +377,8 @@
           <i class="bi bi-square-fill carousel-control-next-icon text-success" href="#carouselCursos" role="button" data-bs-slide-to="2"></i>      
         </div>
     </section>
-    <section id="contatos" class="container mt-5">
+
+ <section id="contatos" class="container mt-5">
       <h3 class="text-center"> Entre em contato </h3>
       <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
         <div class="col">
@@ -388,6 +405,7 @@
             </form>
           </div>
         </div>  
+
         <div id="slideQuemSomos" class="carousel slide col mt-5" data-bs-ride="slideQuemSomos">
           <div class="carousel-inner w-75 mx-auto">
             <div class="carousel-item active">
@@ -408,12 +426,14 @@
                       </svg></a>
                       <a href="https://github.com/Renatodavid"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg></a>                                      
+                      </svg>   </a>
+                                        
                     </div>
                   </div>                  
                 </div>
                 <hr>
-              </div>    
+              </div>
+              
               <div class=" mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col">
@@ -426,7 +446,9 @@
                       </svg></a>
                       <a href="https://github.com/RafaelNasA"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg></a>                      
+                      </svg></a>
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -441,18 +463,20 @@
               <div class="body text-start">
                 <h5>Rafael Santos</h5><a href="https://www.linkedin.com/in/rafael-dos-santos-433950267/"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                </svg></a>              
+                </svg></a>
+               
                <a href="https://github.com/SantosRafael00"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                </svg></a>               
+                </svg></a>
+                
               </div>
             </div>
           </div>
         </div>
+
             </div>
-
-            <div class="carousel-item">	
-
+            <div class="carousel-item">
+		
               <div class=" mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col">
@@ -465,12 +489,14 @@
                       </svg></a>
                       <a href="https://github.com/Stephmarquess"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                      </svg> </a>                                           
+                      </svg> </a>
+                                           
                     </div>
                   </div>
                 </div>
                 <hr>
-              </div>              
+              </div>
+              
           <div class="mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col">
@@ -483,26 +509,51 @@
                   </svg></a>
                   <a class="text-black" href="https://github.com/thallesSampaio"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                  </svg>
-                  </a>                     
+                  </svg></a>                     
                 </div>
               </div>
             </div>
           </div>
+          <hr>
+           <div class="mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col">
+                <img th:src="@{/img/MyllerTavares.png}" class="img-quemsomos" alt="...">
+              </div>
+              <div class="col">
+                <div class="-body text-start">
+                  <h5>Myller Tavares</h5> <a class="text-dark" href="https://www.linkedin.com/in/myller-tavares-863937234/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                  </svg></a>
+                  <a class="text-black" href="https://github.com/MyllerT"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                  </svg></a>                     
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+          </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#slideQuemSomos" data-bs-slide="prev">
-            <i class="bi bi-arrow-left text-dark fs-1"></i>   
+            <i class="bi bi-arrow-left text-dark fs-1"></i>         
+            
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#slideQuemSomos" data-bs-slide="next">
             <i class="bi bi-arrow-right text-dark fs-1"></i>            
           </button>
         </div>
+      
         </section>
-  </main>     
+
+
+  </main>   
+    
 
     <footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
 
 </footer>
+
+   
 </body>
+
 </html>

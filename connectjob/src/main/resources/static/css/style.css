@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Moon+Dance&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Moon+Dance&display=swap');
 
 
 * {
@@ -136,7 +136,7 @@ body {
   
 /* CARDS */ 
 
-.container cards {
+.containercards {
     display: flex;
     width: auto;
     gap: 20px;

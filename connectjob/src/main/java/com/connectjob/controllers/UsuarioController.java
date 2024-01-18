@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.connectjob.model.Usuario;
 import com.connectjob.model.Vaga;
@@ -105,7 +106,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/aplicarVaga/{id1}/{id2}")
-	public String aplicarVaga(@PathVariable("id1") Long idUsuario, @PathVariable("id2") Long idVaga) {
+	public String aplicarVaga(@PathVariable("id1") Long idUsuario, @PathVariable("id2") Long idVaga, RedirectAttributes redirectAttributes) {
 			
 		Usuario usuario = usuarioServices.getUsuarioById(idUsuario);
 		Vaga vaga = vagaServices.getVagaById(idVaga);
@@ -113,7 +114,9 @@ public class UsuarioController {
 		usuario.getVagas().add(vaga);
 		usuarioServices.saveUsuario(usuario);
 		
-		return "vagaAplicada";
+		redirectAttributes.addAttribute("vagaAplicada", "Vaga aplicada com sucesso!");
+		
+		return "redirect:/usuario/vagas/" + idUsuario;
 		
 		}
 

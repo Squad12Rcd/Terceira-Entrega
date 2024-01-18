@@ -20,6 +20,10 @@
 		<p class="fs-1 text-center box mt-3">Vagas de emprego </p>
         
  <section class="" id="vagas">
+	 
+	         <div th:if="${param.vagaAplicada}" class="alert alert-success" role="alert">
+        <p class="text-center" th:text="${param.vagaAplicada}"></p>
+   		 </div>
 			  	 
   <div class="accordion mt-4" id="accordionExample" th:each="vagas : ${vagas}">
   <div class="accordion-item">
