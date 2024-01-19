@@ -35,6 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/home/usuario").permitAll()
                         .requestMatchers("/empresa/cadastro").permitAll()
                         .requestMatchers("/usuario/cadastro").permitAll()
                 		.anyRequest().authenticated());
