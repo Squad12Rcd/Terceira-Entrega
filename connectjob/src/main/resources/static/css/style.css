@@ -7,12 +7,24 @@
     box-sizing: border-box;
     
 }
-
 body {
-    font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.5s ease;
+    }
 
-} 
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
 
+    .toggle-btn {
+      cursor: pointer;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+      border: none;
+      outline: none;
+    }
 
 :root {
     --main-color: #35ad25;
