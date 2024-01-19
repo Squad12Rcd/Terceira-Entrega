@@ -29,7 +29,7 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { 
 		http.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests((authorize) -> authorize
-					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**", "usuario/**").permitAll()
+					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**", "/empresa/**", "usuario/**").permitAll()
 					.requestMatchers("/empresa/**").hasRole("EMPRESA") )
 					.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/").permitAll())
 					.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
