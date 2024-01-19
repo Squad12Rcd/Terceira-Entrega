@@ -1,14 +1,14 @@
 package com.connectjob.model;
 
-
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import com.connectjob.enums.UserRole;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,34 +37,38 @@ public class Usuario {
 	@Column(nullable = true, length = 14)
 	private String cpf;
 	
-	@Column(nullable = true, length = 80)
-	private UserRole role;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "usuario_role", 
+	joinColumns = @JoinColumn(name = "usuario_id"), 
+	inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<Role> roles = new ArrayList<>();
 	
-
     @ManyToMany
 	@JoinTable(name = "usuario_vagas",
 	joinColumns = @JoinColumn(name = "usuario_id"),
 	inverseJoinColumns = @JoinColumn(name = "vaga_id"))
 	private Set<Vaga> vagas = new HashSet<>();
 
-
-
-	
-	public Usuario() {
-	}
-
-
-	public Usuario(Long id, String nome, String senha, String email, String cpf, UserRole role, Set<Vaga> vagas) {
-
+	public Usuario(Long id, String nome, String senha, String email, String cpf, List<Role> roles, Set<Vaga> vagas) {
 		this.id = id;
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
 		this.cpf = cpf;
-		this.role = role;
+		this.roles = roles;
 		this.vagas = vagas;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
+	public Usuario() {
+	}
 
 	public Long getId() {
 		return id;
@@ -115,17 +119,6 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-
-	public UserRole getRole() {
-		return role;
-	}
-
-
-	public void setRole(UserRole role) {
-		this.role = role;
-	}
-
-
 	public Set<Vaga> getVagas() {
 		return vagas;
 	}
@@ -134,8 +127,4 @@ public class Usuario {
 	public void setVagas(Set<Vaga> vagas) {
 		this.vagas = vagas;
 	}
-	
-	
-
-	
 }
