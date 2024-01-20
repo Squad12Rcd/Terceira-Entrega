@@ -2,14 +2,19 @@ package com.connectjob.model;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -34,24 +39,44 @@ public class Empresa {
 	@Column(nullable = true, length = 80)
     private String email;
 	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "empresa_role", 
+	joinColumns = @JoinColumn(name = "empresa_id"), 
+	inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<Role> roles = new ArrayList<>();
+	
 	@OneToMany
 	@JoinColumn(name = "empresa_id")
     private List<Vaga> vagas;
-	
 
 	public Empresa() {
-		super();
 	}
 	
-	public Empresa(Long id, String nome, String cnpj, String senha, String email) {
-		super();
+	public Empresa(Long id, String nome, String cnpj, String senha, String email, List<Role> roles, List<Vaga> vagas) {
 		this.id = id;
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.senha = senha;
 		this.email = email;
+		this.roles = roles;
+		this.vagas = vagas;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public List<Vaga> getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(List<Vaga> vagas) {
+		this.vagas = vagas;
+	}
 
 	public Long getId() {
 		return id;
@@ -93,5 +118,4 @@ public class Empresa {
 		this.email = email;
 	}
 
-	
-	}
+}

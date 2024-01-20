@@ -16,17 +16,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.connectjob.model.Empresa;
 import com.connectjob.model.Role;
 import com.connectjob.model.Usuario;
+import com.connectjob.repositories.EmpresaRepository;
 import com.connectjob.repositories.RoleRepository;
 import com.connectjob.repositories.UsuarioRepository;
+import com.connectjob.services.EmpresaServices;
 import com.connectjob.services.UsuarioServices;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService {
+public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, EmpresaServices {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private EmpresaRepository empresaRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -81,23 +87,79 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService {
 	public Optional<Usuario> findByEmail(String email) {
 		return usuarioRepository.findByEmail(email);
 	}
-
+	
 	@Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepository.findByEmail(email)
-            .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
-        if (usuario != null) { 
-			return new org.springframework.security.core.userdetails.User(usuario.getNome(), usuario.getSenha(),
-					mapRolesToAuthorities(usuario.getRoles()));
-		} else { 
-			throw new UsernameNotFoundException("Username ou senha inválidos.");
-		}
-    } 
+	public Optional<Empresa> findEmpresaByEmail(String email) {
+		return empresaRepository.findByEmail(email);
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	    Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
+	    Empresa empresa = empresaRepository.findByEmail(email).orElse(null);
+
+	    if (usuario != null) {
+	        return new org.springframework.security.core.userdetails.User(
+	                usuario.getNome(),
+	                usuario.getSenha(),
+	                mapRolesToAuthorities(usuario.getRoles()));
+	    } else if (empresa != null) {
+	        return new org.springframework.security.core.userdetails.User(
+	                empresa.getNome(),
+	                empresa.getSenha(),
+	                mapRolesToAuthorities(empresa.getRoles()));
+	    } else {
+	        throw new UsernameNotFoundException("Usuário não encontrado");
+	    }
+	}
 	
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 		Collection<? extends GrantedAuthority> mapRoles = roles.stream()
 				.map(role -> new SimpleGrantedAuthority(role.getAuthority())).collect(Collectors.toList());
 		return mapRoles;
+	}
+
+	
+	
+	@Override
+	public List<Empresa> getAllEmpresa() {
+		return empresaRepository.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Empresa getEmpresaById(Long id) {
+		return empresaRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Empresa saveEmpresa(Empresa empresa) {
+		Role role = roleRepository.findByAuthority("ROLE_EMPRESA");
+		if (role == null) { 
+			throw new IllegalStateException("'ROLE_EMPRESA' não encontrada.");
+		}
+		empresa.setRoles((List<Role>) Arrays.asList(role));
+		empresa.setSenha(passwordEncoder.encode(empresa.getSenha()));
+		return empresaRepository.save(empresa);
+	}
+
+	@Override
+	public Empresa updateEmpresa(Long id, Empresa empresaAtualizada) {
+		Empresa empresaExistente = empresaRepository.findById(id).orElse(null);
+		if (empresaExistente != null) {
+			empresaExistente.setNome(empresaAtualizada.getNome());
+			empresaExistente.setCnpj(empresaAtualizada.getCnpj());
+			empresaExistente.setEmail(empresaAtualizada.getEmail());
+			empresaExistente.setSenha(empresaAtualizada.getSenha());
+			return empresaRepository.save(empresaExistente);
+		} else {
+			throw new RuntimeException("Empresa com o ID " + id + "não encontrado.");
+		}
+	}
+	@Override
+	public void deleteEmpresa(Long id) {
+		empresaRepository.deleteById(id);
 	}
 
 }
