@@ -111,7 +111,9 @@ function typeWriter(text, i, cb) {
 typeWriter(text, 0);
 
 //dark-mode
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
 }
+
+console.log('Botão Modo Leitura clicado!');
