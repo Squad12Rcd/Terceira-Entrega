@@ -1,4 +1,4 @@
-<header th:fragment="headerUsuario" xmlns:th="http://www.w3.org/1999/xhtml">
+ <header th:fragment="headerUsuario">
         <nav class="navbar navbar-expand-lg bg-body-light text-center">
             <div class="container-fluid bg-nav box">
                <a class="navbar-brand"><img th:src="@{/img/DarkMode-500px.png}" alt="logo do projeto"
@@ -25,12 +25,15 @@
                         <li class="nav-item">
                             <a class="nav-link t" th:href="@{/usuario/contatos/{id}(id=${usuario.id})}"> Contatos </a>
                         </li>
+                                                <li class="nav-item">
+                                         <button class="toggle-btn" onclick="darkMode()">Modo Leitura</button>
+                        </li>
                         
-                        
+                             
                         
                         <div class="dropdown mx-auto">
 						  <button class="nav-link t text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						      <li class="list-group-item"><span th:utext="${#strings.length(usuario.nome) &gt; 16 ? #strings.substring(usuario.nome, 0, 16) + '...' : usuario.nome}"></span></li>
+						      <li class="list-group-item"><span th:text="${usuario.nome}"></span></li>
 						  </button>
 						  <ul class="dropdown-menu">
 						    <li class="nav-item">

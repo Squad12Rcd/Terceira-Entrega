@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  	<link th:href="@{/css/cadastro.css}" rel="stylesheet" />
-  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;family=Moon+Dance&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cadastro.css">
     <title>Cadastro - JobConnect</title>
 </head>
 
@@ -30,6 +30,7 @@
                         </div>
                     </label>
                 </div>
+
                 <div class="input-box">
                     <label for="cpf">
                         CPF
@@ -47,7 +48,9 @@
                             <input type="email" id="email" th:field="*{email}">
                         </div>
                     </label>
+
                 </div>
+
             </div>
             <div class="input-box">
                 <label for="senha">
@@ -59,9 +62,11 @@
                 </label>
             </div>
             <div id="form-footer">
+                
 					<button type="submit" id="cadastrar-button">Cadastrar</button>
                 <div id="cadastro-empresa-cliente">
-                    <a th:href="@{/empresa/cadastro}">Cadastro para empresas</a>                  
+                    <a th:href="@{/empresa/cadastro}">Cadastro para empresas</a>
+                   
                 </div>
             </div>
     </main>
