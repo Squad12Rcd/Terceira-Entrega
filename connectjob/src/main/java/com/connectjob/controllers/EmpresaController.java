@@ -84,7 +84,6 @@ public class EmpresaController {
 		return "index";
 	}
 	
-	/* ÁREA VAGAS */
 	
 	@GetMapping("/areaVagas/{idEmpresa}")
 	public String areaVagas(@PathVariable Long idEmpresa, Model model) {
@@ -104,12 +103,5 @@ public class EmpresaController {
 		
 		return "gerenciarVagas";
 	}
-	
-	
-	
-	
-	
-	// FIM ÁREA VAGAS
-
 
 }
