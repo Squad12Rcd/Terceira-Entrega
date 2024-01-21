@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import com.connectjob.model.Usuario;
 import com.connectjob.model.Vaga;
@@ -69,7 +71,8 @@ public class UsuarioController {
 		Usuario usuario = usuarioServices.getUsuarioById(id);
 		model.addAttribute("usuario", usuario);		
 		List<Vaga> vagasUsuario = vagaServices.findByCandidatoId(id);
-		model.addAttribute("vagas", vagasUsuario);		
+		model.addAttribute("vagas", vagasUsuario);	
+		System.out.println(vagasUsuario);
 		return "userprofile";
 	}	
 	
@@ -119,7 +122,18 @@ public class UsuarioController {
 		return "redirect:/usuario/vagas/" + idUsuario;
 		
 		}
-
+	
+	@PostMapping("/buscarVagas/{id}")
+	public String buscarVagas(@PathVariable("id") Long idUsuario, @RequestParam("area") String area, Model model) {
+		
+		Usuario localizarUsuario = usuarioServices.getUsuarioById(idUsuario);
+		model.addAttribute("usuario", localizarUsuario);
+		
+        List<Vaga> vagas = vagaServices.findByArea(area);
+        model.addAttribute("vagas", vagas);
+        System.out.println(vagas);
+        
+		return "listarVagas";
 	}
 
-
+	}
