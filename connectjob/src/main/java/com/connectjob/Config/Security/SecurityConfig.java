@@ -28,14 +28,8 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { 
 		http.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests((authorize) -> authorize
-					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**").permitAll()
-					.requestMatchers("/empresa/cadastro", "/empresa/cadastrar", "/usuario/cadastro", "/usuario/cadastrar", "/usuario/login").permitAll()
-					//*somente role usuario*
-					.requestMatchers("/usuario/**").hasRole("USUARIO")
-					//*somente role empresa*
-					.requestMatchers("/empresa/**").hasRole("EMPRESA")
-					)
-			
+					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**", "/empresa/**", "usuario/**","vaga/**").permitAll()
+					.requestMatchers("/empresa/**").hasRole("EMPRESA") )
 					.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/").permitAll())
 					.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
 					
