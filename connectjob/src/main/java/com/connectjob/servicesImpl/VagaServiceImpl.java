@@ -71,10 +71,13 @@ public class VagaServiceImpl implements VagaServices {
     }
 
 	@Override
-	public List<Usuario> findUsuarioById(Long vagaId) {
-	
-		return vagaRepository.findUsuarioById(vagaId);
-		
+	public List<Usuario> findUsuarioById(Long vagaId) {	
+		return vagaRepository.findUsuarioById(vagaId);		
+	}
+
+	@Override
+	public List<Vaga> findByArea(String area) {		
+		return vagaRepository.findByArea(area);
 	}
 
 }

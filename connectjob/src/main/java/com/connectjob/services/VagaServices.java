@@ -26,4 +26,6 @@ public interface VagaServices {
  
 	List<Usuario> findUsuarioById(Long vagaId);
 	
+	List<Vaga> findByArea(String area);
+	
 }
