@@ -4,129 +4,128 @@
 <head th:replace="~{fragments/head :: head}"></head>
 
 <body>
-  <header th:replace="~{fragments/headerEmpresa :: headerEmpresa}">
+	<header th:replace="~{fragments/headerEmpresa :: headerEmpresa}">
 
-  </header>
+	</header>
 
-  <main>
-   
-
-<div class="container shadow"> 
-    <div class="mt-5 mb-5 container">
-        <h1 class="text-center text-success"> Cadastro de Vaga</h1>
-    </div>
-	<form class="row g-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}" method="post">
-        <div class="col-md-6">		
-			<label for="nome"> ID da empresa </label>
-			<input class="form-control" type="number" id="nome" th:field="*{empresa}" />
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Titulo da vaga </label>
-			<input class="form-control" type="text" id="nome" th:field="*{titulo}" />
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Quantidade </label>
-			<input class="form-control" type="number" id="nome" th:field="*{quantidade}" />
-		</div>
-		<div class="col-md-6">
-          <label for="inputModalidade" class="form-label"> Modalidade da vaga</label>
-          <select id="inputModalidade" class="form-select" th:field="*{modalidade}">
-            <option value="Home Office" selected> Home office</option>
-            <optionv value="Presencial"> Presencial</option>
-            <option value="Híbrido"> Híbrido</option>
-            <option value="Remoto"> Remoto </option>
-          </select>
-        </div>
-        <div class="col-12">
-			<label for="descricao"> Descrição </label>
-			<input class="form-control" type="text" id="descricao" th:field="*{descricao}" />
-		</div>
-
-        <div class="col-md-6">
-<label for="nome" class="mb-3"> Nível </label><br>			
-<div class="form-check-inline">
-  <input value="Estágio" class="form-check-input" type="radio"  th:field="*{nivel}">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Estágio
-  </label>
-</div>
-<div class="form-check-inline">
-  <input value="Júnior" class="form-check-input" type="radio"  th:field="*{nivel}">
-  <label class="form-check-label" for="flexRadioDefault2">
-    Júnior
-  </label>
-</div>
-<div class="form-check-inline">
-  <input value="Trainee" class="form-check-input" type="radio"  th:field="*{nivel}">
-  <label class="form-check-label" for="flexRadioDefault1">
-    Trainee
-  </label>
-</div>
-
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Salário </label>
-			<select id="inputLocal" class="form-select" th:field="*{salario}">
-            <option value="R$1000 a R$2000"> R$1000 a R$2000</option>
-            <option value="R$2000 a R$3000">R$2000 a R$3000</option>
-            <option value="R$3000 a R$4000">R$3000 a R$4000</option>
-            <option value="R$4000 a R$5000">R$4000 a R$5000</option>
-            <option value="A combinar"> A combinar</option>
-          </select>
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Status </label>
-			<select id="inputLocal" class="form-select" th:field="*{area}">
-            <option value="Front-End"> Front-End </option>
-            <option value="Back-End">Back-End</option>
-            <option value="Dados">Dados</option>
-            
-          </select>
-		</div>        
-		<div class="col-md-6">
-			<label for="nome" class="mb-3"> Tipo de Contrato </label><br>		
-			<div class="form-check-inline">
-		  <input value="Trainee" class="form-check-input" type="radio"  th:field="*{tipoContrato}">
-		  <label class="form-check-label" for="flexRadioDefault1">
-		    Estágio
-		  </label>
+	<main>
+		<div class="container shadow">
+			<div class="mt-5 mb-5 container">
+				<h1 class="text-center text-success"> Cadastro de Vaga</h1>
 			</div>
-					<div class="form-check-inline">
-		  <input value="Trainee" class="form-check-input" type="radio"  th:field="*{tipoContrato}">
-		  <label class="form-check-label" for="flexRadioDefault1">
-		    CLT
-		  </label>
-			</div>
-					<div class="form-check-inline">
-		  <input value="Trainee" class="form-check-input" type="radio"  th:field="*{tipoContrato}">
-		  <label class="form-check-label" for="flexRadioDefault1">
-		    PJ
-		  </label>
-		</div>
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Localização (Cidade, Estado) </label>
-			<input class="form-control" type="text" id="nome" th:field="*{localizacao}" />
-		</div>
-        <div class="col-md-6">
-			<label for="nome"> Data Cadastro </label>
-			<input class="form-control" type="date" id="nome" th:field="*{dataCadastro}" />
-		</div>
-		<div class="text-center mt-3 mb-3">
-			<button class="btn btn-success" type="submit"> Salvar </button>
-		</div>
-	</form>
-    </div>
-  </main>
-  
-    <footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
+			<form class="row g-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}"
+				method="post">
+				<div class="col-md-6">
+					<label for="nome"> ID da empresa </label>
+					<input class="form-control focus-ring" type="number" id="nome" th:field="*{empresa}" />
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Titulo da vaga </label>
+					<input class="form-control focus-ring" type="text" id="nome" th:field="*{titulo}" />
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Quantidade </label>
+					<input class="form-control focus-ring" type="number" id="nome" th:field="*{quantidade}" />
+				</div>
+				<div class="col-md-6">
+					<label for="inputModalidade" class="form-label"> Modalidade da vaga</label>
+					<select id="inputModalidade" class="form-select" th:field="*{modalidade}">
+						<option value="Home Office" selected> Home office</option>
+						<optionv value="Presencial"> Presencial</option>
+							<option value="Híbrido"> Híbrido</option>
+							<option value="Remoto"> Remoto </option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="descricao"> Descrição </label>
+					<input class="form-control focus-ring" type="text" id="descricao" th:field="*{descricao}" />
+				</div>
 
-</footer>
+				<div class="col-md-6">
+					<label for="nome" class="mb-3"> Nível </label><br>
+					<div class="form-check-inline">
+						<input value="Estágio" class="form-check-input" type="radio" th:field="*{nivel}">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Estágio
+						</label>
+					</div>
+					<div class="form-check-inline">
+						<input value="Júnior" class="form-check-input" type="radio" th:field="*{nivel}">
+						<label class="form-check-label" for="flexRadioDefault2">
+							Júnior
+						</label>
+					</div>
+					<div class="form-check-inline">
+						<input value="Trainee" class="form-check-input" type="radio" th:field="*{nivel}">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Trainee
+						</label>
+					</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-    crossorigin="anonymous"></script>
-    
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Salário </label>
+					<select id="inputLocal" class="form-select" th:field="*{salario}">
+						<option value="R$1000 a R$2000"> R$1000 a R$2000</option>
+						<option value="R$2000 a R$3000">R$2000 a R$3000</option>
+						<option value="R$3000 a R$4000">R$3000 a R$4000</option>
+						<option value="R$4000 a R$5000">R$4000 a R$5000</option>
+						<option value="A combinar"> A combinar</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Área </label>
+					<select id="inputLocal" class="form-select" th:field="*{area}">
+						<option value="Front-End"> Front-End </option>
+						<option value="Back-End">Back-End</option>
+						<option value="Dados">Dados</option>
+
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label for="nome" class="mb-3"> Tipo de Contrato </label><br>
+					<div class="form-check-inline">
+						<input value="Trainee" class="form-check-input" type="radio" th:field="*{tipoContrato}">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Estágio
+						</label>
+					</div>
+					<div class="form-check-inline">
+						<input value="Trainee" class="form-check-input" type="radio" th:field="*{tipoContrato}">
+						<label class="form-check-label" for="flexRadioDefault1">
+							CLT
+						</label>
+					</div>
+					<div class="form-check-inline">
+						<input value="Trainee" class="form-check-input" type="radio" th:field="*{tipoContrato}">
+						<label class="form-check-label" for="flexRadioDefault1">
+							PJ
+						</label>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Localização (Cidade, Estado) </label>
+					<input class="form-control focus-ring" type="text" id="nome" th:field="*{localizacao}" />
+				</div>
+				<div class="col-md-6">
+					<label for="nome"> Data Cadastro </label>
+					<input class="form-control focus-ring" type="date" id="nome" th:field="*{dataCadastro}" />
+				</div>
+				<div class="text-center mt-3 mb-3">
+					<button class="btn btn-success" type="submit"> Salvar </button>
+				</div>
+			</form>
+		</div>
+	</main>
+
+	<footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
+
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+		integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+		crossorigin="anonymous"></script>
+
 </body>
 
 </html>

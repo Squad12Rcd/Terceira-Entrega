@@ -11,14 +11,12 @@ import com.connectjob.model.Vaga;
 import com.connectjob.repositories.VagaRepository;
 import com.connectjob.services.VagaServices;
 
-
 @Service
 public class VagaServiceImpl implements VagaServices {
 
 	@Autowired
 	private VagaRepository vagaRepository;
-	
-	
+
 	@Override
 	public List<Vaga> getAllVaga() {
 		return vagaRepository.findAll();
@@ -61,23 +59,28 @@ public class VagaServiceImpl implements VagaServices {
 	}
 
 	@Override
-	public List<Vaga> findByEmpresaId(Long id) {		
+	public List<Vaga> findByEmpresaId(Long id) {
 		return vagaRepository.findByEmpresaId(id);
 	}
-	
-	@Override
-    public List<Vaga> findByCandidatoId(Long candidatoId) {
-        return vagaRepository.findCandidatoById(candidatoId);
-    }
 
 	@Override
-	public List<Usuario> findUsuarioById(Long vagaId) {	
-		return vagaRepository.findUsuarioById(vagaId);		
+	public List<Vaga> findByCandidatoId(Long candidatoId) {
+		return vagaRepository.findCandidatoById(candidatoId);
 	}
 
 	@Override
-	public List<Vaga> findByArea(String area) {		
+	public List<Usuario> findUsuarioById(Long vagaId) {
+		return vagaRepository.findUsuarioById(vagaId);
+	}
+
+	@Override
+	public List<Vaga> findByArea(String area) {
 		return vagaRepository.findByArea(area);
+	}
+
+	@Override
+	public List<Vaga> findByEmpresaNome(String nome) {
+		return vagaRepository.findByEmpresaNome(nome);
 	}
 
 }

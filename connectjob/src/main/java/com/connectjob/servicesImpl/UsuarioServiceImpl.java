@@ -30,16 +30,16 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
+
 	@Autowired
 	private EmpresaRepository empresaRepository;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Override
 	public List<Usuario> getAllUsuarios() {
 		return usuarioRepository.findAll();
@@ -50,16 +50,26 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 	public Usuario getUsuarioById(Long usuarioId) {
 		return usuarioRepository.findById(usuarioId).orElse(null);
 	}
+	
+	@Override
+	public Usuario findUsuarioByNome(String nome) {
+        return usuarioRepository.findByNome(nome);
+    }
 
 	@Override
 	@Transactional
 	public Usuario saveUsuario(Usuario usuario) {
-		Role role = roleRepository.findByAuthority("ROLE_USUARIO");
-		if (role == null) { 
+		
+		Role roleLocalizado = roleRepository.findByAuthority("ROLE_USUARIO");
+		
+		if (roleLocalizado == null) {
 			throw new IllegalStateException("'ROLE_USUARIO' não encontrada.");
-		}
-		usuario.setRoles((List<Role>) Arrays.asList(role));
+		} 		
+		
+		usuario.setRoles((List<Role>)Arrays.asList(roleLocalizado));	
 		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+		System.out.println(roleLocalizado);
+		
 		return usuarioRepository.save(usuario);
 	}
 
@@ -70,7 +80,7 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 			usuarioExistente.setNome(usuarioAtualizado.getNome());
 			usuarioExistente.setCpf(usuarioAtualizado.getCpf());
 			usuarioExistente.setEmail(usuarioAtualizado.getEmail());
-			usuarioExistente.setSenha(usuarioAtualizado.getSenha());
+			usuarioExistente.setSenha(passwordEncoder.encode(usuarioAtualizado.getSenha()));
 			return usuarioRepository.save(usuarioExistente);
 		} else {
 			throw new RuntimeException("Usuario com o ID " + id + "não encontrado.");
@@ -82,45 +92,39 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 		usuarioRepository.deleteById(id);
 	}
 
-
 	@Override
 	public Optional<Usuario> findByEmail(String email) {
 		return usuarioRepository.findByEmail(email);
 	}
-	
+
 	@Override
 	public Optional<Empresa> findEmpresaByEmail(String email) {
 		return empresaRepository.findByEmail(email);
 	}
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-	    Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
-	    Empresa empresa = empresaRepository.findByEmail(email).orElse(null);
+		Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
+		Empresa empresa = empresaRepository.findByEmail(email).orElse(null);
 
-	    if (usuario != null) {
-	        return new org.springframework.security.core.userdetails.User(
-	                usuario.getNome(),
-	                usuario.getSenha(),
-	                mapRolesToAuthorities(usuario.getRoles()));
-	    } else if (empresa != null) {
-	        return new org.springframework.security.core.userdetails.User(
-	                empresa.getNome(),
-	                empresa.getSenha(),
-	                mapRolesToAuthorities(empresa.getRoles()));
-	    } else {
-	        throw new UsernameNotFoundException("Usuário não encontrado");
-	    }
+		if (usuario != null) {
+			return new org.springframework.security.core.userdetails.User(usuario.getNome(), usuario.getSenha(),
+					mapRolesToAuthorities(usuario.getRoles()));
+		} else if (empresa != null) {
+			return new org.springframework.security.core.userdetails.User(empresa.getNome(), empresa.getSenha(),
+					mapRolesToAuthorities(empresa.getRoles()));
+		} else {
+			throw new UsernameNotFoundException("Usuário não encontrado");
+		}
 	}
-	
+
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 		Collection<? extends GrantedAuthority> mapRoles = roles.stream()
 				.map(role -> new SimpleGrantedAuthority(role.getAuthority())).collect(Collectors.toList());
 		return mapRoles;
 	}
 
-	
-	
+		
 	@Override
 	public List<Empresa> getAllEmpresa() {
 		return empresaRepository.findAll();
@@ -135,11 +139,21 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 	@Override
 	@Transactional
 	public Empresa saveEmpresa(Empresa empresa) {
-		Role role = roleRepository.findByAuthority("ROLE_EMPRESA");
-		if (role == null) { 
+		
+		Role role = new Role(); 
+		String roleEmpresa = "ROLE_EMPRESA";
+						
+		role.setAuthority(roleEmpresa);
+		roleRepository.save(role);
+		
+		Role roleLocalizado = roleRepository.findByAuthority("ROLE_EMPRESA");
+		
+//		Role role = roleRepository.findByAuthority("ROLE_EMPRESA");
+		
+		if (roleLocalizado == null) {
 			throw new IllegalStateException("'ROLE_EMPRESA' não encontrada.");
 		}
-		empresa.setRoles((List<Role>) Arrays.asList(role));
+		empresa.setRoles((List<Role>) Arrays.asList(roleLocalizado));
 		empresa.setSenha(passwordEncoder.encode(empresa.getSenha()));
 		return empresaRepository.save(empresa);
 	}
@@ -157,9 +171,23 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 			throw new RuntimeException("Empresa com o ID " + id + "não encontrado.");
 		}
 	}
+
 	@Override
 	public void deleteEmpresa(Long id) {
 		empresaRepository.deleteById(id);
 	}
+
+	@Override
+	public Long getUserIdByUsername(String username) {
+
+		return null;
+	}
+
+	@Override
+	public Empresa findEmpresaByNome(String nome) {
+		return empresaRepository.findEmpresaByNome(nome);
+	}
+
+
 
 }

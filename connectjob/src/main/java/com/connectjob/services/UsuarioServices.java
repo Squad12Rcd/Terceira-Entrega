@@ -17,5 +17,8 @@ public interface UsuarioServices {
 	
 	void deleteUsuario(Long id);
 	
-	Optional<Usuario> findByEmail(String email);	
+	Optional<Usuario> findByEmail(String email);
+
+	Usuario findUsuarioByNome(String nome);	
+	
 }

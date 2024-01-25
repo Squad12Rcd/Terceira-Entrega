@@ -20,33 +20,29 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(nullable = true, length = 80)
+
+	@Column(nullable = false, length = 80, unique = true)
 	private String nome;
 
-	@Column(nullable = true, length = 250)
+	@Column(nullable = false, length = 250, unique = true)
 	private String senha;
+
+	@Column(nullable = false, length = 250, unique = true)
+	private String email;
 	
-	@Column(nullable = true, length = 80)
-    private String email;
-	
-	@Column(nullable = true, length = 14)
+	@Column(nullable = false, length = 250, unique = true)
 	private String cpf;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "usuario_role", 
-	joinColumns = @JoinColumn(name = "usuario_id"), 
-	inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "usuario_role", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles = new ArrayList<>();
-	
-    @ManyToMany
-	@JoinTable(name = "usuario_vagas",
-	joinColumns = @JoinColumn(name = "usuario_id"),
-	inverseJoinColumns = @JoinColumn(name = "vaga_id"))
+
+	@ManyToMany
+	@JoinTable(name = "usuario_vagas", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "vaga_id"))
 	private Set<Vaga> vagas = new HashSet<>();
 
 	public Usuario(Long id, String nome, String senha, String email, String cpf, List<Role> roles, Set<Vaga> vagas) {
@@ -66,54 +62,45 @@ public class Usuario {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
+
 	public Usuario() {
 	}
 
 	public Long getId() {
 		return id;
 	}
-	
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getSenha() {
 		return senha;
 	}
-
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public String getCpf() {
 		return cpf;
 	}
-
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
@@ -122,7 +109,6 @@ public class Usuario {
 	public Set<Vaga> getVagas() {
 		return vagas;
 	}
-
 
 	public void setVagas(Set<Vaga> vagas) {
 		this.vagas = vagas;

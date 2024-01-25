@@ -34,23 +34,6 @@ function cnpjMask() {
 }
 
 
-const carregarVideos = () => {
-
-    const dataAtt = document.querySelectorAll("[data]");
-    
-    dataAtt.forEach((elemento) => {
-    if (elemento.getBoundingClientRect().top < window.innerHeight) {
-        elemento.src = elemento.getAttribute("data");
-        elemento.removeAttribute("data")
-    }
-})
-};
-    
- 
-window.onscroll = () => {
-    carregarVideos()
-    };
-
 // HOME 
 
     var lastScrollTop = 0;
@@ -110,10 +93,25 @@ function typeWriter(text, i, cb) {
 
 typeWriter(text, 0);
 
-//dark-mode
-function toggleDarkMode() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-}
+ 
+  function darkMode(isDarkMode) {
+    const body = document.body;
+    body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 
-console.log('Botão Modo Leitura clicado!');
+  }
+
+
+  function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+  }
+  const savedDarkMode = localStorage.getItem('darkMode');
+  if (savedDarkMode === 'enabled') {
+    darkMode(true);
+  }console.log('Script carregado com sucesso.');
+
+ 
+
+  

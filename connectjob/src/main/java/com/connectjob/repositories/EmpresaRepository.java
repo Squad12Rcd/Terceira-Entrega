@@ -11,4 +11,6 @@ import com.connectjob.model.Empresa;
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
 	Optional<Empresa> findByEmail(String email);
+	
+	Empresa findEmpresaByNome (String nome);
 }
