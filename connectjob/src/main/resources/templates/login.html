@@ -11,13 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Moon+Dance&display=swap" rel="stylesheet">
-    <title>Login - JobConnect</title>
+    <title>Login - ConnectJob </title>
 </head>
 
 <body>
     <main id="container">
         <div id="logo"><a href="index.html"><img th:src="@{/img/WhiteMode-64px.png}" alt="" srcset=""></a></div>
-        <form id="login-form" method="POST" th:action="@{/login}">
+        <form id="login-form" method="post" th:action="@{/login}">
+			        <div th:if="${param.error}" class="alert alert-danger">    
+                    <strong>Senha e usuário inválidos!</strong>
+                </div>
+                <div th:if="${param.logout}" class="alert alert-danger"> 
+                   <strong>Você foi deslogado!</strong>
+                </div>
             <div id="form-header">
                 <a id="login" th:href="@{/usuario/login}">Efetue Login</a>
                 <a id="cadastro" th:href="@{/usuario/cadastro}">Crie sua conta</a>

@@ -21,39 +21,43 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "vaga")
 public class Vaga {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
-	
+
+	@Column(nullable = false, length = 150, unique = true)
 	private String titulo;
+	@Column(nullable = false, unique = true)
 	private int quantidade;
+	@Column(nullable = false, unique = true)
 	private String modalidade;
+	@Column(nullable = false, unique = true)
 	private String tipoContrato;
+	@Column(nullable = false, unique = true)
 	private String nivel;
+	@Column(nullable = false, unique = true)
 	private String localizacao;
+	@Column(nullable = false, unique = true)
 	private String salario;
+	@Column(nullable = false, unique = true)
 	private String area;
-	
+
 	@Column(name = "data_cadastro")
-    @DateTimeFormat(iso = ISO.DATE)
-    private LocalDate dataCadastro;
-	
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate dataCadastro;
+
 	@ManyToOne
 	@JoinColumn(name = "empresa_id")
 	private Empresa empresa;
-	
+
 	@ManyToMany
-	@JoinTable(name = "usuario_vagas",
-	   joinColumns = @JoinColumn(name = "vaga_id"),
-	   inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	   private List<Usuario> usuario;
-	
-	
+	@JoinTable(name = "usuario_vagas", joinColumns = @JoinColumn(name = "vaga_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	private List<Usuario> usuario;
+
 	public Vaga(Long id, String descricao, String titulo, int quantidade, String modalidade, String tipoContrato,
 			String nivel, String localizacao, String salario, String area, LocalDate dataCadastro, Empresa empresa,
 			List<Usuario> usuario) {
@@ -82,7 +86,7 @@ public class Vaga {
 	}
 
 	public Vaga() {
-		
+
 	}
 
 	public Long getId() {
@@ -156,7 +160,6 @@ public class Vaga {
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	
 
 	public String getArea() {
 		return area;
@@ -166,7 +169,6 @@ public class Vaga {
 		this.area = area;
 	}
 
-	
 	public String getSalario() {
 		return salario;
 	}
@@ -182,7 +184,5 @@ public class Vaga {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-
-	
 
 }

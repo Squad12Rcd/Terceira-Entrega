@@ -7,7 +7,7 @@
     <header th:replace="~{fragments/headerEmpresa :: headerEmpresa}">
     </header>
 
-  <main class="container">
+  <main class="container cabecalhoEditarVaga">
 
   <h1 class="text-success mt-5 text-center"> Editar Vaga </h1>
  
@@ -17,15 +17,15 @@
 		
         <div class="col-md-6">		
 			<label for="nome"> ID da empresa </label>
-			<input class="form-control" type="number" id="nome" th:field="*{empresa.id}" />
+			<input class="form-control focus-ring" type="number" id="nome" th:field="*{empresa.id}" />
 		</div>
         <div class="col-md-6">
 			<label for="nome"> Titulo da vaga </label>
-			<input class="form-control" type="text" id="nome" th:field="*{titulo}" />
+			<input class="form-control focus-ring" type="text" id="nome" th:field="*{titulo}" />
 		</div>
         <div class="col-md-6">
 			<label for="nome"> Quantidade </label>
-			<input class="form-control" type="number" id="nome" th:field="*{quantidade}" />
+			<input class="form-control focus-ring" type="number" id="nome" th:field="*{quantidade}" />
 		</div>
 		<div class="col-md-6">
           <label for="inputModalidade" class="form-label"> Modalidade da vaga</label>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-12">
 			<label for="descricao"> Descrição </label>
-			<input class="form-control" type="text" id="descricao" th:field="*{descricao}" />
+			<input class="form-control focus-ring" type="text" id="descricao" th:field="*{descricao}" />
 		</div>
 
         <div class="col-md-6">
@@ -105,11 +105,11 @@
 		</div>
         <div class="col-md-6">
 			<label for="localizacao"> Localização (Cidade, Estado) </label>
-			<input class="form-control" type="text" id="localizacao" th:field="*{localizacao}" />
+			<input class="form-control focus-ring" type="text" id="localizacao" th:field="*{localizacao}" />
 		</div>
         <div class="col-md-6">
 			<label for="nome"> Data Cadastro </label>
-			<input class="form-control" type="date" id="nome" th:field="*{dataCadastro}" />
+			<input class="form-control focus-ring" type="date" id="nome" th:field="*{dataCadastro}" />
 		</div>
 		<div class="text-center mt-3 mb-3">
 			<button class="btn btn-success" type="submit"> Salvar </button>

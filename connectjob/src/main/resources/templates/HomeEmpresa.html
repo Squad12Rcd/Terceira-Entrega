@@ -8,9 +8,9 @@
 		
     </header>
 
-  <main class="container">
+  <main class="container cabecalhoEmpresa">
 
-  <h1 class="text-success mt-5 box "> Boas vindas, <span th:text="${empresa.nome}"></span>!</h1>
+  <p class="fs-1 text-success mt-5 box "> Boas vindas, <span th:text="${empresa.nome}"></span>!</p>
  
          <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
 
@@ -68,14 +68,14 @@
 			            <div class="p-5 mt-3">
 			  <p class="fs-2 box"> Vagas Cadastradas </p> 
 			  <div class="d-flex justify-content-center float-end">
-				  <a class="btn btn-outline-success" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
+				  <a class="btn btn-success text-white" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
 			  </div>
         <div th:if="${#lists.isEmpty(vagas)}">
     	<p class="fs-5 text-center fw-bolder"> Não há vagas registradas para esta empresa </p>
     	   
         </div>
          
-          	  <table class="table table-striped mt-5">
+          	  <table id="tabela" class="table table-striped mt-5">
 	  			<thead class="thead-dark">
 				<tr>
 	

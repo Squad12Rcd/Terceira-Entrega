@@ -1,7 +1,5 @@
 package com.connectjob.model;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,37 +19,35 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "empresa")
 public class Empresa {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+
 	private Long id;
-	
-	@Column(nullable = false, length = 80)
-	private String nome;	
-	
-	@Column(nullable = true, length = 18)
+
+	@Column(nullable = false, length = 80, unique = true)
+	private String nome;
+
+	@Column(nullable = false, length = 18, unique = true)
 	private String cnpj;
-	
-	@Column(nullable = true, length = 250)
+
+	@Column(nullable = false, length = 250, unique = true)
 	private String senha;
-	
-	@Column(nullable = true, length = 80)
-    private String email;
-	
+
+	@Column(nullable = false, length = 80, unique = true)
+	private String email;
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "empresa_role", 
-	joinColumns = @JoinColumn(name = "empresa_id"), 
-	inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "empresa_role", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles = new ArrayList<>();
-	
+
 	@OneToMany
 	@JoinColumn(name = "empresa_id")
-    private List<Vaga> vagas;
+	private List<Vaga> vagas;
 
 	public Empresa() {
 	}
-	
+
 	public Empresa(Long id, String nome, String cnpj, String senha, String email, List<Role> roles, List<Vaga> vagas) {
 		this.id = id;
 		this.nome = nome;

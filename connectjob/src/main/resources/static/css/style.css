@@ -7,14 +7,25 @@
     box-sizing: border-box;
     
 }
+
+
 body {
       transition: background-color 0.5s ease;
     }
 
     .dark-mode {
-      background-color: #333;
+      background-color: #000000;
       color: #fff;
     }
+    
+    .cabecalhoCurso, .cabecalhoPerfil, .cabecalhoVagas, .cabecalhoContatos, .cabecalhoGerenciaVagas, .cabecalhoVisualizarCandidato {
+		margin-top:108px;
+	}
+	
+	.cabecalhoUsuario, .cabecalhoEmpresa, .cabecalhoEditarVaga { 
+		margin-top: 150px;
+	}
+	
 
     .toggle-btn {
       cursor: pointer;
@@ -25,6 +36,14 @@ body {
       border: none;
       outline: none;
     }
+    
+    #dados-aluno a {
+		color: black;
+	}
+	
+	#dados-aluno a .dark-mode {
+		color: white;
+	} 
 
 :root {
     --main-color: #35ad25;
@@ -72,6 +91,10 @@ body {
 
 #contatos .card {
   height: 100px;
+}
+
+#slideQuemSomos a {
+	color:#000000;
 }
 
 
@@ -148,6 +171,7 @@ body {
   
 /* CARDS */ 
 
+/* 
 .containercards {
     display: flex;
     width: auto;
@@ -155,14 +179,13 @@ body {
     align-items: end;
     margin-top: 80px;
   }
+  */
   
   .card {
-    width: 100%;
+    width: 90%;
     background-color: #000000;
     border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;    
+    padding: 20px;       
     cursor: pointer;
   }
   

@@ -9,7 +9,7 @@
 
     </header>
 
-	<div th:style="'background-image: url(' + @{/img/acordoEmpresa.jpg} + '); background-size: cover; height: 300px;'">
+	<div th:style="'background-image: url(' + @{/img/acordoEmpresa.jpg} + '); background-size: cover; height: 300px;'" class="cabecalhoGerenciaVagas">
 				<div>
 
   <h1 class="text-dark text-center"> Minhas Vagas </h1>
@@ -45,7 +45,7 @@
    		 </div>
          
          <div class="table-responsive">
-          	  <table class="table table-striped mt-5">
+          	  <table id="tabelaVagas" class="table table-striped mt-5">
 	  			<thead class="thead-dark">
 				<tr>
 	
@@ -73,7 +73,7 @@
 					<td th:text="${vagasEmpresa.localizacao}"></td>
 					<td th:text="${vagasEmpresa.salario}"></td>
 					<td th:text="${vagasEmpresa.nivel}"></td>					
-					<td><a type="button" class="btn btn-primary" th:href="@{/vaga/editar/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}"> <i class="bi bi-pencil-square"></i> </a></td>
+					<td><a type="button" class="btn btn-success" th:href="@{/vaga/editar/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}"> <i class="bi bi-pencil-square"></i> </a></td>
 					<td><a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarVaga"> <i class="bi bi-trash3-fill"></i> </a></td>
 					<div class="modal fade" id="deletarVaga" tabindex="-1" aria-labelledby="deletarVagaModal" aria-hidden="true">
   <div class="modal-dialog">
@@ -87,12 +87,12 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <a type="button" class="btn btn-primary" th:href="@{/vaga/deletar/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}">Confirmar</a>
+        <a type="button" class="btn btn-danger" th:href="@{/vaga/deletar/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}">Confirmar</a>
       </div>
     </div>
   </div>
 </div>
-					<td><a type="button" class="btn btn-primary" th:href="@{/vaga/visualizarCandidato/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}">  Candidatos </a></td>
+					<td><a type="button" class="btn btn-success" th:href="@{/vaga/visualizarCandidato/{id1}/{id2}(id1=${empresa.id}, id2=${vagasEmpresa.id})}">  Candidatos </a></td>
 				</tr>
 				</tbody>
 			</table>

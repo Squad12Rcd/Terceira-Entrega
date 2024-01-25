@@ -3,7 +3,9 @@ package com.connectjob.services;
 import java.util.List;
 import java.util.Optional;
 
+
 import com.connectjob.model.Empresa;
+
 
 public interface EmpresaServices {
 
@@ -18,4 +20,9 @@ public interface EmpresaServices {
 	void deleteEmpresa(Long id);
 	
 	Optional<Empresa> findEmpresaByEmail(String email);
+
+	Long getUserIdByUsername(String username);
+
+	Empresa findEmpresaByNome(String nome);
+
 }

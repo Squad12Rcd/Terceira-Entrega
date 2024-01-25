@@ -16,6 +16,8 @@ import com.connectjob.model.Vaga;
 public interface VagaRepository extends JpaRepository<Vaga, Long>{
 
 	List<Vaga> findByEmpresaId(Long id);
+	
+	List<Vaga> findByEmpresaNome(String nome);
 
 	List<Vaga> findCandidatoById(Long candidatoId);
 	

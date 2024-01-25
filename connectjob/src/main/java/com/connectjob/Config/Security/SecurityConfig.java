@@ -29,7 +29,7 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests((authorize) -> authorize
 					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**", "/empresa/**", "usuario/**","vaga/**").permitAll()
-					.requestMatchers("/empresa/**").hasRole("EMPRESA") )
+					.requestMatchers("/empresa/**").hasRole("EMPRESA"))
 					.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/").permitAll())
 					.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
 					
