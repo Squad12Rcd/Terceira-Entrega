@@ -25,16 +25,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false, length = 80, unique = true)
+	@Column(nullable = false, length = 80)
 	private String nome;
 
-	@Column(nullable = false, length = 250, unique = true)
+	@Column(nullable = false, length = 250)
 	private String senha;
 
-	@Column(nullable = false, length = 250, unique = true)
+	@Column(nullable = false, length = 250)
 	private String email;
 	
-	@Column(nullable = false, length = 250, unique = true)
+	@Column(nullable = false, length = 250)
 	private String cpf;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
