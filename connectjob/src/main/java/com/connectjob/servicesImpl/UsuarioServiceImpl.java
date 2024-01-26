@@ -155,7 +155,7 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 			empresaExistente.setNome(empresaAtualizada.getNome());
 			empresaExistente.setCnpj(empresaAtualizada.getCnpj());
 			empresaExistente.setEmail(empresaAtualizada.getEmail());
-			empresaExistente.setSenha(empresaAtualizada.getSenha());
+			empresaExistente.setSenha(passwordEncoder.encode(empresaAtualizada.getSenha()));
 			return empresaRepository.save(empresaExistente);
 		} else {
 			throw new RuntimeException("Empresa com o ID " + id + "não encontrado.");
