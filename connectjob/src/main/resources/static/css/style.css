@@ -407,3 +407,8 @@ article p {
     width: 50%;
     margin: auto;
   }
+  
+  #cardUser:hover {
+	  color: #198754;
+	  transition: 0.2s;
+  }
