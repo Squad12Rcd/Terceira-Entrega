@@ -139,21 +139,11 @@ public class UsuarioServiceImpl implements UsuarioServices, UserDetailsService, 
 	@Override
 	@Transactional
 	public Empresa saveEmpresa(Empresa empresa) {
-		
-		Role role = new Role(); 
-		String roleEmpresa = "ROLE_EMPRESA";
-						
-		role.setAuthority(roleEmpresa);
-		roleRepository.save(role);
-		
-		Role roleLocalizado = roleRepository.findByAuthority("ROLE_EMPRESA");
-		
-//		Role role = roleRepository.findByAuthority("ROLE_EMPRESA");
-		
-		if (roleLocalizado == null) {
+		Role role = roleRepository.findByAuthority("ROLE_EMPRESA");
+		if (role == null) { 
 			throw new IllegalStateException("'ROLE_EMPRESA' não encontrada.");
 		}
-		empresa.setRoles((List<Role>) Arrays.asList(roleLocalizado));
+		empresa.setRoles((List<Role>) Arrays.asList(role));
 		empresa.setSenha(passwordEncoder.encode(empresa.getSenha()));
 		return empresaRepository.save(empresa);
 	}

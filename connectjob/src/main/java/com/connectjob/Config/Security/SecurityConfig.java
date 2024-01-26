@@ -25,11 +25,16 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { 
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception { 
 		http.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests((authorize) -> authorize
-					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**", "/empresa/**", "usuario/**","vaga/**").permitAll()
-					.requestMatchers("/empresa/**").hasRole("EMPRESA"))
+					.requestMatchers("/", "/login", "/css/**", "/js/**", "/img/**").permitAll()
+					.requestMatchers("/empresa/cadastro", "/empresa/cadastrar", "/usuario/cadastro", "/usuario/cadastrar", "/usuario/login").permitAll()
+					.requestMatchers("/usuario/**").hasRole("USUARIO")
+					.requestMatchers("/vaga/**").hasAnyRole("EMPRESA", "USUARIO")
+					.requestMatchers("/empresa/**").hasRole("EMPRESA")
+					)
+			
 					.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/").permitAll())
 					.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
 					

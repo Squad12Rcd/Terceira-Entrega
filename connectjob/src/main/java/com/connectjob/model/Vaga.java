@@ -29,21 +29,21 @@ public class Vaga {
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
 
-	@Column(nullable = false, length = 150, unique = true)
+	@Column(nullable = false, length = 150)
 	private String titulo;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private int quantidade;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String modalidade;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String tipoContrato;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String nivel;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String localizacao;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String salario;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String area;
 
 	@Column(name = "data_cadastro")
