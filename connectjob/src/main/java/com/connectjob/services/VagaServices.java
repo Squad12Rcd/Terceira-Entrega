@@ -21,7 +21,7 @@ public interface VagaServices {
 	
 	List<Vaga> findByEmpresaNome(String nome);
 
-	List<Vaga> findByCandidatoId(Long candidatoId);
+	List<Vaga> findByUsuarioId(Long candidatoId);
 
 	List<Usuario> findUsuarioById(Long vagaId);
 

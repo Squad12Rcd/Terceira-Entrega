@@ -68,9 +68,8 @@ public class UsuarioController {
 	public String perfilusuario(@PathVariable Long id, Model model) {
 		Usuario usuario = usuarioServices.getUsuarioById(id);
 		model.addAttribute("usuario", usuario);
-		List<Vaga> vagasUsuario = vagaServices.findByCandidatoId(id);
-		model.addAttribute("vagas", vagasUsuario);
-		System.out.println(vagasUsuario);
+		List<Vaga> vagasUsuario = vagaServices.findByUsuarioId(id);
+		model.addAttribute("vagasUsuario", vagasUsuario);
 
 		return "userprofile";
 	}

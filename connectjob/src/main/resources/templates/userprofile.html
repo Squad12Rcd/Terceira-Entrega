@@ -117,11 +117,11 @@
 
 				<section class="container" id="minhasVagas">
 					<p class="fs-2 mt-5 box"> Vagas Aplicadas </p>
-					<div th:if="${#lists.isEmpty(vagas)}">
+					<div th:if="${#lists.isEmpty(vagasUsuario)}">
 						<p class="fs-5 text-center fw-bolder"> Você ainda não se candidatou a nenhuma vaga! </p>
 
 					</div>
-					<table class="table" th:each="vagas : ${vagas}">
+					<table class="table">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
@@ -132,12 +132,12 @@
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<tr>
-								<th scope="row">1</th>
-								<td th:text="${vagas.titulo}">Desenvolvedor Java </td>
-								<td th:text="${vagas.modalidade}">Desenvolvedor Java, 5 dias por semana, férias,
+							<tr th:each="vagasUsuario : ${vagasUsuario}">
+								<th scope="row"><i class="bi bi-chevron-right"></i></th>
+								<td th:text="${vagasUsuario.titulo}">Desenvolvedor Java </td>
+								<td th:text="${vagasUsuario.modalidade}">Desenvolvedor Java, 5 dias por semana, férias,
 									experiência desejável em Java Spring Boot </td>
-								<td th:text="${vagas.empresa.nome}">Maxsoft</td>
+								<td th:text="${vagasUsuario.empresa.nome}">Maxsoft</td>
 							</tr>
 						</tbody>
 					</table>
