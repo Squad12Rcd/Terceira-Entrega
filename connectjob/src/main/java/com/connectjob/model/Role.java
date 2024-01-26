@@ -3,6 +3,7 @@ package com.connectjob.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class Role {
 	private Long id;
 	private String authority;
 
-	@ManyToMany(mappedBy = "roles")
+	@ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
 	private List<Usuario> usuarios = new ArrayList<>();
 
 	public Role() {
