@@ -19,7 +19,7 @@ public interface VagaRepository extends JpaRepository<Vaga, Long>{
 	
 	List<Vaga> findByEmpresaNome(String nome);
 
-	List<Vaga> findCandidatoById(Long candidatoId);
+	List<Vaga> findByUsuarioId(Long candidatoId);
 	
 	List<Vaga> findByArea(String area);
 	

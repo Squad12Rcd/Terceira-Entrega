@@ -64,8 +64,8 @@ public class VagaServiceImpl implements VagaServices {
 	}
 
 	@Override
-	public List<Vaga> findByCandidatoId(Long candidatoId) {
-		return vagaRepository.findCandidatoById(candidatoId);
+	public List<Vaga> findByUsuarioId(Long candidatoId) {
+		return vagaRepository.findByUsuarioId(candidatoId);
 	}
 
 	@Override
