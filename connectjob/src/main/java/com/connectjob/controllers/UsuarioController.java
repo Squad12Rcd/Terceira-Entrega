@@ -96,9 +96,10 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/editar/{id}")
-	public String editarUsuario(@PathVariable Long id, @ModelAttribute("usuario") Usuario usuario) {
+	public String editarUsuario(@PathVariable Long id, @ModelAttribute("usuario") Usuario usuario, RedirectAttributes redirectAttributes) {
 		usuarioServices.updateUsuario(id, usuario);
 
+		redirectAttributes.addAttribute("perfilUserAtualizado", "Perfil atualizado com sucesso!");
 		return "redirect:/usuario/profile/" + id;
 	}
 
