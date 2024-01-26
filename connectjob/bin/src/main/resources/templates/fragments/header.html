@@ -1,0 +1,58 @@
+<header>
+	<nav class="container-fluid navbar navbar-expand-lg bg-body-light text-center box fixed-top">
+		<div class="container-fluid bg-nav">
+			<a class="navbar-brand"><img th:src="@{/img/DarkMode-500px.png}" alt="logo do projeto" width="80"
+					height="80"></a> <span class="fs-2 text-success">Connect</span><span
+				class="fs-2"><strong>Job</strong></span>
+			<button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon "></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarSupportedContent">
+				<ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
+					<li class="nav-item">
+						<a class="nav-link t " href="#">Home</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link t" href="#carreiras"> Carreiras </a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link t" href="#nossoscursos"> Cursos </a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link t" href="#contatos"> Contatos </a>
+					</li>
+					
+					<li class="nav-item" sec:authorize="!isAuthenticated()">
+						<a class="btn btn-outline-light nav-link t" th:href="@{/login}"> Login </a>
+					</li>
+					
+					<li class="nav-item" sec:authorize="hasRole('EMPRESA')">
+						<a class="nav-link t text-success" th:href="@{/empresa/home/{nome}(nome=${#authentication.name})}"> Área Empresa </a>
+					</li>
+					
+					<li class="nav-item" sec:authorize="hasRole('USUARIO')">
+						<a class="nav-link t text-success" th:href="@{/usuario/home/{nome}(nome=${#authentication.name})}" sec:authorize="isAuthenticated()"> Área Usuário </a>
+					</li>
+					
+					<li class="nav-item" sec:authorize="hasRole('ROLE_EMPRESA') or hasRole('ROLE_USUARIO')">
+						<a class="nav-link t" th:href="@{/logout}"> Logout </a>
+					</li>
+
+					
+					<li class="nav-item">
+						<button class="btn bg-white text-success" onclick="darkMode()">
+							<i class="bi bi-moon"></i></button>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+
+	</nav>
+</header>

@@ -1,0 +1,34 @@
+ <header th:fragment="headerEmpresa">
+        <nav class="navbar navbar-expand-lg bg-body-light text-center fixed-top">
+            <div class="container-fluid bg-nav box">
+               <a class="navbar-brand"><img th:src="@{/img/DarkMode-500px.png}" alt="logo do projeto"
+            width="80" height="80"></a> <span class="fs-2 text-success">Connect</span><span class="fs-2"><strong>Job</strong></span>
+                <button class="navbar-toggler bg-light text-success" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto me-3 mb-2 mb-lg-0 fs-5 gap-4  ">
+                        <li class="nav-item">
+                            <a class="nav-link t" th:href="@{/empresa/home/{nome}(nome=${empresa.nome})}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link t" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Minhas Vagas </a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link t" th:href="@{/empresa/perfilEmpresa/{id}(id=${empresa.id})}"> Meu Perfil </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link t text-danger" th:href="@{/logout}"> Logout </a>
+                        </li>  
+                         <li class="nav-item">
+						<button class="btn bg-white text-success" onclick="darkMode()">
+							<i class="bi bi-moon"></i></button>      
+                        </li>       
+                    </ul>  
+                </div>
+            </div>
+        </nav>
+
+    </header>
