@@ -20,13 +20,14 @@
                 <a id="login" th:href="@{/usuario/login}">Efetue Login</a>
                 <a id="cadastro" th:href="@{/usuario/cadastro}">Crie sua conta</a>
             </div>
+            <div th:if="${error}" th:text="${error}" style="color: red"></div>
             <div id="inputs">
                 <div class="input-box">
                     <label for="nome">
                         Nome                        
                         <div class="input-space">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" id="name" th:field="*{nome}">
+                            <input type="text" id="name" th:field="*{nome}" required>
                         </div>
                     </label>
                 </div>
@@ -36,7 +37,7 @@
                         CPF
                         <div class="input-space">
                             <i class="fa-solid fa-wallet"></i>
-                            <input type="text" id="cpf" th:field="*{cpf}" autocomplete="off" minlength="14" maxlength="14" onkeypress="cpfMask()">
+                            <input type="text" id="cpf" th:field="*{cpf}" autocomplete="off" minlength="14" maxlength="14" onkeypress="cpfMask()" required>
                         </div>
                     </label>
                 </div>
@@ -45,7 +46,7 @@
                         Email
                         <div class="input-space">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" id="email" th:field="*{email}">
+                            <input type="email" id="email" th:field="*{email}" required>
                         </div>
                     </label>
 
@@ -57,7 +58,7 @@
                     Senha
                     <div class="input-space">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" th:field="*{senha}">
+                        <input type="password" id="password" th:field="*{senha}" required>
                     </div>
                 </label>
             </div>

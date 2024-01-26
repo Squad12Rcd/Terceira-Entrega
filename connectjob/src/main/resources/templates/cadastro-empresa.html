@@ -27,7 +27,7 @@
                         Nome da sua empresa
                         <div class="input-space">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" id="name" name="name" th:field="*{nome}">
+                            <input type="text" id="name" name="name" th:field="*{nome}" required>
                         </div>
                     </label>
                 </div>
@@ -37,7 +37,7 @@
                         CNPJ
                         <div class="input-space">
                             <i class="fa-solid fa-building"></i>
-                            <input type="text" id="cnpj" name="cnpj" autocomplete="off" minlength="17" maxlength="17" onkeypress="cnpjMask()" th:field="*{cnpj}">
+                            <input type="text" id="cnpj" name="cnpj" autocomplete="off" minlength="17" maxlength="17" onkeypress="cnpjMask()" th:field="*{cnpj}" required>
                         </div>
                     </label>
                 </div>
@@ -46,7 +46,7 @@
                         Email
                         <div class="input-space">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" id="email" name="email" th:field="*{email}">
+                            <input type="email" id="email" name="email" th:field="*{email}" required>
                         </div>
                     </label>
 
@@ -58,7 +58,7 @@
                     Senha
                     <div class="input-space">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" name="password" th:field="*{senha}">
+                        <input type="password" id="password" name="password" th:field="*{senha}" required>
                     </div>
                 </label>
             </div>
