@@ -117,7 +117,7 @@ public class UsuarioController {
 		Usuario usuario = usuarioServices.getUsuarioById(idUsuario);
 		Vaga vaga = vagaServices.getVagaById(idVaga);
 		usuario.getVagas().add(vaga);
-		usuarioServices.updateUsuario(idVaga, usuario);
+		usuarioServices.updateUsuario(idUsuario, usuario);
 		redirectAttributes.addAttribute("vagaAplicada", "Vaga aplicada com sucesso!");
 
 		return "redirect:/usuario/vagas/" + idUsuario;
