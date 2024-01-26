@@ -11,6 +11,10 @@
 	<main class="container shadow d-flex flex-column p-5 cabecalhoPerfil">
 		<p class="fs-1 text-center mt-1 box text-success"> Perfil do Usuario </p>
 
+         <div th:if="${param.perfilUserAtualizado}" class="alert alert-success" role="alert">
+        <p class="text-center" th:text="${param.perfilUserAtualizado}"></p>
+   		 </div>
+
 		<div th:object="${usuario}">
 
 			<div class="d-flex flex-column justify-content-center p-5" th:object="${usuario}" method="post">
