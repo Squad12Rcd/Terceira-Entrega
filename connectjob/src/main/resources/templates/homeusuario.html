@@ -33,14 +33,15 @@
 
 				<div class="d-flex justify-content-center">
 					<a th:href="@{/usuario/profile/{id}(id=${usuario.id})}">
-						<p class="mt-4" id="cardUser">Meu perfil</p>
+						<button type="button"
+                            class="btn mt-4">Meu perfil</button>
 					</a>
 				</div>
 				</p>
 			</div>
 			</div>
 
-			<div class="col mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
+			<div class="col mb-3 text-bg-light col screen border border-secondary shadow" style="max-width: 20rem;">
 
 				<div class="w-50 mx-auto mt-4">
 					<a th:href="@{/usuario/cursos/{id}(id=${usuario.id})}">
@@ -57,9 +58,9 @@
 				</div>
 
 			</div>
-			<div class="col mb-3 col screen border border-secondary shadow" style="max-width: 20rem;">
+			<div class="col mb-3 text-bg-light col screen border border-secondary shadow" style="max-width: 20rem;">
 
-				<div class="w-50 mx-auto mt-4">
+				<div class="w-50  mx-auto mt-4">
 					<a id="btnPanel" th:href="@{/usuario/profile/{id}(id=${usuario.id})}">
 						<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" fill="currentColor"
 							class="bi bi-person-fill-check" viewBox="0 0 16 16" id="cardUser">
