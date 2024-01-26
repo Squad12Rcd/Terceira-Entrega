@@ -18,6 +18,9 @@ import com.connectjob.model.Vaga;
 import com.connectjob.services.UsuarioServices;
 import com.connectjob.services.VagaServices;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -104,10 +107,16 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/deletar/{id}")
-	public String deletarUsuario(@PathVariable Long id) {
+	public String deletarUsuario(@PathVariable Long id, HttpServletRequest request) {
 		usuarioServices.deleteUsuario(id);
+		
+		HttpSession sessionUser = request.getSession(false);
+		
+        if (sessionUser != null) {
+            sessionUser.invalidate();
+        }
 
-		return "index";
+		return "redirect:/";
 	}
 
 	@PostMapping("/aplicarVaga/{id1}/{id2}")

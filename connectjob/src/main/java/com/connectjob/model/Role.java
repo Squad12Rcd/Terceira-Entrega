@@ -18,7 +18,7 @@ public class Role {
 	private Long id;
 	private String authority;
 
-	@ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "roles")
 	private List<Usuario> usuarios = new ArrayList<>();
 
 	public Role() {
