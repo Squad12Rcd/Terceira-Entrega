@@ -36,15 +36,28 @@
 					type="video/mp4">
 				Seu navegador não suporta vídeos em HTML5.
 			</video>
+
 			<div class="content text-center container-fluid">
-				<h1 class="mt-5"> Oferecemos uma <span class="text-success"><strong> nova</strong></span> experiência de
+							
+				<h1 class="mt-5" sec:authorize="!isAuthenticated() or hasRole('ROLE_USUARIO')"> Oferecemos uma <span class="text-success"><strong> nova</strong></span> experiência de
 					ensino para você.</h1>
-				<p class="mt-5">O conhecimento é a chave para as portas do sucesso. <br>Venha descobrir o mundo através
+				<h1 class="mt-5" sec:authorize="hasRole('EMPRESA')"> O<span class="text-success"><strong> desenvolvimento social </strong></span> é a chave do sucesso</h1>
+				<p class="mt-5" sec:authorize="hasRole('EMPRESA')"> Com o potencial transformador da educação descubra novos talentos <br> 
+				e aumente o potencial de sua empresa!</p>
+				<div sec:authorize="hasRole('EMPRESA')">
+				<a class="btn btn-success text-white" th:href="@{/empresa/home/{nome}(nome=${#authentication.name})}"> Área Empresa </a>
+				</div>
+				
+				<p class="mt-5" sec:authorize="hasRole('USUARIO') or !isAuthenticated() ">O conhecimento é a chave para as portas do sucesso. <br>Venha descobrir o mundo através
 					da
 					educação e alcançar todos os seus sonhos!</p>
 				<div class="main-button" sec:authorize="!isAuthenticated()">
 					<div class="scroll-to-section"><a th:href="@{/usuario/cadastro}"><button
 								class="btn btn-light btn-outline-dark mt-3 mx-3"> Criar conta</button></a></div>
+				</div>
+								<div class="main-button" sec:authorize="hasRole('USUARIO')">
+					<div class="scroll-to-section"><a th:href="@{/usuario/home/{nome}(nome=${#authentication.name})}"><button
+								class="btn btn-success text-white mt-3 mx-3"> Área Usuário </button></a></div>
 				</div>
 				<div
 					class="row row-cols-lg-4 row-cols-md-1 row-cols-sm-1 row-cols-xs-1 mx-auto mt-5 cards container gap-3 justify-content-center">

@@ -86,16 +86,10 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/cadastrar")
-	public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {		
-		try {
-			usuarioServices.saveUsuario(usuario);
-				return "redirect:/login";
-        } catch (RuntimeException e) {
-            model.addAttribute("error", e.getMessage());
-            return "redirect:/cadastro";
-        }
+	public String cadastrarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+		usuarioServices.saveUsuario(usuario);
 
-		
+		return "redirect:/login";
 	}
 
 	@GetMapping("/login")
