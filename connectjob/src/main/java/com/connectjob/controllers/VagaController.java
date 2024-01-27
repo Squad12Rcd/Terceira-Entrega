@@ -103,7 +103,6 @@ public class VagaController {
 		model.addAttribute("empresa", empresaLocalizada);
 		List<Usuario> localizarUsuarios = vagaServices.findUsuarioById(idVaga);
 		model.addAttribute("candidatos", localizarUsuarios);
-		System.out.println(localizarUsuarios);
 
 		return "listarCandidatos";
 	}
