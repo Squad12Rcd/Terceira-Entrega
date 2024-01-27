@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.connectjob.model.Empresa;
-import com.connectjob.model.Usuario;
 import com.connectjob.model.Vaga;
 import com.connectjob.services.EmpresaServices;
 import com.connectjob.services.VagaServices;
