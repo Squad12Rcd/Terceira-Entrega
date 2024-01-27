@@ -92,12 +92,6 @@ public class UsuarioController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/login")
-	public String loginUsuario() {
-
-		return "login";
-	}
-
 	@PostMapping("/editar/{id}")
 	public String editarUsuario(@PathVariable Long id, @ModelAttribute("usuario") Usuario usuario, RedirectAttributes redirectAttributes) {
 		usuarioServices.updateUsuario(id, usuario);

@@ -16,30 +16,20 @@
     	   
         </div>
 
-<table class="table mx-auto w-50 mt-3" th:each="candidatos : ${candidatos}">
-  <thead>
+<table class="table mx-auto w-50 mt-3 table-responsive" th:each="candidatos : ${candidatos}">
+ 
+  <tbody>
+	    <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"><i class="bi bi-arrow-right"></i></th>
       <th scope="col">Candidato</th>
-      <th scope="col">Contato</th>
+      <th scope="col"><i class="bi bi-telephone-forward"></i> Contato</th>
     </tr>
   </thead>
-  <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td th:text="${candidatos.nome}">Carlos Almeida</td>
-      <td th:text="${candidatos.email}">almeiraferraz@gmail.com</td>
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Lorenzo Ferraz</td>
-      <td>lorenzo@email.com</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td> Júnior Rodrigues </td>
-      <td>@rodriguesjr@gmail.com</td>
+      <th scope="row"></th>
+      <td th:text="${candidatos.nome}" class="col-6"> Carlos Ferraz</td>
+      <td th:text="${candidatos.email}" class="col-6">carlos@ferraz.com</td>
     </tr>
   </tbody>
 </table>       	
