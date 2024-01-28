@@ -2,8 +2,6 @@ package com.connectjob.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,7 +35,7 @@ public class Empresa {
 	@Column(nullable = false, length = 80, unique = true)
 	private String email;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "empresa_role", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles = new ArrayList<>();
 
