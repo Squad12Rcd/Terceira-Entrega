@@ -8,8 +8,14 @@
 
 	</header>
 
-	<main class="container shadow d-flex flex-column p-3 cabecalhoPerfil">
-		<p class="fs-1 text-center mt-1 box text-success"> Perfil do Usuario </p>
+				<div class="background-container-usuario">
+				<div class="background-overlay"></div>
+				<div class="content mt-5">
+		<p class="fs-1 text-center mt-1 box text-white"> Perfil do Usuario </p>
+				</div>
+			</div>
+
+	<main class="container shadow d-flex flex-column p-3">
 
          <div th:if="${param.perfilUserAtualizado}" class="alert alert-success" role="alert">
         <p class="text-center" th:text="${param.perfilUserAtualizado}"></p>
