@@ -15,10 +15,7 @@
 			</div>
 			<form class="row g-3 p-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}"
 				method="post" required>
-				<div class="col-md-6">
-					<label for="nome"> ID da empresa </label>
-					<input class="form-control focus-ring" type="number" id="nome" th:field="*{empresa}" required/>
-				</div>
+				
 				<div class="col-md-6">
 					<label for="nome"> Titulo da vaga </label>
 					<input class="form-control focus-ring" type="text" id="nome" th:field="*{titulo}" required/>
