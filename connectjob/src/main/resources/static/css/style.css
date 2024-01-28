@@ -60,6 +60,7 @@ body {
 	--tertiary-color: #35ad25;
 }
 
+
 /* VAGAS */
 #header-background {
 
@@ -364,3 +365,34 @@ article p {
 	  transition: 0.2s;
 
   }
+  
+  /* RESPONSIVIDADE */
+  
+ @media (max-width: 600px) {
+
+.seçãoValores {
+	flex-direction: column;
+}
+
+#contrato {
+	visibility: hidden;
+}
+
+.accordion-button{
+	justify-content: center;
+}
+
+}
+
+ @media (max-width: 991px) {
+
+#cabecalho {
+
+	margin-top: 108px;
+
+}
+
+}
+ 
+
+  

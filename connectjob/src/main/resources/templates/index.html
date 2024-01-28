@@ -9,8 +9,6 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
-
-
 </head>
 
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
@@ -60,7 +58,7 @@
 								class="btn btn-success text-white mt-3 mx-3"> Área Usuário </button></a></div>
 				</div>
 				<div
-					class="row row-cols-lg-4 row-cols-md-1 row-cols-sm-1 row-cols-xs-1 mx-auto mt-5 cards container gap-3 justify-content-center">
+					class="row row-cols-lg-4 row-cols-md-1 row-cols-sm-1 row-cols-xs-1 mx-auto mt-5 cards container gap-3 justify-content-center seçãoValores">
 					<div class="col card border bg-dark text-white border-success">
 						<h5> Cursos Online</h5>
 						<div class="content bg-dark text-white">
@@ -255,7 +253,7 @@
 
 			<div class="transicao">
 				<div class="text-center box-proveSocial mt-5">
-					<div class="row row-cols-2 row-cols-md-1 row-cols-sm-1">
+					<div class="row row-cols-1">
 						<div class="col col-text-prove titleProveSocial">
 							<p class="box fs-1 fw-bolder text-start">
 								Para começar você precisa de pouco.
@@ -277,7 +275,7 @@
 					<div class="carousel-item active">
 						<div class="row">
 							<div class="col-md-4 d-flex justify-content-center d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/html5-logo.png}" class="card-img-top" alt="...">
 									</div>
@@ -290,22 +288,22 @@
 									</p>
 								</div>
 							</div>
-							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+							<div class="col-md-4 d-flex justify-content-center d-flex justify-content-center">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
-										<img th:src="@{/img/css3.png}" class="card-img-top" alt="...">
+										<img th:src="@{/img/css3.svg}" class="card-img-top" alt="...">
 									</div>
 									<h5 class="card-title">CSS</h5>
 									<p class="card-text">
 										<strong>Dê vida ao seu website!</strong>
-									<P>O curso de CSS oferece uma jornada completa no design de páginas web, começando
+									<P> CSS é um poderoso recurso para tratar o design de web sites. O curso de CSS oferece uma jornada completa no design de páginas web, começando
 										com conceitos básicos e avançando para técnicas sofisticadas como flexbox, grid
 										layout e animações.</P>
 									</p>
 								</div>
 							</div>
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/javascript.png}" class="card-img-top" alt="...">
 									</div>
@@ -323,7 +321,7 @@
 					<div class="carousel-item">
 						<div class="row">
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/mariaDB-logo.png}" class="card-img-top" alt="...">
 									</div>
@@ -336,7 +334,7 @@
 								</div>
 							</div>
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/mongoDB-logo.png}" class="card-img-top" alt="...">
 									</div>
@@ -350,7 +348,7 @@
 								</div>
 							</div>
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/sql-logo.png}" class="card-img-top" alt="...">
 									</div>
@@ -368,21 +366,23 @@
 					<div class="carousel-item">
 						<div class="row">
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/java-logo.png}" class="card-img-top" alt="...">
 									</div>
 									<h5 class="card-title">Java</h5>
 									<p class="card-text">
 										<strong> Explore o mundo do Java! </strong>
-
-									<p>Aprenda a criar aplicações em Java desenvolvendo habilidades com a versão LTS
+									
+									<p>Poderosa e amplamente usada, com muitas oportunidades de emprego e uma base sólida para o desenvolvimento de software. 
+										<br>
+										Aprenda a criar aplicações em Java desenvolvendo habilidades com a versão LTS
 										atual do Java a patir do básico até o avançado. </p>
 									</p>
 								</div>
 							</div>
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/csharp-logo.svg}" class="card-img-top" alt="...">
 									</div>
@@ -398,7 +398,7 @@
 								</div>
 							</div>
 							<div class="col-md-4 d-flex justify-content-center">
-								<div class="card" style="width: 18rem;">
+								<div class="card shadow" style="width: 18rem;">
 									<div class="card-body">
 										<img th:src="@{/img/php-logo.png}" class="card-img-top" alt="...">
 									</div>
@@ -457,7 +457,7 @@
 					<div class="carousel-inner w-75 mx-auto">
 						<div class="carousel-item active">
 							<div class="d-flex justify-content-center">
-								<img th:src="@{/img/squad12-transparente.png}">
+								<img th:src="@{/img/squad12.png}">
 							</div>
 						</div>
 						<div class="carousel-item mx-auto">
