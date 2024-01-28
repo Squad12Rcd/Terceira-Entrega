@@ -11,7 +11,7 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
     
 <h2> Status do Projeto </h2>
 
-<li> Iniciando reformulação Front-End do projeto e em processo de ideação das novas implementações </strong> </li>
+<li> Em processo de Deploy (27/01/2024) </strong> </li>
 
 
 <h2>Tecnologias utilizadas </h2>
@@ -34,26 +34,6 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
 <strong> Modelo Lógico </strong> <br>
 <img src="https://github.com/Squad12Rcd/squad12/blob/05bf27b88dd885024286fc3ab6945285d0dc9ca7/img/modelologico.jpeg" /><br>
 
-<p><strong> Modelo Físico </strong> <br></p>
-
-<p> CREATE DATABASE connectjob; <br> </p>
-
-<p>CREATE TABLE usuario ( <br>
-  id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT, <br>
-  cpf varchar(14) NOT NULL UNIQUE, <br>
-  email varchar(80) NOT NULL UNIQUE, <br>
-  nome varchar(80) NOT NULL, <br>
-  senha varchar(250) NOT NULL <br>
-);</p>
-
-<p> CREATE TABLE empresa (  <br>
-  id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,  <br>
-  cnpj varchar(18) NOT NULL UNIQUE,  <br>
-  email varchar(80) NOT NULL UNIQUE, <br>
-  nome varchar(80) NOT NULL, <br>
-  `senha` varchar(250) NOT NULL <br>
-); </p>
-    
 </div>
 
 
