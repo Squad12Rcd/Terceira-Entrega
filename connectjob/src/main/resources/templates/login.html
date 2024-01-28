@@ -17,7 +17,7 @@
 <body>
     <main id="container">
         <div id="logo"><a href="index.html"><img th:src="@{/img/WhiteMode-64px.png}" alt="" srcset=""></a></div>
-        <form id="login-form" method="post" th:action="@{/login}">
+        <form id="login-form" method="post" th:action="@{/login}" class="p-3">
 			        <div th:if="${param.error}" class="alert alert-danger">    
                     <strong>Senha e usuário inválidos!</strong>
                 </div>

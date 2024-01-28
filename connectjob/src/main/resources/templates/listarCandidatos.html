@@ -9,7 +9,7 @@
 
     <main class="container d-flex flex-column justify-content-center cabecalhoVisualizarCandidato">
 
-<p class="text-center fs-1 mt-3 box"> Candidatos aplicados à vaga </p>
+<p class="text-center fs-1 mt-3 box"> Candidatos aplicados </p>
 
 <div th:if="${#lists.isEmpty(candidatos)}">
     	<p class="fs-5 text-center fw-bolder"> Não há candidatos aplicados a esta vaga no momento </p>
@@ -21,8 +21,8 @@
   <tbody>
 	    <thead>
     <tr>
-      <th scope="col"><i class="bi bi-arrow-right"></i></th>
-      <th scope="col">Candidato</th>
+      <th scope="col"></th>
+      <th scope="col">#</th>
       <th scope="col"><i class="bi bi-telephone-forward"></i> Contato</th>
     </tr>
   </thead>

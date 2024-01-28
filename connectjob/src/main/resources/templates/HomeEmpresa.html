@@ -8,9 +8,14 @@
 		
     </header>
 
-  <main class="container cabecalhoEmpresa">
+			<div class="background-container">
+				<div class="background-overlay"></div>
+				<div class="content">
+					<p class="fs-1 text-white mt-5 box "> Bem-vindo(a), <span th:text="${empresa.nome}"></span>!</p>
+				</div>
+			</div>
 
-  <p class="fs-1 text-success mt-5 box "> Boas vindas, <span th:text="${empresa.nome}"></span>!</p>
+  <main class="container">
  
          <section id="dados-aluno" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
 
@@ -65,7 +70,7 @@
                 </div>
             </div>
  
-			            <div class="p-5 mt-3">
+			            <div class="mt-3">
 			  <p class="fs-2 box"> Vagas Cadastradas </p> 
 			  <div class="d-flex justify-content-center float-end">
 				  <a class="btn btn-success text-white" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
@@ -100,7 +105,7 @@
 			</div>
 		</div>
 			  
-          <section class="mb-5 p-5 container d-flex flex-column" id="contatos">
+          <section class="mb-5 container d-flex flex-column" id="contatos">
 			  <p class="fs-2 box"> Contatos </p> 
             <p class="fs-3 text-center">Precisa de ajuda? Entre em contato conosco!</p>
             <div class="mb-3 ">

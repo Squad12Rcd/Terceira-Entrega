@@ -8,10 +8,15 @@
 	<header th:replace="~{fragments/headerUsuario :: headerUsuario}">
 
 	</header>
+	
+				<div class="background-container-usuario">
+				<div class="background-overlay"></div>
+				<div class="content mt-5">
+  <p class="fs-1 box text-white"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
+				</div>
+			</div>
 
-	<main class="container cabecalhoUsuario">
-
-		<p class="fs-1 mt-5 box text-success"> Bem vindo(a), <span th:text="${usuario.nome}"></span>!</p>
+	<main class="container">	
 
 		<section id="dados-aluno"
 			class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">

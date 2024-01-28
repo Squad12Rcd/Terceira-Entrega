@@ -76,24 +76,21 @@ function cnpjMask() {
     handleScroll();
 
 
-const text = "Uma das médias salariais mais altas do país.";
-const typingEffectElement = document.getElementById("typing");
+document.addEventListener("DOMContentLoaded", function() {
+  const text = "Uma das médias salariais mais altas do país.";
+  const typingEffectElement = document.getElementById("typing");
 
-function typeWriter(text, i, cb) {
-  if (i < text.length) {
-    typingEffectElement.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(function() {
-      typeWriter(text, i, cb);
-    }, 120); 
-  } else {
-    if (cb) cb();
+  function typeWriter(text, i, cb) {
+    if (i < text.length) {
+      typingEffectElement.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(function() {
+        typeWriter(text, i, cb);
+      }, 120); 
+    } else {
+      if (cb) cb();
+    }
   }
-}
 
-typeWriter(text, 0);
-
-
- 
-
-  
+  typeWriter(text, 0);
+});

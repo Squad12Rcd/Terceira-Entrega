@@ -36,9 +36,6 @@
 <main>
 	        <div th:if="${#lists.isEmpty(vagas)}">
     	<p class="fs-5 text-center fw-bolder mt-5"> Não há vagas registradas para a área selecionada </p>
-    	        			<div class="d-flex justify-content-center mt-3 mb-3">
-					<a class="btn btn-success" th:href="@{/usuario/vagas/{id}(id=${usuario.id})}">Voltar </a>
-			</div>
     	   
         </div>
   <div class="accordion mt-4 shadow p-3" id="accordionExample" th:each="vagas : ${vagas}">
@@ -71,6 +68,7 @@
     </div>
   </div>
   </div>	
+  
 			<div class="d-flex justify-content-center mt-3 mb-3">
 					<a class="btn btn-success" th:href="@{/usuario/vagas/{id}(id=${usuario.id})}">Voltar </a>
 			</div>

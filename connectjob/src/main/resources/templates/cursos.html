@@ -7,14 +7,14 @@
 	<header th:replace="~{fragments/headerUsuario :: headerUsuario}">
 
 	</header>
-
-	<div class="cabecalhoCurso" th:style="'background-image: url(' + @{/img/estudos.jpg} + '); background-size: cover; height: 300px;'">
-		<div id="cabecalho-curso">
-			<div class="d-flex flex-column align-items-center">
-				<h1 class="display-1 text-white">Cursos</h1>
-			</div>
+	
+	<div class="background-container-usuario">
+		<div class="background-overlay"></div>
+		<div class="content mt-5">
+				<p class="fs-1 text-white box">Cursos</p>
 		</div>
 	</div>
+
 	
 	<div id="vitrine" class="row row-cols-sm-1 row-cols-md-3 mx-auto text-center g-3 mt-3 box">
 		
@@ -52,12 +52,12 @@
 				<div class="row">
 					<section class="row row-cols-lg-2 p-3 row-cols-md-2 row-cols-sm-1 row-cols-1 "
 						id="frontEnd">
-						<div class="col shadow">
+						<div class="col">
 							<img th:src="@{/img/frontEnd3-removebg-preview.png}" alt="" class="img-fluid">
 										
 						</div>
 						<div class="col">
-			<h3 class="text-center">Front End</h3>
+			<h3 class="text-center mt-3">Front End</h3>
 							<div class="accordion accordion-flush" id="accordionFlushExample">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
@@ -114,9 +114,9 @@
 								<div class="accordion-item">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed" type="button"
-											data-bs-toggle="collapse" data-bs-target="#HTML2" aria-expanded="false"
+											data-bs-toggle="collapse" data-bs-target="#HTML" aria-expanded="false"
 											aria-controls="flush-collapseTwo">
-											<img th:src="@{/img/css3.png}" class="img-fluid"
+										<img th:src="@{/img/css3.png}" class="img-fluid"
 										alt="imagem cabeçalho da sessão front-end" width="60px"> CSS
 										</button>
 									</h2>
@@ -421,7 +421,7 @@
 								<img th:src="@{/img/FrontBlack.jpeg}" alt="" class="img-fluid">
 							</div>
 							<div class="col">
-								<h3 class="m-3">Back End</h3>
+								<h3 class="m-3 text-center">Back End</h3>
 								<div class="accordion accordion-flush" id="accordionFlushExample">
 									<div class="accordion-item">
 										<h2 class="accordion-header">

@@ -18,21 +18,43 @@ body {
 	color: #fff;
 }
 
-.cabecalhoCurso,
-.cabecalhoPerfil,
-.cabecalhoVagas,
-.cabecalhoContatos,
-.cabecalhoGerenciaVagas,
-.cabecalhoVisualizarCandidato {
-	margin-top: 108px;
+/* CABEÇALHOS */
+
+.background-container {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background-image: url('https://raw.githubusercontent.com/Squad12Rcd/Terceira-Entrega/main/connectjob/src/main/resources/static/img/acordoEmpresa.jpg');
+	background-size: cover;
+	background-position: center;
 }
 
-.cabecalhoUsuario,
-.cabecalhoEmpresa,
-.cabecalhoEditarVaga {
-	margin-top: 150px;
+.background-container-usuario {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background-image: url('https://raw.githubusercontent.com/Squad12Rcd/Terceira-Entrega/main/connectjob/src/main/resources/static/img/estudos.jpg');
+	background-size: cover;
+	background-position: center;
 }
 
+.background-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	text-align: center;
+}
 
 .toggle-btn {
 	cursor: pointer;
@@ -60,6 +82,7 @@ body {
 	--tertiary-color: #35ad25;
 }
 
+
 /* VAGAS */
 #header-background {
 
@@ -69,7 +92,6 @@ body {
 	overflow: hidden;
 
 }
-
 #content-header::after {
 	content: "";
 	position: absolute;
@@ -103,7 +125,7 @@ body {
 }
 
 #slideQuemSomos a {
-	color: #000000;
+	color: green;
 }
 
 
@@ -357,10 +379,38 @@ article p {
 	margin: auto;
 }
 
- #cardUser:hover {
+#cardUser:hover {
 
-	  color: #198754;
+	color: #198754;
 
-	  transition: 0.2s;
+	transition: 0.2s;
 
-  }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+	.seçãoValores {
+		flex-direction: column;
+	}
+
+	#contrato {
+		visibility: hidden;
+	}
+
+	.accordion-button {
+		justify-content: center;
+	}
+
+}
+
+@media (max-width: 991px) {
+
+	#cabecalho {
+
+		margin-top: 108px;
+
+	}
+
+}

@@ -8,34 +8,40 @@
 
     </header>
     
-    <main class="container shadow p-5 cabecalhoPerfil"> 
-		<p class="fs-1 text-center text-success mt-1 box"> Perfil da Empresa</p>
+			<div class="background-container">
+				<div class="background-overlay"></div>
+				<div class="content">
+					<p class="fs-1 text-white text-success mt-5 box"> Perfil da Empresa</p>
+				</div>
+			</div>
+    
+    <main class="container shadow p-5"> 
 		
          <div th:if="${param.perfilAtualizado}" class="alert alert-success" role="alert">
         <p class="text-center" th:text="${param.perfilAtualizado}"></p>
    		 </div>
 
-	<div class="w-50 mx-auto mt-5" th:object="${empresa}">
+	<div th:object="${empresa}">
 		<ul class="list-group list-group-flush d-flex">
 		<div class="mt-1">
 			<label for="id"><strong>ID</strong>  </label>
-			<li class="list-group-item mt-1"><span th:text="${empresa.id}"></span></li>			
+			<input class="form-control mt-1" th:value="${empresa.id}" readonly></input>			
 		</div>
 		<div class="mt-3">
 			<label for="nome"><strong> Nome da empresa </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.nome}">Microsoft</span></li>
+			<input class="form-control mt-1" th:value="${empresa.nome}"></input>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"><strong> CNPJ </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.cnpj}">1515151515151</span></li>
+			<input class="form-control mt-1" th:value="${empresa.cnpj}" readonly></input>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"><strong> E-mail </strong></label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.email}">microsoft@microsoft.com</span></li>
+			<input class="form-control mt-1" th:value="${empresa.email}" readonly> </input>
 		</div>
 		<div class="mt-3">
 			<label for="descricao"> <strong> Senha </strong> </label>
-			<li class="list-group-item mt-1"> <span th:text="${empresa.senha}">windows1990</span></li>
+			<input class="form-control mt-1" th:value="${empresa.senha}" readonly></input>
 		</div>
 		</ul>
 	<div class="d-flex justify-content-center mb-3 gap-5 mt-5">	
@@ -102,15 +108,16 @@
 </div>
 
 
-<section class="p-5" id="vagasEmpresa">
-	<p class="fs-2 box"> Suas vagas cadastradas </p>
+<section id="vagasEmpresa">
+	<p class="fs-2 mt-5 box"> Suas vagas cadastradas </p>
 
 	<div th:if="${#lists.isEmpty(vagasEmpresa)}">
     	<p class="fs-5 text-center fw-bolder"> Você ainda não cadastrou nenhuma vaga! </p>
     	   
         </div>
-        
-<table class="table">
+
+<div class="table-responsive">    
+<table class="table table-responsive">
   <thead>
     <tr>
       <th scope="col">Vaga</th>
@@ -120,7 +127,7 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody class="table-group-divider">
+  <tbody>
     <tr th:each="vagasEmpresa : ${vagasEmpresa}">
       <td th:text="${vagasEmpresa.titulo}"> Desenvolvedor Java </td>
       <td th:text="${vagasEmpresa.modalidade}"> Remoto </td>
@@ -129,16 +136,19 @@
     </tr>
   </tbody>
 </table>
- 	      <div class="mt-3 mb-3 float-end">
-	      <a class="btn btn-success" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
-			</div>
+</div>
 </section>
 
-<div class="d-flex justify-content-center mt-5">
+   	      <div class="mt-3 mb-3 text-center">
+	      <a class="btn btn-success" th:href="@{/empresa/gerenciarVagas/{id}(id=${empresa.id})}"> Gerenciar Vagas </a>
+			</div>
+
+
+	</main>
+	<div class="d-flex justify-content-center mt-5">
 	<a class="btn btn-success" th:href="@{/empresa/home/{nome}(nome=${empresa.nome})}"> <i class="bi bi-arrow-left"></i></i> Voltar para Home </a>
 
 </div>
-	</main>
 	    
     <footer id="footer" class="mt-5" th:replace="~{fragments/footerUsuario :: footerUsuario}">
 

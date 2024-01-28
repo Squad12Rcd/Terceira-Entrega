@@ -2,6 +2,8 @@ package com.connectjob.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,7 +41,7 @@ public class Empresa {
 	@JoinTable(name = "empresa_role", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles = new ArrayList<>();
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "empresa_id")
 	private List<Vaga> vagas;
 

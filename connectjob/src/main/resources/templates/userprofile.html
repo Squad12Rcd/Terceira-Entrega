@@ -8,8 +8,14 @@
 
 	</header>
 
-	<main class="container shadow d-flex flex-column p-5 cabecalhoPerfil">
-		<p class="fs-1 text-center mt-1 box text-success"> Perfil do Usuario </p>
+				<div class="background-container-usuario">
+				<div class="background-overlay"></div>
+				<div class="content mt-5">
+		<p class="fs-1 text-center mt-1 box text-white"> Perfil do Usuario </p>
+				</div>
+			</div>
+
+	<main class="container shadow d-flex flex-column p-3">
 
          <div th:if="${param.perfilUserAtualizado}" class="alert alert-success" role="alert">
         <p class="text-center" th:text="${param.perfilUserAtualizado}"></p>
@@ -87,25 +93,25 @@
 					</div>
 				</div>
 
-				<div class="w-50 mx-auto" th:object="${usuario}">
+				<div th:object="${usuario}">
 
 					<ul class="list-group list-group-flush d-flex">
 						<div class="mt-3">
 							<label for="nome"><strong> Nome do Usuário </strong></label>
-							<li class="list-group-item mt-1"> <span th:text="${usuario.nome}">Álvaro Mendes</span></li>
+							<input class="form-control mt-1" th:value="${usuario.nome}" readonly></input>
 						</div>
 						<div class="mt-3">
-							<label for="descricao"><strong> CPF </strong> </label>
-							<li class="list-group-item mt-1"> <span th:text="${usuario.cpf}">095.788.186-98</span></li>
+							<label for="cpf"><strong> CPF </strong> </label>
+							<input class="form-control mt-1" th:value="${usuario.cpf}" readonly></input>
 						</div>
 						<div class="mt-3">
-							<label for="descricao"><strong> E-mail </strong></label>
-							<li class="list-group-item mt-1"> <span
-									th:text="${usuario.email}">alvaromendes@email.com</span></li>
+							<label for="email"><strong> E-mail </strong></label>
+							<input class="form-control mt-1" th:value="${usuario.email}" readonly></input>
 						</div>
 						<div class="mt-3">
-							<label for="descricao"> <strong> Senha </strong> </label>
-							<li class="list-group-item mt-1"> <span th:text="${usuario.senha}">alvorimotilla89</span>
+							<label for="senha"> <strong> Senha </strong> </label>
+							<input class="form-control mt-1" type="text" id="senha"
+											th:value="${usuario.senha}" readonly/>
 							</li>
 						</div>
 					</ul>
@@ -119,13 +125,13 @@
 
 				</div>
 
-				<section class="container" id="minhasVagas">
+				<section id="minhasVagas">
 					<p class="fs-2 mt-5 box"> Vagas Aplicadas </p>
 					<div th:if="${#lists.isEmpty(vagasUsuario)}">
 						<p class="fs-5 text-center fw-bolder"> Você ainda não se candidatou a nenhuma vaga! </p>
 
 					</div>
-					<table class="table">
+					<table class="table table-responsive">
 						<thead>
 							<tr>
 								<th scope="col">#</th>

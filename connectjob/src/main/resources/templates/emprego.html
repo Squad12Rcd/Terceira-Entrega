@@ -7,13 +7,16 @@
 	<header th:replace="~{fragments/headerUsuario :: headerUsuario}">
 
 	</header>
-	<div th:style="'background-image: url(' + @{/img/emprego.jpg} + '); background-size: cover; height: 300px;'"
-		class=" cabecalhoVagas">
-		<div class="d-flex flex-column justify-content-center ">
-			<p class="fs-1 text-center text-dark">Vagas de emprego </p>
-			<div class="container w-50">
+					<div class="background-container-usuario">
+						<div class="background-overlay"></div>
+						<div class="content mt-5">
+			<p class="fs-1 text-center text-white box">Vagas de emprego </p>
+						</div>
+					</div>
+
+			<div class="container mt-5">
 				<form th:action="@{/usuario/buscarVagas/{id}(id=${usuario.id})}" method="post">
-					<div class="form-group">
+					<div class="form-group shadow">
 						<select class="form-control" id="area" name="area">
 							<option value="">Busque vagas por área...</option>
 							<option value="Front-End">Front-End</option>
@@ -27,37 +30,36 @@
 					</div>
 				</form>
 			</div>
-		</div>
-	</div>
 
 	<main class="container d-flex flex-column justify-content-center">
 
-		<section id="vagas">
+		<section id="vagas" class="p-3">
 
 			<div th:if="${param.vagaAplicada}" class="alert alert-success mt-5" role="alert">
 				<p class="text-center" th:text="${param.vagaAplicada}"></p>
 			</div>
 
-			<main>
 				<div class="accordion mt-4 shadow" id="accordionExample" th:each="vagas : ${vagas}">
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<div class="accordion-button" type="button" data-bs-toggle="collapse"
 								th:data-bs-target="'#collapse' + ${vagas.id}" aria-expanded="true"
 								aria-controls="collapseOne">
-								<i class="bi bi-dash-circle-fill mx-3"></i>
-								<div class="col d-flex flex-column">
-									<li class="list-group-item active fs-4" th:text="${vagas.titulo}"> Desenvolvedor Web
+
+								<div class="col d-flex flex-column text-center">
+			
+									<li class="list-group-item active fs-4" th:text="${vagas.area}"> Desenvolvedor Web
 										(TypeScript, React) </li>
 									<li class="list-group-item" th:text="${vagas.empresa.nome}"> MicroX </li>
+								</div>
+								<div class="col text-center" id="contrato">
+									<li class="list-group-item active" th:text="${vagas.tipoContrato}"> Estágio </li>
 								</div>
 								<div class="col text-center"> <i class="bi bi-geo-alt-fill"></i>
 									<li class="list-group-item active" th:text="${vagas.localizacao}"> São Paulo, São
 										Paulo </li>
 								</div>
-								<div class="col text-center">
-									<li class="list-group-item active" th:text="${vagas.tipoContrato}"> Estágio </li>
-								</div>
+
 							</div>
 						</h2>
 						<div th:id="'collapse' + ${vagas.id}" class="accordion-collapse collapse"
@@ -67,15 +69,25 @@
 									th:action="@{/usuario/aplicarVaga/{id1}/{id2}(id1=${usuario.id}, id2=${vagas.id})}"
 									method="post">
 
+									<li class="fs-5 bolder">Título </li><span th:text="${vagas.titulo}"> Desenvolvedor Front-End </span>
+										<hr>
 									<li class="fs-5 bolder">Descrição </li><span th:text="${vagas.descricao}">Vaga para
 										desenvolvedor web com experiência em TypeScript e React</span>
+										<hr>
 									<li class="fs-5 bolder"> Salário </li><span th:text="${vagas.salario}">A
 										combinar</span>
+										<hr>
 									<li class="fs-5 bolder"> Área </li><span th:text="${vagas.area}">Front-End</span>
+									<hr>
 									<li class="fs-5 bolder"> Nível </li><span th:text="${vagas.nivel}">Júnior</span>
+									<hr>
+									<li class="fs-5 bolder"> Modalidade </li><span th:text="${vagas.modalidade}">Presencial</span>
+									<hr>
 									<li class="fs-5 bolder"> Quantidade </li><span th:text="${vagas.quantidade}">02
 										vagas</span>
-
+									<hr>
+									<li class="fs-5 bolder"> Data de cadastro </li><span th:text="${#temporals.format(vagas.dataCadastro, 'dd/MM/yyyy')}">02
+										vagas</span>
 									<div class="d-flex justify-content-center">
 										<button type="submit" class="btn btn-success mt-3"> Aplicar Vaga </button>
 									</div>
