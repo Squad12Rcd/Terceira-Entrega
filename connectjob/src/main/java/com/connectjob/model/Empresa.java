@@ -39,7 +39,7 @@ public class Empresa {
 	@JoinTable(name = "empresa_role", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles = new ArrayList<>();
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "empresa_id")
 	private List<Vaga> vagas;
 

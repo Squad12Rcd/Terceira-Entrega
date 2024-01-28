@@ -17,6 +17,9 @@ import com.connectjob.model.Vaga;
 import com.connectjob.services.EmpresaServices;
 import com.connectjob.services.VagaServices;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/empresa")
 public class EmpresaController {
@@ -75,10 +78,16 @@ public class EmpresaController {
 	}
 
 	@GetMapping("/deletar/{id}")
-	public String deletarEmpresa(@PathVariable Long id) {
-
+	public String deletarEmpresa(@PathVariable Long id, HttpServletRequest request) {
 		empresaServices.deleteEmpresa(id);
-		return "index";
+		
+		HttpSession sessionEmpr = request.getSession(false);
+		
+        if (sessionEmpr != null) {
+        	sessionEmpr.invalidate();
+        }
+		
+		return "redirect:/";
 	}
 
 	@GetMapping("/areaVagas/{idEmpresa}")
