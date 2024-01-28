@@ -7,11 +7,16 @@
 	<header th:replace="~{fragments/headerEmpresa :: headerEmpresa}">
 
 	</header>
-
+    <div class="background-container">
+        <div class="background-overlay"></div>
+        <div class="content">
+				<h1 class="text-center text-white box mt-5"> Cadastro de Vaga</h1>
+        </div>
+    </div>
 	<main>
-		<div class="container shadow cabecalhoEmpresa">
-			<div class="mt-5 mb-5 container">
-				<h1 class="text-center text-success"> Cadastro de Vaga</h1>
+		<div class="container shadow">
+			<div class="mb-5 container">
+
 			</div>
 			<form class="row g-3 p-3" th:action="@{/vaga/cadastrar/{id}(id=${empresa.id})}" th:object="${vaga}"
 				method="post" required>
