@@ -6,12 +6,19 @@
 <body>
     <header th:replace="~{fragments/headerEmpresa :: headerEmpresa}">
     </header>
+    
+            <div class="background-container">
+        <div class="background-overlay"></div>
+        <div class="content">
+  <h1 class="text-white mt-5 text-center box"> Editar Vaga </h1>
+        </div>
+    </div>
 
-  <main class="container cabecalhoEditarVaga">
+  <main class="container">
 
-  <h1 class="text-success mt-5 text-center"> Editar Vaga </h1>
+
  
-         <section id="dados-vaga" class="d-flex flex-columns justify-content-center container row row-cols-1 gap-3 mt-2 p-4">    
+         <section id="dados-vaga" class="d-flex flex-columns justify-content-center row row-cols-1 mt-2 p-3 ">    
         
 	<form class="row g-3" th:action="@{/vaga/editar/{id1}/{id2}(id1=${empresa.id}, id2=${vaga.id})}" th:object="${vaga}" method="post">
 		
