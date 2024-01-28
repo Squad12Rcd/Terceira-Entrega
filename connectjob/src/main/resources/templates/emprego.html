@@ -7,13 +7,16 @@
 	<header th:replace="~{fragments/headerUsuario :: headerUsuario}">
 
 	</header>
-	<div th:style="'background-image: url(' + @{/img/emprego.jpg} + '); background-size: cover; height: 300px;'"
-		class=" cabecalhoVagas">
-		<div class="d-flex flex-column justify-content-center ">
-			<p class="fs-1 text-center text-dark">Vagas de emprego </p>
-			<div class="container w-75">
+					<div class="background-container-usuario">
+						<div class="background-overlay"></div>
+						<div class="content mt-5">
+			<p class="fs-1 text-center text-white box">Vagas de emprego </p>
+						</div>
+					</div>
+
+			<div class="container mt-5">
 				<form th:action="@{/usuario/buscarVagas/{id}(id=${usuario.id})}" method="post">
-					<div class="form-group">
+					<div class="form-group shadow">
 						<select class="form-control" id="area" name="area">
 							<option value="">Busque vagas por área...</option>
 							<option value="Front-End">Front-End</option>
@@ -27,8 +30,6 @@
 					</div>
 				</form>
 			</div>
-		</div>
-	</div>
 
 	<main class="container d-flex flex-column justify-content-center">
 
@@ -46,7 +47,7 @@
 								aria-controls="collapseOne">
 
 								<div class="col d-flex flex-column text-center">
-									<i class="bi bi-dash-circle-fill mx-3"></i>
+			
 									<li class="list-group-item active fs-4" th:text="${vagas.area}"> Desenvolvedor Web
 										(TypeScript, React) </li>
 									<li class="list-group-item" th:text="${vagas.empresa.nome}"> MicroX </li>
