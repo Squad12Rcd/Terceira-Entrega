@@ -94,25 +94,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   typeWriter(text, 0);
 });
-
- 
-  function darkMode(isDarkMode) {
-    const body = document.body;
-    body.classList.toggle('dark-mode', isDarkMode);
-    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-
-  }
-
-  function toggleDarkMode() {
-    const body = document.body;
-    const isDarkMode = body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-  }
-  const savedDarkMode = localStorage.getItem('darkMode');
-  if (savedDarkMode === 'enabled') {
-    darkMode(true);
-  }console.log('Script carregado com sucesso.');
-
- 
-
-  
