@@ -20,7 +20,7 @@ public class SecurityConfig {
 	private UserDetailsService userDetailsService;
 
 	@Bean
-	public static PasswordEncoder passwordEncoder() {
+	static PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	

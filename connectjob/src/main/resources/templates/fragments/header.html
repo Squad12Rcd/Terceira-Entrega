@@ -43,13 +43,6 @@
 					<li class="nav-item" sec:authorize="hasRole('ROLE_EMPRESA') or hasRole('ROLE_USUARIO')">
 						<a class="nav-link t" th:href="@{/logout}"> Logout </a>
 					</li>
-
-					
-					<li class="nav-item">
-						<button class="btn bg-white text-success" onclick="darkMode()">
-							<i class="bi bi-moon"></i></button>
-					</li>
-
 				</ul>
 			</div>
 		</div>
