@@ -11,7 +11,7 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
     
 <h2> Status do Projeto </h2>
 
-<li> Em processo de Deploy (27/01/2024) </strong> </li>
+<li> Deploy finalizado (28/01/2024): https://connectjob-rcd.onrender.com/ </strong> </li>
 
 
 <h2>Tecnologias utilizadas </h2>
@@ -26,26 +26,13 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
 </div>
 
 
-<h3> Modelos do banco </h3>
-
-<div align="center">
-<strong> Modelo Conceitual</strong><br>
-<img src="https://github.com/Squad12Rcd/squad12/blob/eeae6d77f022d5507924492b0515370f9d982444/img/modeloCondeitual.jpeg" /> <br>
-<strong> Modelo Lógico </strong> <br>
-<img src="https://github.com/Squad12Rcd/squad12/blob/05bf27b88dd885024286fc3ab6945285d0dc9ca7/img/modelologico.jpeg" /><br>
-
-</div>
-
-
-
 <h2> Colaboradores </h2>
 <ul>
   <li> @ThallesSampaio - Front-End, Back-End , Banco de dados </li>
-  <li> @RenatoMarques - Front-End </li>
-  <li> @RafaelSantos - Front-End, Back-End </li>
+  <li> @RenatoMarques - Back-End </li>
+  <li> @RafaelSantos - Pitch </li>
   <li> @Stephmarquess - Front-End, Back End </li>
-  <li> @RafaelNasa - Front-End </li>
-   <li> @Thayna Santana - Front-End </li>
+  <li> @Myller Tavares - Front-End </li>
 </ul>
 <div align="center"> 
 
@@ -53,7 +40,10 @@ Renato Marques <br> <a href="https://www.linkedin.com/in/RenatoMarquesDavid" tar
 Stéfany Marques <br> <a href="https://www.linkedin.com/in/stéfany-marques-4390a0281" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 Rafael Santos <br> <a href="https://www.linkedin.com/in/rafael-dos-santos-433950267" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 Thalles Sampaio <br> <a href="https://www.linkedin.com/in/thallessampaio" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
-Thayna Santana <br> <a href="https://www.linkedin.com/in/thayss/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
+Myller Tavares <br> <a href="https://www.linkedin.com/in/myller-tavares-863937234/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
+
+
+
 
 </div>
 
