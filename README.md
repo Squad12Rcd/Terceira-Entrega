@@ -22,9 +22,13 @@ O projeto tem como proposta levar conhecimento em áreas de tecnologia para os e
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width="40" height="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/512px-Bootstrap_logo.svg.png" width="40" height="40" /> 
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" width="150" height="50" /> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" width="150" height="50" />
+    
 </div>
 
+<h2> Implementações realizadas nessa versão </h2>
+<li> Reformulação Completa do Front-End </li>
+<li> Adicionado o Spring Security para login de usuários cadastrados </li>
 
 <h2> Colaboradores </h2>
 <ul>
@@ -42,9 +46,8 @@ Rafael Santos <br> <a href="https://www.linkedin.com/in/rafael-dos-santos-433950
 Thalles Sampaio <br> <a href="https://www.linkedin.com/in/thallessampaio" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 Myller Tavares <br> <a href="https://www.linkedin.com/in/myller-tavares-863937234/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 
-
-
-
 </div>
 
 <strong> E-mail do Squad: </strong> recodeprosquad12@gmail.com
+
+
